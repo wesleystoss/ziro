@@ -1,0 +1,863 @@
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #f8fafb;
+    color: #23272a;
+    margin: 0;
+    padding: 0;
+}
+.ziro-navbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.ziro-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ziro-logo {
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #1db954;
+    letter-spacing: 2px;
+}
+.ziro-navbar nav a {
+    color: #23272a;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.ziro-navbar nav a:hover {
+    color: #1db954;
+}
+.ziro-navbar nav a.active {
+    color: #1db954;
+    position: relative;
+}
+.ziro-navbar nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #1db954;
+    border-radius: 1px;
+}
+.ziro-hero {
+    background: linear-gradient(120deg, #e8f5e9 0%, #fff 100%);
+    padding: 5rem 0 3rem 0;
+    text-align: center;
+}
+.ziro-hero h1 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.ziro-hero p {
+    font-size: 1.25rem;
+    color: #4b5563;
+    margin-bottom: 2.2rem;
+}
+.ziro-btn-main {
+    background: #1db954;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 12px rgba(30,185,84,0.08);
+}
+.ziro-btn-main:hover {
+    background: #159c43;
+}
+.ziro-servicos {
+    background: #fff;
+    padding: 4rem 0 3rem 0;
+}
+.ziro-servicos h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+.ziro-servicos-grid {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.ziro-servico-card {
+    background: #f8fafb;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(30,185,84,0.04);
+    padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+    max-width: 320px;
+    text-align: center;
+    flex: 1 1 260px;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.ziro-servico-card:hover {
+    box-shadow: 0 6px 24px rgba(30,185,84,0.10);
+    transform: translateY(-4px) scale(1.03);
+}
+.ziro-servico-card img {
+    max-width: 80px;
+    margin-bottom: 1.2rem;
+}
+.ziro-servico-card h3 {
+    color: #1db954;
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+}
+.ziro-servico-card p {
+    color: #374151;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+.ziro-btn-card {
+    background: #1db954;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+}
+.ziro-btn-card:hover {
+    background: #159c43;
+}
+.ziro-cases {
+    background: #e8f5e9;
+    padding: 3.5rem 0 2.5rem 0;
+    text-align: center;
+}
+.ziro-cases h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.ziro-cases blockquote {
+    font-size: 1.2rem;
+    color: #23272a;
+    background: #fff;
+    border-left: 5px solid #1db954;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin: 0 auto 1.5rem auto;
+    max-width: 600px;
+    font-style: italic;
+}
+.ziro-cases span {
+    display: block;
+    color: #159c43;
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.ziro-contato {
+    background: #fff;
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+}
+.ziro-contato h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.ziro-contato p {
+    color: #374151;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+.ziro-btn-whatsapp {
+    background: #1db954;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 12px rgba(30,185,84,0.08);
+    display: inline-block;
+}
+.ziro-btn-whatsapp:hover {
+    background: #159c43;
+}
+.ziro-outros-servicos {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+}
+.ziro-outros-servicos p {
+    color: #4b5563;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+.ziro-servicos-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.ziro-footer {
+    background: #23272a;
+    color: #fff;
+    text-align: center;
+    padding: 1.2rem 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+@media (max-width: 900px) {
+    .ziro-servicos-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ziro-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ziro-servicos-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 600px) {
+    .ziro-hero h1 {
+        font-size: 2rem;
+    }
+    .ziro-servico-card {
+        padding: 1.5rem 0.7rem 1rem 0.7rem;
+    }
+    .ziro-cases blockquote {
+        padding: 1rem 0.7rem;
+    }
+}
+
+/* Hero Section Melhorado */
+.ziro-hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.ziro-hero-text {
+    flex: 1;
+}
+
+.ziro-hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.ziro-hero-image img {
+    max-width: 300px;
+    height: auto;
+}
+
+.ziro-hero-subtitle {
+    font-size: 1.3rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.ziro-beneficios-rapidos {
+    margin: 2rem 0;
+}
+
+.ziro-beneficio-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #374151;
+}
+
+.ziro-check {
+    background: #1db954;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.ziro-cta-group {
+    margin-top: 2rem;
+}
+
+.ziro-garantia {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #059669;
+    font-weight: 600;
+}
+
+/* Seção de Problemas */
+.ziro-problemas {
+    background: #fef2f2;
+    padding: 4rem 0;
+}
+
+.ziro-problemas h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #dc2626;
+}
+
+.ziro-problemas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.ziro-problema-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #dc2626;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ziro-problema-card h3 {
+    color: #dc2626;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.ziro-solucao {
+    background: #1db954;
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.ziro-solucao h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Features nos cards de serviço */
+.ziro-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.ziro-features li {
+    padding: 0.5rem 0;
+    color: #374151;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.ziro-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #1db954;
+    font-weight: bold;
+}
+
+/* Seção de Resultados */
+.ziro-resultados {
+    background: #f0f9ff;
+    padding: 4rem 0;
+}
+
+.ziro-resultados h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.ziro-metricas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.ziro-metrica {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ziro-numero {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1db954;
+    margin-bottom: 0.5rem;
+}
+
+.ziro-metrica p {
+    color: #374151;
+    font-weight: 600;
+}
+
+.ziro-fonte-dados {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.ziro-fonte-dados p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Depoimentos Melhorados */
+.ziro-depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.ziro-depoimento {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #1db954;
+}
+
+.ziro-depoimento p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.ziro-cliente {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+}
+
+.ziro-cliente strong {
+    display: block;
+    color: #1db954;
+    font-size: 1.1rem;
+}
+
+.ziro-cliente span {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Seção de Processo */
+.ziro-processo {
+    background: white;
+    padding: 4rem 0;
+}
+
+.ziro-processo h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.ziro-processo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.ziro-etapa {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #f8fafb;
+    position: relative;
+}
+
+.ziro-etapa-numero {
+    background: #1db954;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem auto;
+}
+
+.ziro-etapa h3 {
+    color: #1db954;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.ziro-tempo {
+    background: #1db954;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Seção de Garantias */
+.ziro-garantias {
+    background: #f0fdf4;
+    padding: 4rem 0;
+}
+
+.ziro-garantias h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.ziro-garantias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.ziro-garantia-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 2px solid #1db954;
+}
+
+.ziro-garantia-item h3 {
+    color: #1db954;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Seção de Urgência e CTA Final */
+.ziro-urgencia {
+    background: #fef3c7;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 2px solid #f59e0b;
+}
+
+.ziro-urgencia h2 {
+    color: #d97706;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.ziro-urgencia-texto {
+    font-size: 1.1rem;
+    color: #92400e;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.ziro-bonus {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.ziro-bonus li {
+    padding: 0.5rem 0;
+    color: #92400e;
+    font-weight: 600;
+}
+
+.ziro-total-bonus {
+    font-size: 1.3rem;
+    color: #d97706;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.ziro-cta-final {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ziro-cta-final h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1db954;
+    font-weight: 700;
+}
+
+.ziro-urgencia-footer {
+    margin-top: 1rem;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .ziro-hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .ziro-hero-image {
+        order: -1;
+    }
+    
+    .ziro-hero-image img {
+        max-width: 200px;
+    }
+    
+    .ziro-problemas-grid,
+    .ziro-metricas-grid,
+    .ziro-depoimentos-grid,
+    .ziro-processo-grid,
+    .ziro-garantias-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ziro-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .ziro-hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Modal de Promoção */
+.ziro-promo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.ziro-promo-content {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+}
+
+.ziro-promo-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6b7280;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.ziro-promo-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.ziro-promo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ziro-promo-header h2 {
+    color: #1db954;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.ziro-promo-header p {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.ziro-promo-offer {
+    margin-bottom: 2rem;
+}
+
+.ziro-promo-offer h3 {
+    color: #dc2626;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.ziro-promo-offer ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.ziro-promo-offer li {
+    padding: 0.5rem 0;
+    color: #374151;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.ziro-promo-timer {
+    background: #fef3c7;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #f59e0b;
+}
+
+.ziro-promo-timer p {
+    color: #92400e;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.ziro-countdown {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d97706;
+    font-family: 'Courier New', monospace;
+}
+
+.ziro-promo-cta {
+    text-align: center;
+}
+
+.ziro-btn-promo {
+    background: linear-gradient(135deg, #1db954 0%, #059669 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 32px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+    margin-bottom: 1rem;
+}
+
+.ziro-btn-promo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+}
+
+.ziro-promo-note {
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsividade do Modal */
+@media (max-width: 600px) {
+    .ziro-promo-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .ziro-promo-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .ziro-promo-offer h3 {
+        font-size: 1.2rem;
+    }
+    
+    .ziro-countdown {
+        font-size: 1.5rem;
+    }
+    
+    .ziro-btn-promo {
+        font-size: 1.1rem;
+        padding: 0.9rem 1.8rem;
+    }
+} 
