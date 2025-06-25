@@ -15,7 +15,7 @@
     
     <main>
         <!-- Hero Section com CTA Principal -->
-        <section class="ziro-hero">
+        <section class="ziro-hero ziro-hero-compact">
             <div class="ziro-container">
                 <div class="ziro-hero-grid">
                     <!-- Linha 0: Logo da Blip -->
@@ -56,133 +56,110 @@
             </div>
         </section>
 
-        <!-- Seção de Problemas e Soluções -->
-        <section class="ziro-problemas">
+        <!-- Seção Combinada: Problemas + Serviços -->
+        <section class="ziro-problemas-servicos">
             <div class="ziro-container">
-                <h2>Você Está Perdendo Clientes e Dinheiro?</h2>
-                <div class="ziro-problemas-grid">
-                    <div class="ziro-problema-card">
-                        <h3>❌ Atendimento Lento</h3>
-                        <p>Clientes esperam horas por resposta e desistem da compra</p>
-                    </div>
-                    <div class="ziro-problema-card">
-                        <h3>❌ Perda de Leads</h3>
-                        <p>Mensagens não respondidas = vendas perdidas</p>
-                    </div>
-                    <div class="ziro-problema-card">
-                        <h3>❌ Custo Alto</h3>
-                        <p>Equipe grande para atendimento manual e ineficiente</p>
-                    </div>
-                </div>
-                
-                <div class="ziro-solucao">
-                    <h3>🎯 Nossa Solução Blip Resolve Tudo</h3>
-                    <p>Chatbots inteligentes que respondem instantaneamente, qualificam leads e vendem 24h por dia</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Serviços Detalhada -->
-        <section id="servico" class="ziro-servicos">
-            <div class="ziro-container">
-                <h2>O que você recebe com nossa Consultoria Blip</h2>
-                <div class="ziro-servicos-grid">
-                    <div class="ziro-servico-card">
-                        <img src="../assets/images/blip.png" alt="Blip" />
-                        <h3>Chatbots Inteligentes</h3>
-                        <p>Automatize 90% das perguntas frequentes. Seus clientes recebem respostas em segundos, não em horas.</p>
-                        <ul class="ziro-features">
-                            <li>Respostas automáticas personalizadas</li>
-                            <li>Integração com sua base de dados</li>
-                            <li>Aprendizado contínuo</li>
-                        </ul>
-                    </div>
-                    <div class="ziro-servico-card">
-                        <h3>WhatsApp Business Oficial</h3>
-                        <p>Atenda pelo canal mais usado do Brasil. Envie notificações, faça vendas e ofereça suporte 24h.</p>
-                        <ul class="ziro-features">
-                            <li>WhatsApp Business API oficial</li>
-                            <li>Mensagens em massa aprovadas</li>
-                            <li>Relatórios detalhados</li>
-                        </ul>
-                    </div>
-                    <div class="ziro-servico-card">
-                        <h3>Instagram Direct</h3>
-                        <p>Responda mensagens do Instagram automaticamente. Gere leads e vendas pelo Instagram da sua marca.</p>
-                        <ul class="ziro-features">
-                            <li>Respostas automáticas no DM</li>
-                            <li>Qualificação de leads</li>
-                            <li>Integração com CRM</li>
-                        </ul>
-                    </div>
-                    <div class="ziro-servico-card">
-                        <h3>Omnichannel Completo</h3>
-                        <p>Centralize o atendimento de todos os canais em um só lugar. Histórico completo e relatórios unificados.</p>
-                        <ul class="ziro-features">
-                            <li>Atendimento unificado</li>
-                            <li>Histórico completo do cliente</li>
-                            <li>Relatórios consolidados</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Resultados e Métricas -->
-        <section class="ziro-resultados">
-            <div class="ziro-container">
-                <h2>Resultados Comprovados pela Blip</h2>
-                <div class="ziro-metricas-grid">
-                    <div class="ziro-metrica">
-                        <div class="ziro-numero">95%</div>
-                        <p>Taxa de satisfação dos clientes Blip</p>
-                    </div>
-                    <div class="ziro-metrica">
-                        <div class="ziro-numero">24/7</div>
-                        <p>Atendimento disponível</p>
-                    </div>
-                    <div class="ziro-metrica">
-                        <div class="ziro-numero">10x</div>
-                        <p>Mais eficiência no atendimento</p>
-                    </div>
-                    <div class="ziro-metrica">
-                        <div class="ziro-numero">15 dias</div>
-                        <p>Prazo de implantação</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Processo e Prazo -->
-        <section class="ziro-processo">
-            <div class="ziro-container">
-                <h2>Como funciona nossa implantação</h2>
-                <div class="ziro-processo-grid">
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">1</div>
-                        <h3>Diagnóstico Gratuito</h3>
-                        <p>Analisamos seus canais atuais e identificamos oportunidades de automação</p>
-                        <span class="ziro-tempo">Dia 1</span>
-                        <div class="ziro-entregavel">
-                            <strong>Entregável:</strong> Relatório de diagnóstico + proposta personalizada
+                <div class="ziro-problemas-servicos-grid">
+                    <!-- Coluna 1: Problemas -->
+                    <div class="ziro-problemas-col">
+                        <h2>Você Está Perdendo Clientes e Dinheiro?</h2>
+                        <div class="ziro-problemas-grid">
+                            <div class="ziro-problema-card">
+                                <h3>❌ Atendimento Lento</h3>
+                                <p>Clientes esperam horas por resposta e desistem da compra</p>
+                            </div>
+                            <div class="ziro-problema-card">
+                                <h3>❌ Perda de Leads</h3>
+                                <p>Mensagens não respondidas = vendas perdidas</p>
+                            </div>
+                            <div class="ziro-problema-card">
+                                <h3>❌ Custo Alto</h3>
+                                <p>Equipe grande para atendimento manual e ineficiente</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ziro-solucao">
+                            <h3>🎯 Nossa Solução Blip Resolve Tudo</h3>
+                            <p>Chatbots inteligentes que respondem instantaneamente, qualificam leads e vendem 24h por dia</p>
                         </div>
                     </div>
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">2</div>
-                        <h3>Configuração e Integração</h3>
-                        <p>Implementamos os chatbots e integramos com seus canais existentes</p>
-                        <span class="ziro-tempo">Dias 2-10</span>
-                        <div class="ziro-entregavel">
-                            <strong>Entregável:</strong> Chatbots configurados + canais integrados
+                    
+                    <!-- Coluna 2: Serviços -->
+                    <div class="ziro-servicos-col">
+                        <h2>O que você recebe</h2>
+                        <div class="ziro-servicos-grid">
+                            <div class="ziro-servico-card">
+                                <img src="../assets/images/blip.png" alt="Blip" />
+                                <h3>Chatbots Inteligentes</h3>
+                                <p>Automatize 90% das perguntas frequentes. Seus clientes recebem respostas em segundos.</p>
+                            </div>
+                            <div class="ziro-servico-card">
+                                <h3>WhatsApp Business Oficial</h3>
+                                <p>Atenda pelo canal mais usado do Brasil. Envie notificações, faça vendas e ofereça suporte 24h.</p>
+                            </div>
+                            <div class="ziro-servico-card">
+                                <h3>Instagram Direct</h3>
+                                <p>Responda mensagens do Instagram automaticamente. Gere leads e vendas pelo Instagram da sua marca.</p>
+                            </div>
+                            <div class="ziro-servico-card">
+                                <h3>Omnichannel Completo</h3>
+                                <p>Centralize o atendimento de todos os canais em um só lugar. Histórico completo e relatórios unificados.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">3</div>
-                        <h3>Treinamento e Go-Live</h3>
-                        <p>Sua equipe aprende a usar e o sistema entra em operação</p>
-                        <span class="ziro-tempo">Dias 11-15</span>
-                        <div class="ziro-entregavel">
-                            <strong>Entregável:</strong> Equipe treinada + sistema em operação
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Combinada: Resultados + Processo -->
+        <section class="ziro-resultados-processo">
+            <div class="ziro-container">
+                <div class="ziro-resultados-processo-grid">
+                    <!-- Coluna 1: Resultados -->
+                    <div class="ziro-resultados-col">
+                        <h2>Resultados Comprovados pela Blip</h2>
+                        <div class="ziro-metricas-grid">
+                            <div class="ziro-metrica">
+                                <div class="ziro-numero">95%</div>
+                                <p>Taxa de satisfação dos clientes Blip</p>
+                            </div>
+                            <div class="ziro-metrica">
+                                <div class="ziro-numero">24/7</div>
+                                <p>Atendimento disponível</p>
+                            </div>
+                            <div class="ziro-metrica">
+                                <div class="ziro-numero">10x</div>
+                                <p>Mais eficiência no atendimento</p>
+                            </div>
+                            <div class="ziro-metrica">
+                                <div class="ziro-numero">15 dias</div>
+                                <p>Prazo de implantação</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna 2: Processo -->
+                    <div class="ziro-processo-col">
+                        <h2>Como funciona nossa implantação</h2>
+                        <div class="ziro-processo-grid">
+                            <div class="ziro-etapa">
+                                <div class="ziro-etapa-numero">1</div>
+                                <h3>Diagnóstico Gratuito</h3>
+                                <p>Analisamos seus canais atuais e identificamos oportunidades de automação</p>
+                                <span class="ziro-tempo">Dia 1</span>
+                            </div>
+                            <div class="ziro-etapa">
+                                <div class="ziro-etapa-numero">2</div>
+                                <h3>Configuração e Integração</h3>
+                                <p>Implementamos os chatbots e integramos com seus canais existentes</p>
+                                <span class="ziro-tempo">Dias 2-10</span>
+                            </div>
+                            <div class="ziro-etapa">
+                                <div class="ziro-etapa-numero">3</div>
+                                <h3>Treinamento e Go-Live</h3>
+                                <p>Sua equipe aprende a usar e o sistema entra em operação</p>
+                                <span class="ziro-tempo">Dias 11-15</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,7 +167,7 @@
         </section>
 
         <!-- Seção de Garantias -->
-        <section class="ziro-garantias">
+        <section class="ziro-garantias ziro-garantias-compact">
             <div class="ziro-container">
                 <h2>Nossas Garantias para sua Tranquilidade</h2>
                 <div class="ziro-garantias-grid">

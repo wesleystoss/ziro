@@ -1497,4 +1497,322 @@ body {
     .ziro-logo-blip {
         height: 40px;
     }
+}
+
+/* Hero Compacto para Blip */
+.ziro-hero-compact {
+    padding: 4rem 0;
+}
+
+.ziro-hero-compact .ziro-hero-grid {
+    gap: 1.5rem;
+}
+
+.ziro-hero-compact .ziro-hero-title {
+    font-size: 3rem;
+}
+
+.ziro-hero-compact .ziro-hero-beneficio {
+    font-size: 1.2rem;
+}
+
+.ziro-hero-compact .ziro-hero-beneficios {
+    margin: 1.5rem 0;
+}
+
+.ziro-hero-compact .ziro-hero-beneficios .ziro-beneficio-item {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+}
+
+/* Seção Combinada: Problemas + Serviços */
+.ziro-problemas-servicos {
+    background: #fff;
+    padding: 3rem 0;
+}
+
+.ziro-problemas-servicos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.ziro-problemas-col h2,
+.ziro-servicos-col h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.ziro-problemas-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ziro-problema-card {
+    background: #fef2f2;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #ef4444;
+}
+
+.ziro-problema-card h3 {
+    color: #dc2626;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.ziro-problema-card p {
+    color: #7f1d1d;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.ziro-solucao {
+    background: #f0fdf4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #22c55e;
+    text-align: center;
+}
+
+.ziro-solucao h3 {
+    color: #16a34a;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.ziro-solucao p {
+    color: #15803d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.ziro-servicos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ziro-servico-card {
+    background: #f8fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.ziro-servico-card img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.ziro-servico-card h3 {
+    color: #1db954;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.ziro-servico-card p {
+    color: #374151;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Seção Combinada: Resultados + Processo */
+.ziro-resultados-processo {
+    background: #f8fafb;
+    padding: 3rem 0;
+}
+
+.ziro-resultados-processo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.ziro-resultados-col h2,
+.ziro-processo-col h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.ziro-metricas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.ziro-metrica {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ziro-numero {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1db954;
+    margin-bottom: 0.5rem;
+}
+
+.ziro-metrica p {
+    color: #374151;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.ziro-processo-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.ziro-etapa {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.ziro-etapa-numero {
+    background: #1db954;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 auto 1rem auto;
+}
+
+.ziro-etapa h3 {
+    color: #1db954;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.ziro-etapa p {
+    color: #374151;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.ziro-tempo {
+    background: #1db954;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Garantias Compactas */
+.ziro-garantias-compact {
+    background: #f0fdf4;
+    padding: 3rem 0;
+}
+
+.ziro-garantias-compact h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.ziro-garantias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.ziro-garantia-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid #1db954;
+}
+
+.ziro-garantia-item h3 {
+    color: #1db954;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.ziro-garantia-item p {
+    color: #374151;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Responsividade para seções compactas */
+@media (max-width: 768px) {
+    .ziro-hero-compact {
+        padding: 3rem 0;
+    }
+    
+    .ziro-hero-compact .ziro-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .ziro-hero-compact .ziro-hero-beneficio {
+        font-size: 1.1rem;
+    }
+    
+    .ziro-problemas-servicos-grid,
+    .ziro-resultados-processo-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .ziro-servicos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ziro-metricas-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .ziro-garantias-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .ziro-hero-compact .ziro-hero-title {
+        font-size: 2rem;
+    }
+    
+    .ziro-metricas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ziro-numero {
+        font-size: 2rem;
+    }
 } 
