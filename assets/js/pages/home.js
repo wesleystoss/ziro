@@ -10,10 +10,8 @@ const HOME_CONFIG = {
         cssPath: 'assets/css/style.css'
     },
     header: {
-        homeUrl: '#servicos',
-        salesforceUrl: 'lp/salesforce.html',
+        homeUrl: '#contato',
         blipUrl: 'lp/blip.html',
-        zendeskUrl: 'lp/zendesk.html',
         isHomePage: true
     },
     footer: {}
