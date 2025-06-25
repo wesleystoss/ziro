@@ -239,20 +239,20 @@ body {
     margin-top: 2rem;
 }
 .ziro-servico-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #f1f5f9;
+    background: #f8fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
 }
 .ziro-servico-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
 }
 .ziro-servico-card img {
-    max-width: 80px;
-    margin-bottom: 1.2rem;
+    height: 40px;
+    width: auto;
+    margin-bottom: 1rem;
 }
 .ziro-servico-card h3 {
     color: #1e293b;
@@ -279,6 +279,30 @@ body {
 }
 .ziro-btn-card:hover {
     background: #159c43;
+}
+.ziro-servico-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.15);
+    transition: all 0.3s ease;
+}
+.ziro-servico-icon svg {
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+}
+.ziro-servico-card:hover .ziro-servico-icon {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.25);
+}
+.ziro-servico-card:hover .ziro-servico-icon svg {
+    transform: scale(1.1);
 }
 .ziro-cases {
     background: #e8f5e9;
@@ -1793,6 +1817,16 @@ body {
         grid-template-columns: 1fr;
     }
     
+    .ziro-servico-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .ziro-servico-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
     .ziro-metricas-grid {
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
@@ -1806,6 +1840,16 @@ body {
 @media (max-width: 480px) {
     .ziro-hero-compact .ziro-hero-title {
         font-size: 2rem;
+    }
+    
+    .ziro-servico-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .ziro-servico-icon svg {
+        width: 24px;
+        height: 24px;
     }
     
     .ziro-metricas-grid {
