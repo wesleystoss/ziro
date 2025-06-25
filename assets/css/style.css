@@ -79,6 +79,24 @@ body {
     text-align: center;
 }
 
+/* Linha 0: Logo da Blip */
+.ziro-hero-logo {
+    animation: fadeInUp 0.8s ease-out 0s both;
+}
+
+.ziro-logo-blip {
+    height: 200px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.ziro-logo-blip:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
 /* Linha 1: Título */
 .ziro-hero-title {
     font-size: 3.5rem;
@@ -384,6 +402,14 @@ body {
     flex: 1;
 }
 
+.ziro-hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
 .ziro-hero-image {
     flex: 1;
     text-align: center;
@@ -396,7 +422,7 @@ body {
 
 .ziro-hero-subtitle {
     font-size: 1.3rem;
-    color: #4b5563;
+    color: #64748b;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -410,7 +436,8 @@ body {
     align-items: center;
     margin-bottom: 1rem;
     font-size: 1.1rem;
-    color: #374151;
+    color: #475569;
+    font-weight: 500;
 }
 
 .ziro-check {
@@ -557,7 +584,7 @@ body {
 }
 
 .ziro-fonte-dados p {
-    color: #6b7280;
+    color: white;
     font-size: 0.9rem;
     font-style: italic;
 }
@@ -1364,5 +1391,110 @@ body {
     .ziro-btn-main {
         padding: 1rem 2rem;
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .ziro-hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .ziro-hero-image {
+        order: -1;
+    }
+    
+    .ziro-hero-image img {
+        max-width: 200px;
+    }
+    
+    .ziro-problemas-grid,
+    .ziro-metricas-grid,
+    .ziro-depoimentos-grid,
+    .ziro-processo-grid,
+    .ziro-garantias-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .ziro-hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .ziro-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .ziro-servico-card {
+        padding: 1.5rem 0.7rem 1rem 0.7rem;
+    }
+    
+    .ziro-cases blockquote {
+        padding: 1rem 0.7rem;
+    }
+}
+
+/* Hero da página Blip - Estilo específico */
+.ziro-hero-beneficios {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.ziro-hero-beneficios .ziro-beneficio-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ziro-hero-beneficios .ziro-check {
+    background: #fbbf24;
+    color: #1e293b;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+/* Responsividade para hero da Blip */
+@media (max-width: 768px) {
+    .ziro-hero-beneficios {
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+    
+    .ziro-hero-beneficios .ziro-beneficio-item {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .ziro-logo-blip {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ziro-hero-beneficios .ziro-beneficio-item {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+    
+    .ziro-logo-blip {
+        height: 40px;
     }
 } 
