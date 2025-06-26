@@ -2176,4 +2176,96 @@ body {
         width: 20px;
         height: 20px;
     }
+}
+
+/* Dropdown Navbar */
+.ziro-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.ziro-dropdown-btn {
+    background: none;
+    border: none;
+    color: #23272a;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+.ziro-dropdown-btn:hover, .ziro-dropdown-btn:focus {
+    color: #1db954;
+}
+.ziro-dropdown-icon {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    transition: transform 0.2s;
+}
+.ziro-dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 220px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    z-index: 100;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    left: 0;
+    margin-left: 30px;
+}
+.ziro-dropdown:focus-within .ziro-dropdown-content {
+    display: block !important;
+}
+.ziro-dropdown-btn:focus + .ziro-dropdown-content {
+    display: block;
+}
+.ziro-dropdown-content a {
+    color: #23272a;
+    padding: 0.7rem 1.2rem 0.7rem 0.9rem;
+    text-decoration: none;
+    display: block;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 6px;
+    margin-left: 0;
+}
+.ziro-dropdown-content a:hover {
+    background: #f0fdf4;
+    color: #1db954;
+}
+.ziro-dropdown-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: #f8fafb;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin-right: 0.5rem;
+}
+
+.ziro-dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ziro-dropdown-list li {
+    margin: 0;
+    padding: 0;
+}
+.ziro-dropdown-list li a {
+    display: block;
+    color: #23272a;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    margin: 0px;
+}
+.ziro-dropdown-list li:hover {
+    background: #f0fdf4;
+    color: #1db954;
 } 
