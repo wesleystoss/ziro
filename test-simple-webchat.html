@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Simples WebChat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+    </style>
+    
+    <!-- WebChat -->
+    <script src="assets/js/webchat.js"></script>
+</head>
+<body>
+    <h1>Teste Simples do WebChat</h1>
+    
+    <div id="status" class="status warning">
+        Verificando status do webchat...
+    </div>
+    
+    <p>Esta página testa se o webchat está funcionando corretamente.</p>
+    <p>Você deve ver um botão de chat no canto inferior direito.</p>
+    
+    <script>
+        // Verifica o status após 3 segundos
+        setTimeout(() => {
+            const statusDiv = document.getElementById('status');
+            
+            if (typeof BlipChat !== 'undefined') {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = '✅ BlipChat carregado com sucesso!';
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = '❌ BlipChat não carregou. Verificando fallback...';
+                
+                // Verifica se o botão de WhatsApp foi criado
+                setTimeout(() => {
+                    const whatsappButton = document.getElementById('ziro-whatsapp-fallback');
+                    if (whatsappButton) {
+                        statusDiv.className = 'status warning';
+                        statusDiv.textContent = '⚠️ BlipChat não carregou, mas o botão WhatsApp está funcionando!';
+                    } else {
+                        statusDiv.className = 'status error';
+                        statusDiv.textContent = '❌ Nenhum sistema de chat está funcionando.';
+                    }
+                }, 2000);
+            }
+        }, 3000);
+    </script>
+</body>
+</html> 

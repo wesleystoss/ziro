@@ -7,22 +7,9 @@
 (function() {
     'use strict';
     
-    // Evita carregar múltiplas vezes
-    if (window.ZiroGlobalWebChatLoaded) {
-        return;
-    }
-    
-    window.ZiroGlobalWebChatLoaded = true;
-    
     console.log('GlobalWebChat: Inicializando carregamento automático...');
     
     function loadWebChat() {
-        // Verifica se o webchat já foi carregado
-        if (typeof window.ZiroWebChat !== 'undefined' || typeof window.BlipChat !== 'undefined') {
-            console.log('GlobalWebChat: WebChat já está disponível');
-            return;
-        }
-
         // Verifica se o script já existe no DOM
         const existingScript = document.querySelector('script[src*="webchat.js"]');
         if (existingScript) {
@@ -41,6 +28,8 @@
             basePath = '../assets/js/';
         }
         
+        console.log('GlobalWebChat: Usando caminho:', basePath);
+        
         // Cria e adiciona o script do webchat
         const script = document.createElement('script');
         script.src = basePath + 'webchat.js';
@@ -51,7 +40,7 @@
         };
         
         script.onerror = () => {
-            console.error('GlobalWebChat: Erro ao carregar WebChat');
+            console.error('GlobalWebChat: Erro ao carregar WebChat de:', script.src);
         };
         
         document.head.appendChild(script);

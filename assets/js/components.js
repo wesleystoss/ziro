@@ -7,7 +7,6 @@ class ZiroComponents {
     constructor() {
         this.components = {};
         this.templates = {};
-        this.webchatLoaded = false;
     }
 
     /**
@@ -67,59 +66,6 @@ class ZiroComponents {
     }
 
     /**
-     * Carrega o webchat dinamicamente
-     * @param {string} basePath - Caminho base para os assets
-     */
-    loadWebChat(basePath = 'assets/js/') {
-        if (this.webchatLoaded) {
-            console.log('ZiroComponents: WebChat já foi carregado');
-            return;
-        }
-
-        console.log('ZiroComponents: Carregando WebChat dinamicamente...');
-        
-        // Verifica se o script já existe
-        const existingScript = document.querySelector('script[src*="webchat.js"]');
-        if (existingScript) {
-            console.log('ZiroComponents: WebChat já existe no DOM');
-            this.webchatLoaded = true;
-            return;
-        }
-
-        // Cria e adiciona o script do webchat
-        const script = document.createElement('script');
-        script.src = basePath + 'webchat.js';
-        script.type = 'text/javascript';
-        
-        script.onload = () => {
-            console.log('ZiroComponents: WebChat carregado com sucesso');
-            this.webchatLoaded = true;
-        };
-        
-        script.onerror = () => {
-            console.error('ZiroComponents: Erro ao carregar WebChat');
-        };
-        
-        document.head.appendChild(script);
-    }
-
-    /**
-     * Detecta o caminho base dos assets baseado na URL atual
-     * @returns {string} - Caminho base para os assets
-     */
-    detectBasePath() {
-        const currentPath = window.location.pathname;
-        
-        // Se estiver na pasta lp/, usa caminho relativo
-        if (currentPath.includes('/lp/')) {
-            return '../assets/js/';
-        }
-        
-        // Se estiver na raiz, usa caminho direto
-        return 'assets/js/';
-    }
-
-    /**
      * Inicializa componentes na página
      * @param {Object} config - Configuração dos componentes
      */
@@ -141,10 +87,6 @@ class ZiroComponents {
             const footerContent = await this.renderComponent('footer', 'assets/components/footer.html', config.footer);
             this.replaceFooterContent(footerContent);
         }
-
-        // Carrega webchat automaticamente
-        const basePath = this.detectBasePath();
-        this.loadWebChat(basePath);
     }
 
     /**
@@ -154,7 +96,7 @@ class ZiroComponents {
     replaceHeadContent(content) {
         const head = document.head;
         
-        // Remove apenas meta tags específicas e title, preservando CSS
+        // Remove apenas meta tags específicas e title, preservando CSS e scripts
         const existingMeta = head.querySelectorAll('meta[charset], meta[name="viewport"], title, meta[name="description"]');
         existingMeta.forEach(el => el.remove());
         
@@ -162,7 +104,7 @@ class ZiroComponents {
         const temp = document.createElement('div');
         temp.innerHTML = content;
         
-        // Adiciona apenas os novos elementos ao head, evitando duplicar CSS
+        // Adiciona apenas os novos elementos ao head, evitando duplicar CSS e scripts
         Array.from(temp.children).forEach(child => {
             // Não adiciona links de CSS se já existirem
             if (child.tagName === 'LINK' && child.rel === 'stylesheet') {
@@ -170,7 +112,15 @@ class ZiroComponents {
                 if (!existingLink) {
                     head.appendChild(child.cloneNode(true));
                 }
-            } else {
+            }
+            // Não adiciona scripts se já existirem
+            else if (child.tagName === 'SCRIPT') {
+                const existingScript = head.querySelector(`script[src="${child.src}"]`);
+                if (!existingScript) {
+                    head.appendChild(child.cloneNode(true));
+                }
+            }
+            else {
                 head.appendChild(child.cloneNode(true));
             }
         });
