@@ -412,6 +412,13 @@ body {
         flex-direction: column;
         align-items: center;
     }
+    
+    /* Garantir que o container da seção de contato mantenha o comportamento correto */
+    .ziro-contato .ziro-container {
+        display: block;
+        flex-direction: initial;
+        align-items: initial;
+    }
 }
 @media (max-width: 600px) {
     .ziro-hero h1 {
@@ -1324,6 +1331,13 @@ body {
     margin: 0 auto;
 }
 
+/* Container específico para a seção de contato */
+.ziro-contato .ziro-container {
+    display: block;
+    justify-content: initial;
+    align-items: initial;
+}
+
 .ziro-contato-text {
     text-align: left;
 }
@@ -1368,38 +1382,11 @@ body {
         max-width: 150px;
     }
     
-    .ziro-hero-grid {
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .ziro-hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-hero-beneficio {
-        font-size: 1.1rem;
-    }
-    
-    .ziro-hero-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .ziro-stat-number {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-diferenciais-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-resultados-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .ziro-resultado-numero {
-        font-size: 2.5rem;
+    /* Garantir que o container da seção de contato mantenha o comportamento correto */
+    .ziro-contato .ziro-container {
+        display: block;
+        flex-direction: initial;
+        align-items: initial;
     }
 }
 
