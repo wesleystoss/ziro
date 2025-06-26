@@ -17,45 +17,53 @@ class ZiroWebChat {
         this.currentCdnIndex = 0;
         this.maxRetries = 3;
         this.retryCount = 0;
+        
+        console.log('ZiroWebChat: Inicializando...');
     }
 
     // Inicializa o webchat
     async init() {
-        console.log('Iniciando Ziro WebChat...');
+        console.log('ZiroWebChat: Iniciando processo de carregamento...');
         
         // Tenta carregar o BlipChat
         await this.loadBlipChat();
         
         // Se não conseguir carregar, usa WhatsApp como fallback
         if (typeof BlipChat === 'undefined') {
-            console.log('BlipChat não disponível, usando WhatsApp como fallback');
+            console.log('ZiroWebChat: BlipChat não disponível, usando WhatsApp como fallback');
             this.createWhatsAppFallback();
         } else {
+            console.log('ZiroWebChat: BlipChat disponível, inicializando...');
             this.initBlipChat();
         }
     }
 
     // Carrega o script do BlipChat com retry
     async loadBlipChat() {
+        console.log('ZiroWebChat: Tentando carregar BlipChat...');
+        
         return new Promise((resolve) => {
             if (typeof BlipChat !== 'undefined') {
+                console.log('ZiroWebChat: BlipChat já está disponível');
                 resolve();
                 return;
             }
 
             const loadScript = (url) => {
+                console.log(`ZiroWebChat: Tentando carregar de: ${url}`);
+                
                 return new Promise((resolveScript, rejectScript) => {
                     const script = document.createElement('script');
                     script.src = url;
                     script.type = 'text/javascript';
                     
                     script.onload = () => {
-                        console.log(`BlipChat carregado de: ${url}`);
+                        console.log(`ZiroWebChat: Script carregado com sucesso de: ${url}`);
                         resolveScript();
                     };
                     
                     script.onerror = () => {
-                        console.log(`Falha ao carregar de: ${url}`);
+                        console.log(`ZiroWebChat: Falha ao carregar de: ${url}`);
                         rejectScript();
                     };
                     
@@ -65,7 +73,7 @@ class ZiroWebChat {
 
             const tryLoad = async () => {
                 if (this.retryCount >= this.maxRetries) {
-                    console.log('Máximo de tentativas atingido');
+                    console.log('ZiroWebChat: Máximo de tentativas atingido');
                     resolve();
                     return;
                 }
@@ -76,7 +84,7 @@ class ZiroWebChat {
                 } catch (error) {
                     this.retryCount++;
                     this.currentCdnIndex = (this.currentCdnIndex + 1) % this.cdnUrls.length;
-                    console.log(`Tentativa ${this.retryCount} falhou, tentando próximo CDN...`);
+                    console.log(`ZiroWebChat: Tentativa ${this.retryCount} falhou, tentando próximo CDN...`);
                     setTimeout(tryLoad, 1000); // Espera 1 segundo antes da próxima tentativa
                 }
             };
@@ -88,6 +96,8 @@ class ZiroWebChat {
     // Inicializa o BlipChat
     initBlipChat() {
         try {
+            console.log('ZiroWebChat: Inicializando BlipChat...');
+            
             new BlipChat()
                 .withAppKey(this.appKey)
                 .withButton({
@@ -97,15 +107,17 @@ class ZiroWebChat {
                 .withCustomCommonUrl(this.customUrl)
                 .build();
             
-            console.log('BlipChat inicializado com sucesso');
+            console.log('ZiroWebChat: BlipChat inicializado com sucesso');
         } catch (error) {
-            console.error('Erro ao inicializar BlipChat:', error);
+            console.error('ZiroWebChat: Erro ao inicializar BlipChat:', error);
             this.createWhatsAppFallback();
         }
     }
 
     // Cria o fallback do WhatsApp
     createWhatsAppFallback() {
+        console.log('ZiroWebChat: Criando fallback do WhatsApp...');
+        
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.createWhatsAppButton());
         } else {
@@ -115,6 +127,8 @@ class ZiroWebChat {
 
     // Cria o botão de WhatsApp
     createWhatsAppButton() {
+        console.log('ZiroWebChat: Criando botão de WhatsApp...');
+        
         // Remove botão existente se houver
         const existingButton = document.getElementById('ziro-whatsapp-fallback');
         if (existingButton) {
@@ -186,17 +200,21 @@ class ZiroWebChat {
         document.head.appendChild(style);
         document.body.appendChild(whatsappButton);
         
-        console.log('Botão WhatsApp criado como fallback');
+        console.log('ZiroWebChat: Botão WhatsApp criado com sucesso');
     }
 }
 
 // Inicializa o webchat quando o DOM estiver pronto
+console.log('ZiroWebChat: Script carregado, aguardando DOM...');
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
+        console.log('ZiroWebChat: DOM carregado, inicializando...');
         const webchat = new ZiroWebChat();
         webchat.init();
     });
 } else {
+    console.log('ZiroWebChat: DOM já carregado, inicializando...');
     const webchat = new ZiroWebChat();
     webchat.init();
 } 
