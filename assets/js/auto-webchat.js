@@ -58,8 +58,8 @@ class AutoWebChatLoader {
     detectBasePath() {
         const currentPath = window.location.pathname;
         
-        // Se estiver na pasta lp/, usa caminho relativo
-        if (currentPath.includes('/lp/')) {
+        // Se estiver na pasta servicos/, usa caminho relativo
+        if (currentPath.includes('/servicos/')) {
             return '../assets/js/';
         }
         

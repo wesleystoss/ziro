@@ -15,7 +15,7 @@ const BLIP_CONFIG = {
         salesforceUrl: 'salesforce.html',
         blipUrl: '#servico',
         zendeskUrl: 'zendesk.html',
-        servicosUrl: 'servicos.html',
+        servicosUrl: 'landing-page.html',
         lojaVirtualUrl: 'loja-virtual.html',
         siteInstitucionalUrl: 'site-institucional.html',
         isBlipPage: true
@@ -25,10 +25,10 @@ const BLIP_CONFIG = {
 
 // Inicializa componentes quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', async function() {
-    // Corrige os caminhos dos componentes para funcionar a partir da pasta lp/
+    // Corrige os caminhos dos componentes para funcionar a partir da pasta servicos/
     const originalLoadComponent = window.ziroComponents.loadComponent;
     window.ziroComponents.loadComponent = function(componentName, path) {
-        // Ajusta o caminho para funcionar a partir da pasta lp/
+        // Ajusta o caminho para funcionar a partir da pasta servicos/
         const adjustedPath = path.replace('assets/', '../assets/');
         return originalLoadComponent.call(this, componentName, adjustedPath);
     };

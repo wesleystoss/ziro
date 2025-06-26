@@ -15,9 +15,9 @@ const ZIRO_CONFIG = {
     // URLs das páginas
     pages: {
         home: '/index.html',
-        salesforce: '/lp/salesforce.html',
-        blip: '/lp/blip.html',
-        zendesk: '/lp/zendesk.html'
+        salesforce: '/servicos/salesforce.html',
+        blip: '/servicos/blip.html',
+        zendesk: '/servicos/zendesk.html'
     },
 
     // Configurações de SEO
@@ -40,7 +40,7 @@ const ZIRO_CONFIG = {
         zendesk: {
             title: 'Consultoria Zendesk | Ziro',
             description: 'Consultoria Zendesk para empresas que querem elevar o atendimento ao cliente, aumentar vendas e otimizar processos. Implantação, automação e integração de canais digitais.',
-            keywords: 'consultoria zendesk, suporte ao cliente, atendimento, automação de tickets, helpdesk'
+            keywords: 'consultoria zendesk, suporte ao cliente, atendimento, automação de tickets, heservicosdesk'
         }
     },
 

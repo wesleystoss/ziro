@@ -23,8 +23,8 @@
         const currentPath = window.location.pathname;
         let basePath = 'assets/js/';
         
-        // Se estiver na pasta lp/, usa caminho relativo
-        if (currentPath.includes('/lp/')) {
+        // Se estiver na pasta servicos/, usa caminho relativo
+        if (currentPath.includes('/servicos/')) {
             basePath = '../assets/js/';
         }
         

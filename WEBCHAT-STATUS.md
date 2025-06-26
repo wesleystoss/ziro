@@ -8,9 +8,9 @@ O webchat foi desabilitado em todas as páginas do site. Atualmente, nenhum bot�
 
 ### Páginas Principais:
 - `index.html` - Página inicial
-- `lp/blip.html` - Landing page Blip
-- `lp/salesforce.html` - Landing page Salesforce
-- `lp/zendesk.html` - Landing page Zendesk
+- `servicos/blip.html` - Landing page Blip
+- `servicos/salesforce.html` - Landing page Salesforce
+- `servicos/zendesk.html` - Landing page Zendesk
 
 ### Páginas de Teste:
 - `test-webchat.html` - Teste original
@@ -36,7 +36,7 @@ E descomente a linha do script:
 ```
 
 ### 2. Páginas de Landing Page
-Para páginas na pasta `lp/`, use o caminho relativo:
+Para páginas na pasta `servicos/`, use o caminho relativo:
 
 ```html
 <!-- WebChat -->
@@ -55,9 +55,9 @@ Para as páginas de teste, descomente a linha:
 
 ### Páginas Principais:
 - [ ] `index.html` - Linha 12
-- [ ] `lp/blip.html` - Linha 12
-- [ ] `lp/salesforce.html` - Linha 12
-- [ ] `lp/zendesk.html` - Linha 12
+- [ ] `servicos/blip.html` - Linha 12
+- [ ] `servicos/salesforce.html` - Linha 12
+- [ ] `servicos/zendesk.html` - Linha 12
 
 ### Páginas de Teste:
 - [ ] `test-webchat.html` - Linha 10

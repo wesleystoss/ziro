@@ -22,10 +22,10 @@ const ZENDESK_CONFIG = {
 
 // Inicializa componentes quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', async function() {
-    // Corrige os caminhos dos componentes para funcionar a partir da pasta lp/
+    // Corrige os caminhos dos componentes para funcionar a partir da pasta servicos/
     const originalLoadComponent = window.ziroComponents.loadComponent;
     window.ziroComponents.loadComponent = function(componentName, path) {
-        // Ajusta o caminho para funcionar a partir da pasta lp/
+        // Ajusta o caminho para funcionar a partir da pasta servicos/
         const adjustedPath = path.replace('assets/', '../assets/');
         return originalLoadComponent.call(this, componentName, adjustedPath);
     };

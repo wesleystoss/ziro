@@ -8,7 +8,7 @@ const SERVICOS_CONFIG = {
     header: {
         homeUrl: '../index.html',
         blipUrl: 'blip.html',
-        servicosUrl: 'servicos.html',
+        servicosUrl: 'landing-page.html',
         lojaVirtualUrl: 'loja-virtual.html',
         siteInstitucionalUrl: 'site-institucional.html',
         isServicosPage: true,
@@ -18,7 +18,7 @@ const SERVICOS_CONFIG = {
 };
 
 document.addEventListener('DOMContentLoaded', async function() {
-    // Corrige os caminhos dos componentes para funcionar a partir da pasta lp/
+    // Corrige os caminhos dos componentes para funcionar a partir da pasta servicos/
     const originalLoadComponent = window.ziroComponents.loadComponent;
     window.ziroComponents.loadComponent = function(componentName, path) {
         const adjustedPath = path.replace('assets/', '../assets/');

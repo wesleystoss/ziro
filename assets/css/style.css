@@ -984,7 +984,7 @@ body {
     text-align: center;
 }
 
-/* Valores dos serviços */
+/* Valores dos Página de conversão */
 .ziro-servico-valor {
     margin-top: 1.5rem;
     text-align: center;
@@ -1188,7 +1188,7 @@ body {
     color: #cbd5e1;
 }
 
-/* Melhorias nos cards de serviços */
+/* Melhorias nos cards de Página de conversão */
 .ziro-servico-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -1565,7 +1565,7 @@ body {
     font-size: 1rem;
 }
 
-/* Seção Combinada: Problemas + Serviços */
+/* Seção Combinada: Problemas + Página de conversão */
 .ziro-problemas-servicos {
     background: #fff;
     padding: 3rem 0;
@@ -1877,7 +1877,7 @@ body {
     }
 }
 
-/* Seção Combinada: Serviços + Diferenciais */
+/* Seção Combinada: Página de conversão + Diferenciais */
 .ziro-servicos-diferenciais {
     background: #fff;
     padding: 3rem 0;
