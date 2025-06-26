@@ -20,44 +20,23 @@
         .warning { background: #fff3cd; color: #856404; }
     </style>
     
-    <!-- WebChat -->
-    <script src="assets/js/webchat.js"></script>
+    <!-- WebChat - DESABILITADO TEMPORARIAMENTE -->
+    <!-- <script src="assets/js/webchat.js"></script> -->
 </head>
 <body>
     <h1>Teste Simples do WebChat</h1>
     
     <div id="status" class="status warning">
-        Verificando status do webchat...
+        WebChat está desabilitado temporariamente
     </div>
     
     <p>Esta página testa se o webchat está funcionando corretamente.</p>
-    <p>Você deve ver um botão de chat no canto inferior direito.</p>
+    <p>Atualmente o webchat está desabilitado.</p>
     
     <script>
-        // Verifica o status após 3 segundos
-        setTimeout(() => {
-            const statusDiv = document.getElementById('status');
-            
-            if (typeof BlipChat !== 'undefined') {
-                statusDiv.className = 'status success';
-                statusDiv.textContent = '✅ BlipChat carregado com sucesso!';
-            } else {
-                statusDiv.className = 'status error';
-                statusDiv.textContent = '❌ BlipChat não carregou. Verificando fallback...';
-                
-                // Verifica se o botão de WhatsApp foi criado
-                setTimeout(() => {
-                    const whatsappButton = document.getElementById('ziro-whatsapp-fallback');
-                    if (whatsappButton) {
-                        statusDiv.className = 'status warning';
-                        statusDiv.textContent = '⚠️ BlipChat não carregou, mas o botão WhatsApp está funcionando!';
-                    } else {
-                        statusDiv.className = 'status error';
-                        statusDiv.textContent = '❌ Nenhum sistema de chat está funcionando.';
-                    }
-                }, 2000);
-            }
-        }, 3000);
+        // WebChat desabilitado
+        document.getElementById('status').className = 'status error';
+        document.getElementById('status').textContent = '❌ WebChat está desabilitado temporariamente';
     </script>
 </body>
 </html> 
