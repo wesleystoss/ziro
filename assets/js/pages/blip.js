@@ -16,6 +16,7 @@ const BLIP_CONFIG = {
         blipUrl: '#servico',
         zendeskUrl: 'zendesk.html',
         servicosUrl: 'servicos.html',
+        lojaVirtualUrl: 'loja-virtual.html',
         isBlipPage: true
     },
     footer: {}

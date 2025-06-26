@@ -16,6 +16,7 @@ const SALESFORCE_CONFIG = {
         blipUrl: 'blip.html',
         zendeskUrl: 'zendesk.html',
         servicosUrl: 'servicos.html',
+        lojaVirtualUrl: 'loja-virtual.html',
         isSalesforcePage: true
     },
     footer: {}

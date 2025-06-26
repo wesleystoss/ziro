@@ -1,7 +1,7 @@
-const SERVICOS_CONFIG = {
+const LOJA_VIRTUAL_CONFIG = {
     head: {
-        pageTitle: 'Páginas de Conversão com Atendimento Online | Ziro',
-        pageDescription: 'Crie páginas de conversão profissionais com atendimento online e aumente sua receita. Soluções completas para captação de leads, vendas e suporte digital.',
+        pageTitle: 'Lojas Virtuais Profissionais | Ziro',
+        pageDescription: 'Venda mais com uma loja virtual profissional, rápida e segura. Soluções completas para e-commerce, integração com pagamentos, automação de marketing e suporte especializado.',
         cssPath: '../assets/css/style.css',
         jsPath: '../assets/js/'
     },
@@ -10,7 +10,7 @@ const SERVICOS_CONFIG = {
         blipUrl: 'blip.html',
         servicosUrl: 'servicos.html',
         lojaVirtualUrl: 'loja-virtual.html',
-        isServicosPage: true,
+        isLojaVirtualPage: true,
         isHomePage: false
     },
     footer: {}
@@ -24,5 +24,5 @@ document.addEventListener('DOMContentLoaded', async function() {
         return originalLoadComponent.call(this, componentName, adjustedPath);
     };
 
-    await window.ziroComponents.initComponents(SERVICOS_CONFIG);
+    await window.ziroComponents.initComponents(LOJA_VIRTUAL_CONFIG);
 }); 

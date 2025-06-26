@@ -14,6 +14,7 @@ const HOME_CONFIG = {
         homeUrl: '#contato',
         blipUrl: 'lp/blip.html',
         servicosUrl: 'lp/servicos.html',
+        lojaVirtualUrl: 'lp/loja-virtual.html',
         isHomePage: true
     },
     footer: {}
