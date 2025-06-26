@@ -11,13 +11,13 @@ const BLIP_CONFIG = {
         jsPath: '../assets/js/'
     },
     header: {
-        homeUrl: '../index.html',
-        salesforceUrl: 'salesforce.html',
+        homeUrl: '../index',
+        salesforceUrl: 'salesforce',
         blipUrl: '#servico',
-        zendeskUrl: 'zendesk.html',
-        servicosUrl: 'landing-page.html',
-        lojaVirtualUrl: 'loja-virtual.html',
-        siteInstitucionalUrl: 'site-institucional.html',
+        zendeskUrl: 'zendesk',
+        servicosUrl: 'landing-page',
+        lojaVirtualUrl: 'loja-virtual',
+        siteInstitucionalUrl: 'site-institucional',
         isBlipPage: true
     },
     footer: {}

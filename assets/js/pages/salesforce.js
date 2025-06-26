@@ -11,13 +11,13 @@ const SALESFORCE_CONFIG = {
         jsPath: '../assets/js/'
     },
     header: {
-        homeUrl: '../index.html',
+        homeUrl: '../index',
         salesforceUrl: '#servico',
-        blipUrl: 'blip.html',
-        zendeskUrl: 'zendesk.html',
-        servicosUrl: 'landing-page.html',
-        lojaVirtualUrl: 'loja-virtual.html',
-        siteInstitucionalUrl: 'site-institucional.html',
+        blipUrl: 'blip',
+        zendeskUrl: 'zendesk',
+        servicosUrl: 'landing-page',
+        lojaVirtualUrl: 'loja-virtual',
+        siteInstitucionalUrl: 'site-institucional',
         isSalesforcePage: true
     },
     footer: {}

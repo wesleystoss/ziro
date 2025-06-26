@@ -12,10 +12,10 @@ const HOME_CONFIG = {
     },
     header: {
         homeUrl: '#contato',
-        blipUrl: 'servicos/blip.html',
-        servicosUrl: 'servicos/landing-page.html',
-        lojaVirtualUrl: 'servicos/loja-virtual.html',
-        siteInstitucionalUrl: 'servicos/site-institucional.html',
+        blipUrl: 'servicos/blip',
+        servicosUrl: 'servicos/landing-page',
+        lojaVirtualUrl: 'servicos/loja-virtual',
+        siteInstitucionalUrl: 'servicos/site-institucional',
         isHomePage: true
     },
     footer: {}

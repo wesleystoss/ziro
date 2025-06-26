@@ -1,4 +1,10 @@
 # Redirecionamento de erro 404 para 404.html
 ErrorDocument 404 /404.html
 
+# Reescreve URLs sem .html para o arquivo .html correspondente
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9/_-]+)$ $1.html [L]
+
 # Outras configurações podem ser personalizadas posteriormente 
