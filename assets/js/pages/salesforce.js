@@ -11,14 +11,14 @@ const SALESFORCE_CONFIG = {
         jsPath: '../assets/js/'
     },
     header: {
-        homeUrl: '../index.html',
-        salesforceUrl: '#servico',
-        blipUrl: 'blip.html',
-        zendeskUrl: 'zendesk.html',
-        servicosUrl: 'landing-page.html',
-        lojaVirtualUrl: 'loja-virtual.html',
-        siteInstitucionalUrl: 'site-institucional.html',
-        isSalesforcePage: true
+        homeUrl: '../',
+        salesforceUrl: 'salesforce',
+        blipUrl: 'blip',
+        zendeskUrl: 'zendesk',
+        servicosUrl: 'landing-page',
+        lojaVirtualUrl: 'loja-virtual',
+        siteInstitucionalUrl: 'site-institucional',
+        isHomePage: false
     },
     footer: {}
 };

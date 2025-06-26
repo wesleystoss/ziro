@@ -6,11 +6,11 @@ const SITE_INSTITUCIONAL_CONFIG = {
         jsPath: '../assets/js/'
     },
     header: {
-        homeUrl: '../index.html',
-        blipUrl: 'blip.html',
-        servicosUrl: 'landing-page.html',
-        lojaVirtualUrl: 'loja-virtual.html',
-        siteInstitucionalUrl: 'site-institucional.html',
+        homeUrl: '../',
+        blipUrl: 'blip',
+        servicosUrl: 'landing-page',
+        lojaVirtualUrl: 'loja-virtual',
+        siteInstitucionalUrl: 'site-institucional',
         isSiteInstitucionaservicosage: true,
         isHomePage: false
     },
