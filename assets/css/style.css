@@ -21,11 +21,17 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-.ziro-logo {
+.ziro-logo, .ziro-logo:visited, .ziro-logo:active {
+    text-decoration: none;
+    color: #1db954;
     font-weight: 700;
     font-size: 1.7rem;
-    color: #1db954;
     letter-spacing: 2px;
+}
+.ziro-logo:hover {
+    color: #1db954;
+    text-decoration: none;
+    opacity: 0.85;
 }
 .ziro-navbar nav a {
     color: #23272a;
