@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - Erro 404</title>
+    <meta name="description" content="Página não encontrada. Erro 404.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Inclusão dinâmica do header -->
+    <div id="header"></div>
+    <script>fetch('assets/components/header.html').then(r => r.text()).then(t => document.getElementById('header').innerHTML = t);</script>
+    <main style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <!-- Ilustração SVG de fantasma -->
+      <div style="margin-bottom: 2rem;">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="70" rx="40" ry="35" fill="#fff" stroke="#e5e7eb" stroke-width="3"/>
+          <ellipse cx="45" cy="70" rx="6" ry="8" fill="#23272a"/>
+          <ellipse cx="75" cy="70" rx="6" ry="8" fill="#23272a"/>
+          <ellipse cx="60" cy="90" rx="12" ry="5" fill="#e5e7eb"/>
+          <path d="M20 105 Q30 100 40 105 Q50 110 60 105 Q70 100 80 105 Q90 110 100 105" stroke="#e5e7eb" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+      <h1>404</h1>
+      <h2>Página não encontrada</h2>
+      <p>A página que você procura não existe ou foi removida.</p>
+      <a href="/index.html" class="ziro-btn-secondary">Voltar para a página inicial</a>
+    </main>
+    <!-- Inclusão dinâmica do footer -->
+    <div id="footer"></div>
+    <script>fetch('assets/components/footer.html').then(r => r.text()).then(t => document.getElementById('footer').innerHTML = t);</script>
+    <!-- Scripts globais -->
+    <script src="assets/js/global-webchat.js"></script>
+    <script src="assets/js/ziro.js"></script>
+  </body>
+</html> 
