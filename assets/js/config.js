@@ -14,10 +14,10 @@ const ZIRO_CONFIG = {
 
     // URLs das páginas
     pages: {
-        home: '/index.html',
-        salesforce: '/servicos/salesforce.html',
-        blip: '/servicos/blip.html',
-        zendesk: '/servicos/zendesk.html'
+        home: '/',
+        salesforce: '/servicos/salesforce',
+        blip: '/servicos/blip',
+        zendesk: '/servicos/zendesk'
     },
 
     // Configurações de SEO

@@ -11,11 +11,11 @@ const ZENDESK_CONFIG = {
         jsPath: '../assets/js/'
     },
     header: {
-        homeUrl: '../index.html',
-        salesforceUrl: 'salesforce.html',
-        blipUrl: 'blip.html',
-        zendeskUrl: '#servico',
-        isZendeskPage: true
+        homeUrl: '../',
+        salesforceUrl: 'salesforce',
+        blipUrl: 'blip',
+        zendeskUrl: 'zendesk',
+        isHomePage: false
     },
     footer: {}
 };
