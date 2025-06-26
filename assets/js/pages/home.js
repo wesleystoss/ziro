@@ -7,7 +7,8 @@ const HOME_CONFIG = {
     head: {
         pageTitle: ZIRO_CONFIG.seo.home.title,
         pageDescription: ZIRO_CONFIG.seo.home.description,
-        cssPath: 'assets/css/style.css'
+        cssPath: 'assets/css/style.css',
+        jsPath: 'assets/js/'
     },
     header: {
         homeUrl: '#contato',

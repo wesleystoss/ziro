@@ -4,6 +4,12 @@
  */
 
 const ZENDESK_CONFIG = {
+    head: {
+        pageTitle: ZIRO_CONFIG.seo.zendesk.title,
+        pageDescription: ZIRO_CONFIG.seo.zendesk.description,
+        cssPath: '../assets/css/style.css',
+        jsPath: '../assets/js/'
+    },
     header: {
         homeUrl: '../index.html',
         salesforceUrl: 'salesforce.html',

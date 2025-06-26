@@ -4,6 +4,12 @@
  */
 
 const SALESFORCE_CONFIG = {
+    head: {
+        pageTitle: ZIRO_CONFIG.seo.salesforce.title,
+        pageDescription: ZIRO_CONFIG.seo.salesforce.description,
+        cssPath: '../assets/css/style.css',
+        jsPath: '../assets/js/'
+    },
     header: {
         homeUrl: '../index.html',
         salesforceUrl: '#servico',

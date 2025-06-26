@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste WebChat - Ziro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- WebChat Manager -->
+    <script src="assets/js/webchat.js"></script>
+</head>
+<body>
+    <div style="padding: 50px; text-align: center; font-family: 'Montserrat', sans-serif;">
+        <h1>Teste do WebChat</h1>
+        <p>Esta página testa o webchat do Blip com fallback para WhatsApp.</p>
+        <p>Se o Blip não carregar, você verá um botão de WhatsApp no canto inferior direito.</p>
+        
+        <div style="margin: 30px 0;">
+            <h3>Status do WebChat:</h3>
+            <div id="webchat-status">Carregando...</div>
+        </div>
+        
+        <div style="margin: 30px 0;">
+            <h3>Logs do Console:</h3>
+            <div id="console-log" style="background: #f5f5f5; padding: 20px; text-align: left; font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Captura logs do console
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logDiv = document.getElementById('console-log');
+        const statusDiv = document.getElementById('webchat-status');
+        
+        function addLog(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.style.color = type === 'error' ? 'red' : 'black';
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logDiv.appendChild(logEntry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addLog(args.join(' '));
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addLog(args.join(' '), 'error');
+        };
+        
+        // Atualiza status
+        setTimeout(() => {
+            if (typeof BlipChat !== 'undefined') {
+                statusDiv.innerHTML = '<span style="color: green;">✅ BlipChat carregado com sucesso</span>';
+            } else {
+                statusDiv.innerHTML = '<span style="color: orange;">⚠️ BlipChat não carregou, usando WhatsApp como fallback</span>';
+            }
+        }, 3000);
+    </script>
+</body>
+</html> 
