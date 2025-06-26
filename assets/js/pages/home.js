@@ -13,6 +13,7 @@ const HOME_CONFIG = {
     header: {
         homeUrl: '#contato',
         blipUrl: 'lp/blip.html',
+        servicosUrl: 'lp/servicos.html',
         isHomePage: true
     },
     footer: {}

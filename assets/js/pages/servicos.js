@@ -1,35 +1,27 @@
-/**
- * Configuração da Página Blip - Ziro
- * Define como os componentes devem ser renderizados na página Blip
- */
-
-const BLIP_CONFIG = {
+const SERVICOS_CONFIG = {
     head: {
-        pageTitle: ZIRO_CONFIG.seo.blip.title,
-        pageDescription: ZIRO_CONFIG.seo.blip.description,
+        pageTitle: 'Páginas de Conversão com Atendimento Online | Ziro',
+        pageDescription: 'Crie páginas de conversão profissionais com atendimento online e aumente sua receita. Soluções completas para captação de leads, vendas e suporte digital.',
         cssPath: '../assets/css/style.css',
         jsPath: '../assets/js/'
     },
     header: {
         homeUrl: '../index.html',
-        salesforceUrl: 'salesforce.html',
-        blipUrl: '#servico',
-        zendeskUrl: 'zendesk.html',
+        blipUrl: 'blip.html',
         servicosUrl: 'servicos.html',
-        isBlipPage: true
+        isServicosPage: true,
+        isHomePage: false
     },
     footer: {}
 };
 
-// Inicializa componentes quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', async function() {
     // Corrige os caminhos dos componentes para funcionar a partir da pasta lp/
     const originalLoadComponent = window.ziroComponents.loadComponent;
     window.ziroComponents.loadComponent = function(componentName, path) {
-        // Ajusta o caminho para funcionar a partir da pasta lp/
         const adjustedPath = path.replace('assets/', '../assets/');
         return originalLoadComponent.call(this, componentName, adjustedPath);
     };
-    
-    await window.ziroComponents.initComponents(BLIP_CONFIG);
+
+    await window.ziroComponents.initComponents(SERVICOS_CONFIG);
 }); 

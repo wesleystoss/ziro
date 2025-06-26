@@ -15,6 +15,7 @@ const SALESFORCE_CONFIG = {
         salesforceUrl: '#servico',
         blipUrl: 'blip.html',
         zendeskUrl: 'zendesk.html',
+        servicosUrl: 'servicos.html',
         isSalesforcePage: true
     },
     footer: {}
