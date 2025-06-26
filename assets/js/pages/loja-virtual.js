@@ -10,6 +10,7 @@ const LOJA_VIRTUAL_CONFIG = {
         blipUrl: 'blip.html',
         servicosUrl: 'servicos.html',
         lojaVirtualUrl: 'loja-virtual.html',
+        siteInstitucionalUrl: 'site-institucional.html',
         isLojaVirtualPage: true,
         isHomePage: false
     },

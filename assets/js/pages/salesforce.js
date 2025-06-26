@@ -17,6 +17,7 @@ const SALESFORCE_CONFIG = {
         zendeskUrl: 'zendesk.html',
         servicosUrl: 'servicos.html',
         lojaVirtualUrl: 'loja-virtual.html',
+        siteInstitucionalUrl: 'site-institucional.html',
         isSalesforcePage: true
     },
     footer: {}

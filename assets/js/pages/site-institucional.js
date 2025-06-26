@@ -1,7 +1,7 @@
-const SERVICOS_CONFIG = {
+const SITE_INSTITUCIONAL_CONFIG = {
     head: {
-        pageTitle: 'Páginas de Conversão com Atendimento Online | Ziro',
-        pageDescription: 'Crie páginas de conversão profissionais com atendimento online e aumente sua receita. Soluções completas para captação de leads, vendas e suporte digital.',
+        pageTitle: 'Sites Institucionais Profissionais | Ziro',
+        pageDescription: 'Transmita credibilidade e conquiste mais clientes com um site institucional profissional, rápido e responsivo. Soluções completas para presença digital, autoridade e geração de oportunidades.',
         cssPath: '../assets/css/style.css',
         jsPath: '../assets/js/'
     },
@@ -11,7 +11,7 @@ const SERVICOS_CONFIG = {
         servicosUrl: 'servicos.html',
         lojaVirtualUrl: 'loja-virtual.html',
         siteInstitucionalUrl: 'site-institucional.html',
-        isServicosPage: true,
+        isSiteInstitucionalPage: true,
         isHomePage: false
     },
     footer: {}
@@ -25,5 +25,5 @@ document.addEventListener('DOMContentLoaded', async function() {
         return originalLoadComponent.call(this, componentName, adjustedPath);
     };
 
-    await window.ziroComponents.initComponents(SERVICOS_CONFIG);
+    await window.ziroComponents.initComponents(SITE_INSTITUCIONAL_CONFIG);
 }); 
