@@ -11,6 +11,7 @@ const LOJA_VIRTUAL_CONFIG = {
         servicosUrl: 'landing-page',
         lojaVirtualUrl: 'loja-virtual',
         siteInstitucionalUrl: 'site-institucional',
+        atendimentoOnlineUrl: 'atendimento-online',
         isLojaVirtuaservicosage: true,
         isHomePage: false
     },
