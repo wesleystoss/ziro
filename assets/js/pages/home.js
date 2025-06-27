@@ -12,10 +12,11 @@ const HOME_CONFIG = {
     },
     header: {
         homeUrl: '#contato',
-        blipUrl: 'servicos/blip',
+        blipUrl: 'servicos/atendimento-online',
         servicosUrl: 'servicos/landing-page',
         lojaVirtualUrl: 'servicos/loja-virtual',
         siteInstitucionalUrl: 'servicos/site-institucional',
+        atendimentoOnlineUrl: 'servicos/atendimento-online',
         isHomePage: true
     },
     footer: {}
