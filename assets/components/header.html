@@ -1,24 +1,23 @@
 <header class="ziro-navbar">
-    <div class="ziro-container">
-        <a href="{{homeUrl}}" class="ziro-logo">Ziro</a>
+    <div class="container header-flex">
+        <a href="/" class="ziro-logo">ZIRO</a>
         <nav>
-            <!-- Dropdown Serviços Simples -->
-            <div class="ziro-dropdown" id="ziroDropdown">
-                <button class="ziro-dropdown-btn" id="ziroDropdownBtn" type="button" aria-haspopup="true" aria-expanded="false">
-                    Veja os nossas soluções
-                    <span class="ziro-dropdown-icon">▼</span>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#como-funciona">Como Funciona</a>
+            <div class="dropdown" aria-label="Abrir menu de serviços">
+                <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    Serviços
+                    <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
-                <div class="ziro-dropdown-content" id="ziroDropdownContent">
-                    <ul class="ziro-dropdown-list">
-                        <li><a href="{{atendimentoOnlineUrl}}">Atendimento online</a></li>
-                        <li><a href="{{servicosUrl}}">Página de conversão</a></li>
-                        <li><a href="{{lojaVirtualUrl}}">Loja virtual</a></li>
-                        <li><a href="{{siteInstitucionalUrl}}">Site institucional</a></li>
-                    </ul>
+                <div class="dropdown-menu">
+                    <a href="/servicos/atendimento-online.html">Atendimento Online</a>
+                    <a href="/servicos/loja-virtual.html">Loja Virtual</a>
+                    <a href="/servicos/landing-page.html">Landing Page</a>
+                    <a href="/servicos/site-institucional.html">Site Institucional</a>
                 </div>
             </div>
-            <!-- Fim Dropdown -->
-            <a href="#contato">Contato</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contato" class="btn-primary">Contato</a>
         </nav>
     </div>
 </header> 

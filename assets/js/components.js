@@ -150,4 +150,70 @@ class ZiroComponents {
 }
 
 // Instância global
-window.ziroComponents = new ZiroComponents(); 
+window.ziroComponents = new ZiroComponents();
+
+// Carrega header e footer dinamicamente
+function loadComponent(selector, url) {
+    const el = document.querySelector(`[data-component="${selector}"]`);
+    if (el) {
+        fetch(url)
+            .then(res => res.text())
+            .then(html => { el.innerHTML = html; });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadComponent('header', '/assets/components/header.html');
+    loadComponent('footer', '/assets/components/footer.html');
+});
+
+// Navegação suave para âncoras do header
+function enableSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.length > 1 && document.querySelector(href)) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', enableSmoothScroll);
+// Também ativar após carregar header dinamicamente
+setTimeout(enableSmoothScroll, 500);
+
+// Dropdown de serviços por clique
+function enableDropdownClick() {
+    document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdown = btn.closest('.dropdown');
+            const isOpen = dropdown.classList.contains('open');
+            document.querySelectorAll('.dropdown.open').forEach(d => {
+                if (d !== dropdown) d.classList.remove('open');
+                d.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                dropdown.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                dropdown.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+    // Fechar ao clicar fora
+    document.addEventListener('click', function(e) {
+        document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                const btn = dropdown.querySelector('.dropdown-toggle');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', enableDropdownClick);
+setTimeout(enableDropdownClick, 500); 

@@ -4,151 +4,510 @@
     <!-- Componente Head será carregado dinamicamente -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lojas Virtuais Profissionais | Ziro</title>
+    <title>Lojas Virtuais que Vendem de Verdade | Ziro</title>
     <meta name="description" content="Venda mais com uma loja virtual profissional, rápida e segura. Soluções completas para e-commerce, integração com pagamentos, automação de marketing e suporte especializado.">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Landing Page Styles */
+        body {
+            padding-top: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .landing-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(37,99,235,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .landing-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .landing-nav .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1e293b;
+            text-decoration: none;
+        }
+        
+        .landing-nav .cta-nav {
+            background: #2563eb;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .landing-nav .cta-nav:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .hero-landing {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-landing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-landing .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-landing h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-landing p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-hero-primary {
+            background: #fbbf24;
+            color: #1e293b;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(251,191,36,0.3);
+        }
+        
+        .btn-hero-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251,191,36,0.4);
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-hero-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .stats-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+        
+        .beneficios-landing {
+            background: #f8fafc;
+            padding: 6rem 0;
+        }
+        
+        .beneficios-landing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .beneficios-landing .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .beneficios-grid-landing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .beneficio-card-landing {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(37,99,235,0.1);
+        }
+        
+        .beneficio-card-landing:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(37,99,235,0.15);
+        }
+        
+        .beneficio-icon-landing {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .beneficio-card-landing h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .beneficio-card-landing p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .como-funciona-landing {
+            background: white;
+            padding: 6rem 0;
+        }
+        
+        .timeline-landing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-step-landing {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 300px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .timeline-step-landing:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37,99,235,0.1);
+        }
+        
+        .timeline-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .timeline-step-landing h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-step-landing p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta-primary {
+            background: #fbbf24;
+            color: #1e293b;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+        }
+        
+        .footer-landing {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-landing a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-landing h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-landing p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-landing {
+                flex-direction: column;
+            }
+            
+            .hero-cta, .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Placeholder para o componente Header -->
-    <div data-component="header"></div>
-    <main>
-        <!-- Hero Section -->
-        <section class="ziro-hero ziro-hero-compact">
-            <div class="ziro-container">
-                <div class="ziro-hero-grid">
-                    <div class="ziro-hero-logo">
-                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="60" cy="60" r="60" fill="#2563eb"/>
-                            <rect x="35" y="50" width="50" height="30" rx="8" fill="#fff"/>
-                            <rect x="45" y="60" width="30" height="10" rx="3" fill="#2563eb"/>
+    <!-- Navegação Minimalista -->
+    <nav class="landing-nav">
+        <div class="container">
+            <a href="/" class="logo">ZIRO</a>
+            <a href="#contato" class="cta-nav">Fale Conosco</a>
+        </div>
+    </nav>
+
+    <!-- Hero Impactante -->
+    <section class="hero-landing">
+        <div class="container">
+            <h1>Lojas Virtuais que Vendem de Verdade</h1>
+            <p>Transforme sua presença digital em uma máquina de vendas 24/7. Design exclusivo, integração completa com pagamentos e automação de marketing para multiplicar suas vendas online.</p>
+            <div class="hero-cta">
+                <a href="#contato" class="btn-hero-primary">Quero Vender Mais Online</a>
+                <a href="#como-funciona" class="btn-hero-secondary">Como Funciona</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas Impactantes -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">+400%</div>
+                    <div class="stat-label">Aumento nas Vendas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+60%</div>
+                    <div class="stat-label">Mais Conversões</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">-80%</div>
+                    <div class="stat-label">Menos Abandono</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Dias para Ficar Pronto</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="beneficios-landing" id="beneficios">
+        <div class="container">
+            <h2>Por que escolher nossa loja virtual?</h2>
+            <p class="subtitle">Desenvolvemos lojas que não apenas vendem, mas encantam e convertem visitantes em clientes fiéis</p>
+            <div class="beneficios-grid-landing">
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6v6H9z"/>
                         </svg>
                     </div>
-                    <h1 class="ziro-hero-title">Lojas virtuais que vendem de verdade</h1>
-                    <p class="ziro-hero-beneficio">Tenha uma loja online moderna, rápida e segura, pronta para vender 24h por dia. Design exclusivo, integração com pagamentos e automação de marketing para você faturar mais.</p>
-                    <div class="ziro-hero-beneficios">
-                        <div class="ziro-beneficio-item"><span class="ziro-check">✓</span><span>Design responsivo e experiência mobile</span></div>
-                        <div class="ziro-beneficio-item"><span class="ziro-check">✓</span><span>Checkout rápido e seguro</span></div>
-                        <div class="ziro-beneficio-item"><span class="ziro-check">✓</span><span>Integração com meios de pagamento e frete</span></div>
+                    <h3>Design Exclusivo</h3>
+                    <p>Layout moderno e responsivo que encanta seus clientes e aumenta a confiança na sua marca.</p>
+                </div>
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
                     </div>
-                    <div class="ziro-hero-cta">
-                        <a href="#contato" class="ziro-btn-main">Quero vender mais online</a>
+                    <h3>Checkout Otimizado</h3>
+                    <p>Processo de compra rápido e seguro com integração completa de pagamentos e frete.</p>
+                </div>
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="6" cy="12" r="3"/>
+                            <circle cx="18" cy="6" r="3"/>
+                            <circle cx="18" cy="18" r="3"/>
+                            <path d="M8.59 10.51l6.83-3.02M8.59 13.49l6.83 3.02"/>
+                        </svg>
                     </div>
-                    <p class="ziro-hero-garantia">✅ Garantia de satisfação ou seu dinheiro de volta</p>
+                    <h3>Automação Inteligente</h3>
+                    <p>Recuperação de carrinho, e-mails automáticos e integração com WhatsApp para vender mais.</p>
+                </div>
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M5 12l5 5L20 7"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <h3>Suporte Dedicado</h3>
+                    <p>Acompanhamento completo durante e após a entrega para garantir seu sucesso total.</p>
                 </div>
             </div>
-        </section>
-        <!-- Seção de Página de conversão -->
-        <section class="ziro-servicos">
-            <div class="ziro-container">
-                <h2>O que sua loja virtual terá</h2>
-                <div class="ziro-servicos-grid">
-                    <div class="ziro-servico-card">
-                        <div class="ziro-servico-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="16" width="32" height="20" rx="4" fill="#2563eb"/><rect x="14" y="22" width="20" height="8" rx="2" fill="#fff"/></svg>
-                        </div>
-                        <h3>Layout moderno e exclusivo</h3>
-                        <p>Design pensado para encantar e converter, com foco total na experiência do usuário.</p>
-                    </div>
-                    <div class="ziro-servico-card">
-                        <div class="ziro-servico-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#fbbf24"/><path d="M24 16v8l6 4" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <h3>Checkout rápido e seguro</h3>
-                        <p>Processo de compra otimizado, integração com cartões, Pix, boleto e gateways de pagamento.</p>
-                    </div>
-                    <div class="ziro-servico-card">
-                        <div class="ziro-servico-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="8" fill="#2563eb"/><path d="M16 24h16M24 16v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
-                        </div>
-                        <h3>Automação de marketing</h3>
-                        <p>Recuperação de carrinho, e-mails automáticos, integração com WhatsApp e remarketing.</p>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="como-funciona-landing" id="como-funciona">
+        <div class="container">
+            <h2>Como funciona nosso processo</h2>
+            <p class="subtitle">Em apenas 15 dias, sua loja virtual estará vendendo online</p>
+            <div class="timeline-landing">
+                <div class="timeline-step-landing">
+                    <div class="timeline-number">1</div>
+                    <h4>Diagnóstico Gratuito</h4>
+                    <p>Analisamos seu negócio e identificamos as melhores oportunidades para sua loja virtual vender mais.</p>
+                </div>
+                <div class="timeline-step-landing">
+                    <div class="timeline-number">2</div>
+                    <h4>Criação e Integração</h4>
+                    <p>Desenvolvemos a loja, integramos pagamentos, frete e configuramos todas as automações necessárias.</p>
+                </div>
+                <div class="timeline-step-landing">
+                    <div class="timeline-number">3</div>
+                    <h4>Go-live e Acompanhamento</h4>
+                    <p>Publicação, treinamento da equipe e acompanhamento dos resultados para garantir seu sucesso.</p>
                 </div>
             </div>
-        </section>
-        <!-- Seção de Resultados -->
-        <section class="ziro-resultados ziro-resultados-compact">
-            <div class="ziro-container">
-                <h2>Resultados que você <br>pode esperar</h2>
-                <div class="ziro-resultados-grid">
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#fbbf24"/><path d="M12 22l6 6 10-10" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="ziro-resultado-numero">+400%</div>
-                        <p>Aumento nas vendas online</p>
-                    </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#2563eb"/><path d="M20 12v16M12 20h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
-                        </div>
-                        <div class="ziro-resultado-numero">+60%</div>
-                        <p>Mais conversões no checkout</p>
-                    </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#fbbf24"/><path d="M20 12v16M12 20h16" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/></svg>
-                        </div>
-                        <div class="ziro-resultado-numero">-80%</div>
-                        <p>Redução no abandono de carrinho</p>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2>Pronto para multiplicar suas vendas?</h2>
+            <p>Junte-se a centenas de empresas que já transformaram suas vendas online com nossas lojas virtuais profissionais.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5511999999999" class="btn-cta-primary">Falar no WhatsApp</a>
+                <a href="tel:+5511999999999" class="btn-hero-secondary">Ligar Agora</a>
             </div>
-        </section>
-        <!-- Seção de Processo -->
-        <section class="ziro-processo">
-            <div class="ziro-container">
-                <h2>Como funciona o nosso processo</h2>
-                <div class="ziro-processo-grid">
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">1</div>
-                        <h3>Diagnóstico gratuito</h3>
-                        <p>Analisamos seu negócio e identificamos oportunidades para sua loja virtual vender mais.</p>
-                        <span class="ziro-tempo">Dia 1</span>
-                    </div>
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">2</div>
-                        <h3>Criação e integração</h3>
-                        <p>Desenvolvemos a loja, integramos pagamentos, frete e automações.</p>
-                        <span class="ziro-tempo">Dias 2-10</span>
-                    </div>
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">3</div>
-                        <h3>Go-live e acompanhamento</h3>
-                        <p>Publicação, treinamento e acompanhamento dos resultados para garantir sucesso.</p>
-                        <span class="ziro-tempo">Dias 11-15</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Seção de Garantias -->
-        <section class="ziro-garantias ziro-garantias-compact">
-            <div class="ziro-container">
-                <h2>Garantias para sua<br> tranquilidade</h2>
-                <div class="ziro-garantias-grid">
-                    <div class="ziro-garantia-item">
-                        <h3>🛡️ Garantia de satisfação</h3>
-                        <p>Se não ficar satisfeito, devolvemos 100% do seu dinheiro.</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>⚡ Implantação rápida</h3>
-                        <p>Sua loja no ar em até 15 dias úteis.</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>📞 Suporte dedicado</h3>
-                        <p>Acompanhamento próximo durante e após a entrega.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Placeholder para o componente Footer -->
-    <div data-component="footer"></div>
-    <!-- Scripts -->
-    <script src="../assets/js/config.js"></script>
-    <script src="../assets/js/components.js"></script>
-    <script src="../assets/js/ziro.js"></script>
-    <script src="../assets/js/pages/loja-virtual.js"></script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-landing">
+        <div class="container">
+            <p>&copy; 2024 Ziro Consultoria Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html> 

@@ -2,6 +2,8 @@
  * Ziro Consultoria Digital - JavaScript Principal
  */
 
+// Funções utilitárias Ziro (placeholder)
+
 // Função para animar contagem de números
 function animateCounter(element, target, duration = 2000, suffix = '') {
     // Se o elemento já foi animado, não anima novamente

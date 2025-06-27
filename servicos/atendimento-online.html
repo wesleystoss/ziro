@@ -4,207 +4,510 @@
     <!-- Componente Head será carregado dinamicamente -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atendimento Online | Ziro</title>
+    <title>Atendimento Online Inteligente | Ziro</title>
     <meta name="description" content="Automação de atendimento, chatbots, WhatsApp, Instagram e canais digitais. Soluções omnichannel para sua empresa inovar.">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Landing Page Styles */
+        body {
+            padding-top: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .landing-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(37,99,235,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .landing-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .landing-nav .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1e293b;
+            text-decoration: none;
+        }
+        
+        .landing-nav .cta-nav {
+            background: #2563eb;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .landing-nav .cta-nav:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .hero-landing {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 8rem 0 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-landing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-landing .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-landing h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-landing p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-hero-primary {
+            background: #fbbf24;
+            color: #1e293b;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(251,191,36,0.3);
+        }
+        
+        .btn-hero-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251,191,36,0.4);
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-hero-secondary:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .stats-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+        
+        .beneficios-landing {
+            background: #f8fafc;
+            padding: 6rem 0;
+        }
+        
+        .beneficios-landing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .beneficios-landing .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .beneficios-grid-landing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .beneficio-card-landing {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(37,99,235,0.1);
+        }
+        
+        .beneficio-card-landing:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(37,99,235,0.15);
+        }
+        
+        .beneficio-icon-landing {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .beneficio-card-landing h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .beneficio-card-landing p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .como-funciona-landing {
+            background: white;
+            padding: 6rem 0;
+        }
+        
+        .timeline-landing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-step-landing {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 300px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .timeline-step-landing:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37,99,235,0.1);
+        }
+        
+        .timeline-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .timeline-step-landing h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-step-landing p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta-primary {
+            background: #fbbf24;
+            color: #1e293b;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+        }
+        
+        .footer-landing {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-landing a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-landing h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-landing p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-landing {
+                flex-direction: column;
+            }
+            
+            .hero-cta, .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Placeholder para o componente Header -->
-    <div data-component="header"></div>
-    
-    <main>
-        <!-- Hero Section com CTA Principal -->
-        <section class="ziro-hero ziro-hero-compact">
-            <div class="ziro-container">
-                <div class="ziro-hero-grid">
-                    <!-- Linha 0: Logo -->
-                    <div class="ziro-hero-logo">
-                        <img src="../assets/images/blip.png" alt="Atendimento Online" class="ziro-logo-blip">
-                    </div>
-                    <!-- Linha 1: Título -->
-                    <h1 class="ziro-hero-title">Transforme seu Atendimento Digital em 15 Dias</h1>
-                    <!-- Linha 2: Benefício -->
-                    <p class="ziro-hero-beneficio">Automatize WhatsApp, Instagram e outros canais com chatbots inteligentes. Atenda 10x mais clientes, 24h por dia, sem aumentar sua equipe.</p>
-                    <!-- Linha 3: Benefícios Rápidos -->
-                    <div class="ziro-hero-beneficios">
-                        <div class="ziro-beneficio-item">
-                            <span class="ziro-check">✓</span>
-                            <span>Atendimento 24/7 automático</span>
-                        </div>
-                        <div class="ziro-beneficio-item">
-                            <span class="ziro-check">✓</span>
-                            <span>Redução de 80% no tempo de resposta</span>
-                        </div>
-                        <div class="ziro-beneficio-item">
-                            <span class="ziro-check">✓</span>
-                            <span>Qualificação automática de leads</span>
-                        </div>
-                    </div>
-                    <!-- Linha 4: CTA -->
-                    <div class="ziro-hero-cta">
-                        <a href="#contato" class="ziro-btn-main">Quero Atendimento Digital Agora</a>
-                    </div>
-                    <!-- Linha 5: Garantia -->
-                    <p class="ziro-hero-garantia">✅ Garantia de 30 dias ou seu dinheiro de volta</p>
+    <!-- Navegação Minimalista -->
+    <nav class="landing-nav">
+        <div class="container">
+            <a href="/" class="logo">ZIRO</a>
+            <a href="#contato" class="cta-nav">Fale Conosco</a>
+        </div>
+    </nav>
+
+    <!-- Hero Impactante -->
+    <section class="hero-landing">
+        <div class="container">
+            <h1>Atendimento Online Inteligente para sua empresa</h1>
+            <p>Automatize WhatsApp, Instagram e outros canais com chatbots inteligentes. Atenda mais clientes, 24h por dia, sem aumentar sua equipe. Transforme seu atendimento em uma vantagem competitiva.</p>
+            <div class="hero-cta">
+                <a href="#contato" class="btn-hero-primary">Quero Atendimento Digital Agora</a>
+                <a href="#como-funciona" class="btn-hero-secondary">Como Funciona</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas Impactantes -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Satisfação dos Clientes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Disponível</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10x</div>
+                    <div class="stat-label">Mais Eficiência</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Dias para Ficar Pronto</div>
                 </div>
             </div>
-        </section>
-        <!-- Seção Combinada: Problemas + Página de conversão -->
-        <section class="ziro-problemas-servicos">
-            <div class="ziro-container">
-                <div class="ziro-problemas-servicos-grid">
-                    <!-- Coluna 1: Problemas -->
-                    <div class="ziro-problemas-col">
-                        <h2>Você está perdendo clientes e dinheiro?</h2>
-                        <div class="ziro-problemas-grid">
-                            <div class="ziro-problema-card">
-                                <h3>❌ Atendimento lento</h3>
-                                <p>Clientes esperam horas por resposta e desistem da compra</p>
-                            </div>
-                            <div class="ziro-problema-card">
-                                <h3>❌ Perda de leads</h3>
-                                <p>Mensagens não respondidas = vendas perdidas</p>
-                            </div>
-                            <div class="ziro-problema-card">
-                                <h3>❌ Custo alto</h3>
-                                <p>Equipe grande para atendimento manual e ineficiente</p>
-                            </div>
-                        </div>
-                        <div class="ziro-solucao">
-                            <h3>🎯 Nossa solução resolve tudo</h3>
-                            <p>Chatbots inteligentes que respondem instantaneamente, qualificam leads e vendem 24h por dia</p>
-                        </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="beneficios-landing" id="beneficios">
+        <div class="container">
+            <h2>Por que escolher nosso atendimento automatizado?</h2>
+            <p class="subtitle">Desenvolvemos soluções que não apenas atendem, mas qualificam leads e aumentam suas vendas automaticamente</p>
+            <div class="beneficios-grid-landing">
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
                     </div>
-                    <!-- Coluna 2: Página de conversão -->
-                    <div class="ziro-servicos-col">
-                        <h2>O que você recebe</h2>
-                        <div class="ziro-servicos-grid">
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#1db954"/>
-                                    </svg>
-                                </div>
-                                <h3>Chatbots inteligentes</h3>
-                                <p>Automatize 90% das perguntas frequentes. Seus clientes recebem respostas em segundos.</p>
-                            </div>
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="#25D366"/>
-                                    </svg>
-                                </div>
-                                <h3>WhatsApp Business oficial</h3>
-                                <p>Atenda pelo canal mais usado do Brasil. Envie notificações, faça vendas e ofereça suporte 24h.</p>
-                            </div>
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#E4405F"/>
-                                    </svg>
-                                </div>
-                                <h3>Instagram Direct</h3>
-                                <p>Responda mensagens do Instagram automaticamente. Gere leads e vendas pelo Instagram da sua marca.</p>
-                            </div>
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#1db954"/>
-                                    </svg>
-                                </div>
-                                <h3>Omnichannel completo</h3>
-                                <p>Centralize o atendimento de todos os canais em um só lugar. Histórico completo e relatórios unificados.</p>
-                            </div>
-                        </div>
+                    <h3>Atendimento 24/7</h3>
+                    <p>Seus clientes atendidos a qualquer hora, sem filas, sem espera. Disponibilidade total para não perder nenhuma oportunidade.</p>
+                </div>
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="12" width="18" height="8" rx="2"/>
+                            <path d="M7 12V8a5 5 0 0 1 10 0v4"/>
+                        </svg>
                     </div>
+                    <h3>Redução de Custos</h3>
+                    <p>Automatize tarefas repetitivas e foque no que realmente importa. Reduza custos operacionais e aumente a eficiência.</p>
+                </div>
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="6" cy="12" r="3"/>
+                            <circle cx="18" cy="6" r="3"/>
+                            <circle cx="18" cy="18" r="3"/>
+                            <path d="M8.59 10.51l6.83-3.02M8.59 13.49l6.83 3.02"/>
+                        </svg>
+                    </div>
+                    <h3>Omnichannel</h3>
+                    <p>WhatsApp, Instagram, Webchat e outros canais em um só lugar. Atendimento unificado e consistente em todos os canais.</p>
+                </div>
+                <div class="beneficio-card-landing">
+                    <div class="beneficio-icon-landing">
+                        <svg width="40" height="40" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M5 12l5 5L20 7"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <h3>Qualificação de Leads</h3>
+                    <p>Chatbots inteligentes que identificam oportunidades, qualificam leads e aumentam suas vendas automaticamente.</p>
                 </div>
             </div>
-        </section>
-        <!-- Seção Combinada: Resultados + Processo -->
-        <section class="ziro-resultados-processo">
-            <div class="ziro-container">
-                <div class="ziro-resultados-processo-grid">
-                    <!-- Coluna 1: Resultados -->
-                    <div class="ziro-resultados-col">
-                        <h2>Resultados Comprovados</h2>
-                        <div class="ziro-metricas-grid">
-                            <div class="ziro-metrica">
-                                <div class="ziro-numero">95%</div>
-                                <p>Taxa de satisfação dos clientes</p>
-                            </div>
-                            <div class="ziro-metrica">
-                                <div class="ziro-numero">24/7</div>
-                                <p>Atendimento disponível</p>
-                            </div>
-                            <div class="ziro-metrica">
-                                <div class="ziro-numero">10x</div>
-                                <p>Mais eficiência no atendimento</p>
-                            </div>
-                            <div class="ziro-metrica">
-                                <div class="ziro-numero">15 dias</div>
-                                <p>Prazo de implantação</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Coluna 2: Processo -->
-                    <div class="ziro-processo-col">
-                        <h2>Como funciona nossa implantação</h2>
-                        <div class="ziro-processo-grid">
-                            <div class="ziro-etapa">
-                                <div class="ziro-etapa-numero">1</div>
-                                <h3>Diagnóstico gratuito</h3>
-                                <p>Analisamos seus canais atuais e identificamos oportunidades de automação</p>
-                                <span class="ziro-tempo">Dia 1</span>
-                            </div>
-                            <div class="ziro-etapa">
-                                <div class="ziro-etapa-numero">2</div>
-                                <h3>Configuração e integração</h3>
-                                <p>Implementamos os chatbots e integramos com seus canais existentes</p>
-                                <span class="ziro-tempo">Dias 2-10</span>
-                            </div>
-                            <div class="ziro-etapa">
-                                <div class="ziro-etapa-numero">3</div>
-                                <h3>Treinamento e go-live</h3>
-                                <p>Sua equipe aprende a usar e o sistema entra em operação</p>
-                                <span class="ziro-tempo">Dias 11-15</span>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="como-funciona-landing" id="como-funciona">
+        <div class="container">
+            <h2>Como funciona nosso processo</h2>
+            <p class="subtitle">Em apenas 15 dias, seu atendimento automatizado estará operando e gerando resultados</p>
+            <div class="timeline-landing">
+                <div class="timeline-step-landing">
+                    <div class="timeline-number">1</div>
+                    <h4>Diagnóstico Gratuito</h4>
+                    <p>Analisamos seus canais atuais e identificamos as melhores oportunidades de automação para seu negócio.</p>
+                </div>
+                <div class="timeline-step-landing">
+                    <div class="timeline-number">2</div>
+                    <h4>Configuração e Integração</h4>
+                    <p>Implementamos os chatbots e integramos com seus canais existentes de forma transparente e eficiente.</p>
+                </div>
+                <div class="timeline-step-landing">
+                    <div class="timeline-number">3</div>
+                    <h4>Treinamento e Go-live</h4>
+                    <p>Sua equipe aprende a usar o sistema e o atendimento automatizado entra em operação com suporte completo.</p>
                 </div>
             </div>
-        </section>
-        <!-- Seção de Garantias -->
-        <section class="ziro-garantias ziro-garantias-compact">
-            <div class="ziro-container">
-                <h2>Nossas garantias para sua tranquilidade</h2>
-                <div class="ziro-garantias-grid">
-                    <div class="ziro-garantia-item">
-                        <h3>🛡️ Garantia de 30 dias</h3>
-                        <p>Se não ficar satisfeito, devolvemos 100% do seu dinheiro</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>⚡ Implantação rápida</h3>
-                        <p>15 dias ou menos, ou não cobramos pelo projeto</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>📞 Suporte dedicado</h3>
-                        <p>Equipe exclusiva para seu projeto durante 3 meses</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>📈 Resultados garantidos</h3>
-                        <p>Se não houver melhoria no atendimento, trabalhamos de graça</p>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2>Pronto para revolucionar seu atendimento?</h2>
+            <p>Junte-se a centenas de empresas que já transformaram seu atendimento com nossas soluções automatizadas.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5511999999999" class="btn-cta-primary">Falar no WhatsApp</a>
+                <a href="tel:+5511999999999" class="btn-hero-secondary">Ligar Agora</a>
             </div>
-        </section>
-    </main>
-    <!-- Placeholder para o componente Footer -->
-    <div data-component="footer"></div>
-    <!-- Scripts -->
-    <script src="../assets/js/config.js"></script>
-    <script src="../assets/js/components.js"></script>
-    <script src="../assets/js/ziro.js"></script>
-    <script src="../assets/js/pages/atendimento-online.js"></script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-landing">
+        <div class="container">
+            <p>&copy; 2024 Ziro Consultoria Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html> 
