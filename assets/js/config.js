@@ -16,7 +16,7 @@ const ZIRO_CONFIG = {
     pages: {
         home: '/',
         salesforce: '/servicos/salesforce',
-        blip: '/servicos/blip',
+        atendimentoOnline: '/servicos/atendimento-online',
         zendesk: '/servicos/zendesk'
     },
 
@@ -32,10 +32,10 @@ const ZIRO_CONFIG = {
             description: 'Consultoria Salesforce para empresas que querem crescer, vender mais e automatizar processos. Implantação, integração e automação de vendas.',
             keywords: 'consultoria salesforce, crm, automação de vendas, implantação salesforce, integração salesforce'
         },
-        blip: {
-            title: 'Consultoria Blip | Ziro',
-            description: 'Consultoria Blip para automação de atendimento, chatbots, WhatsApp, Instagram e canais digitais. Soluções omnichannel para sua empresa inovar.',
-            keywords: 'consultoria blip, chatbot, whatsapp business, instagram, atendimento digital, omnichannel'
+        atendimentoOnline: {
+            title: 'Atendimento Online | Ziro',
+            description: 'Automação de atendimento, chatbots, WhatsApp, Instagram e canais digitais. Soluções omnichannel para sua empresa inovar.',
+            keywords: 'atendimento online, chatbot, whatsapp business, instagram, atendimento digital, omnichannel'
         },
         zendesk: {
             title: 'Consultoria Zendesk | Ziro',
@@ -50,7 +50,7 @@ const ZIRO_CONFIG = {
         messages: {
             home: 'Olá, gostaria de uma consultoria digital com a Ziro',
             salesforce: 'Olá, gostaria de uma consultoria Salesforce com a Ziro',
-            blip: 'Olá, gostaria de uma consultoria Blip com a Ziro',
+            atendimentoOnline: 'Olá, gostaria de um atendimento online com a Ziro',
             zendesk: 'Olá, gostaria de uma consultoria Zendesk com a Ziro'
         }
     },

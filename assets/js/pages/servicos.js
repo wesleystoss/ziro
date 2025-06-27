@@ -7,7 +7,7 @@ const SERVICOS_CONFIG = {
     },
     header: {
         homeUrl: '../',
-        blipUrl: 'blip',
+        atendimentoOnlineUrl: 'atendimento-online',
         servicosUrl: 'landing-page',
         lojaVirtualUrl: 'loja-virtual',
         siteInstitucionalUrl: 'site-institucional',
