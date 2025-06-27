@@ -45,6 +45,40 @@ body {
 .ziro-logo:hover {
     color: #2563eb;
 }
+
+/* Botão hambúrguer */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #1e293b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 .ziro-navbar nav {
     display: flex;
     gap: 2.8rem;
@@ -253,20 +287,112 @@ body {
     }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 900px) {
     .header-flex {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
-        align-items: flex-start;
+        align-items: center;
     }
+    
+    /* Mostrar botão hambúrguer */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Esconder menu normal */
     .ziro-navbar nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 2rem 2rem 2rem;
         gap: 1rem;
-        flex-wrap: wrap;
+        box-shadow: -4px 0 12px rgba(30,41,59,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
     }
+    
+    /* Menu aberto */
+    .ziro-navbar nav.active {
+        right: 0;
+    }
+    
+    .ziro-navbar nav a {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .ziro-navbar nav a:last-child {
+        border-bottom: none;
+    }
+    
+    /* Estilos específicos para dropdown no menu hambúrguer */
+    .ziro-navbar nav .dropdown {
+        width: 100%;
+        position: static;
+    }
+    
+    .ziro-navbar nav .dropdown-toggle {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        background: none;
+        color: #23272a;
+        font-weight: 600;
+        font-size: 1.08rem;
+    }
+    
+    .ziro-navbar nav .dropdown-menu {
+        position: static;
+        display: none;
+        width: 100%;
+        min-width: auto;
+        background: #f8fafc;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 1rem;
+    }
+    
+    .ziro-navbar nav .dropdown.open .dropdown-menu {
+        display: block;
+    }
+    
+    .ziro-navbar nav .dropdown-menu a {
+        padding: 0.8rem 1rem;
+        margin: 0;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 1rem;
+        color: #475569;
+    }
+    
+    .ziro-navbar nav .dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+    
+    .ziro-navbar nav .dropdown-menu a:hover {
+        background: #e2e8f0;
+        color: #2563eb;
+    }
+    
     .ziro-logo {
         font-size: 2rem;
         margin-right: 0;
     }
+}
+
+@media (max-width: 940px) {
     .hero-flex {
         flex-direction: column;
         gap: 2rem;
@@ -304,7 +430,7 @@ body {
         min-width: 160px;
     }
     body {
-        padding-top: 110px;
+        padding-top: 78px;
     }
 }
 
@@ -328,14 +454,104 @@ body {
         min-width: 260px;
         max-width: 300px;
     }
+    
+    /* Manter estilos do menu hambúrguer para telas menores que 900px */
+    .header-flex {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    /* Mostrar botão hambúrguer */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Esconder menu normal */
     .ziro-navbar nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: #fff;
         flex-direction: column;
         align-items: flex-start;
-        width: 100%;
+        justify-content: flex-start;
+        padding: 80px 2rem 2rem 2rem;
+        gap: 1rem;
+        box-shadow: -4px 0 12px rgba(30,41,59,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
     }
+    
+    /* Menu aberto */
+    .ziro-navbar nav.active {
+        right: 0;
+    }
+    
     .ziro-navbar nav a {
         width: 100%;
         justify-content: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .ziro-navbar nav a:last-child {
+        border-bottom: none;
+    }
+    
+    /* Estilos específicos para dropdown no menu hambúrguer */
+    .ziro-navbar nav .dropdown {
+        width: 100%;
+        position: static;
+    }
+    
+    .ziro-navbar nav .dropdown-toggle {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        background: none;
+        color: #23272a;
+        font-weight: 600;
+        font-size: 1.08rem;
+    }
+    
+    .ziro-navbar nav .dropdown-menu {
+        position: static;
+        display: none;
+        width: 100%;
+        min-width: auto;
+        background: #f8fafc;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 1rem;
+    }
+    
+    .ziro-navbar nav .dropdown.open .dropdown-menu {
+        display: block;
+    }
+    
+    .ziro-navbar nav .dropdown-menu a {
+        padding: 0.8rem 1rem;
+        margin: 0;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 1rem;
+        color: #475569;
+    }
+    
+    .ziro-navbar nav .dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+    
+    .ziro-navbar nav .dropdown-menu a:hover {
+        background: #e2e8f0;
+        color: #2563eb;
     }
 }
 

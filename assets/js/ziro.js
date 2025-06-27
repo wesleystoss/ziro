@@ -4,6 +4,50 @@
 
 // Funções utilitárias Ziro (placeholder)
 
+// Função para controlar o menu hambúrguer
+function initHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    
+    if (!hamburger || !navMenu) return;
+    
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+    }
+    
+    // Toggle do menu ao clicar no hambúrguer
+    hamburger.addEventListener('click', toggleMenu);
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Fechar menu ao clicar fora dele
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            closeMenu();
+        }
+    });
+    
+    // Fechar menu ao redimensionar a janela para desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+}
+
 // Função para animar contagem de números
 function animateCounter(element, target, duration = 2000, suffix = '') {
     // Se o elemento já foi animado, não anima novamente

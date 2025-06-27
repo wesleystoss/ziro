@@ -158,13 +158,29 @@ function loadComponent(selector, url) {
     if (el) {
         fetch(url)
             .then(res => res.text())
-            .then(html => { el.innerHTML = html; });
+            .then(html => { 
+                el.outerHTML = html; 
+                
+                // Inicializa menu hambúrguer e dropdown após carregar o header
+                if (selector === 'header') {
+                    setTimeout(() => {
+                        if (typeof initHamburgerMenu === 'function') {
+                            initHamburgerMenu();
+                        }
+                        // Inicializa dropdown após carregar o header
+                        enableDropdownClick();
+                    }, 100);
+                }
+            });
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     loadComponent('header', '/assets/components/header.html');
     loadComponent('footer', '/assets/components/footer.html');
+    
+    // Inicializa dropdown imediatamente para desktop
+    enableDropdownClick();
 });
 
 // Navegação suave para âncoras do header
@@ -186,34 +202,51 @@ setTimeout(enableSmoothScroll, 500);
 
 // Dropdown de serviços por clique
 function enableDropdownClick() {
+    // Remove event listeners existentes para evitar duplicação
     document.querySelectorAll('.dropdown-toggle').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdown = btn.closest('.dropdown');
-            const isOpen = dropdown.classList.contains('open');
-            document.querySelectorAll('.dropdown.open').forEach(d => {
-                if (d !== dropdown) d.classList.remove('open');
-                d.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
-            });
-            if (!isOpen) {
-                dropdown.classList.add('open');
-                btn.setAttribute('aria-expanded', 'true');
-            } else {
-                dropdown.classList.remove('open');
-                btn.setAttribute('aria-expanded', 'false');
-            }
-        });
+        btn.removeEventListener('click', dropdownClickHandler);
+        btn.addEventListener('click', dropdownClickHandler);
     });
-    // Fechar ao clicar fora
-    document.addEventListener('click', function(e) {
-        document.querySelectorAll('.dropdown.open').forEach(dropdown => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('open');
-                const btn = dropdown.querySelector('.dropdown-toggle');
-                if (btn) btn.setAttribute('aria-expanded', 'false');
-            }
-        });
-    });
+    
+    // Remove event listener global existente
+    document.removeEventListener('click', dropdownOutsideClickHandler);
+    document.addEventListener('click', dropdownOutsideClickHandler);
 }
-document.addEventListener('DOMContentLoaded', enableDropdownClick);
-setTimeout(enableDropdownClick, 500); 
+
+// Handler para clique no dropdown
+function dropdownClickHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const dropdown = this.closest('.dropdown');
+    const isOpen = dropdown.classList.contains('open');
+    
+    // Fecha outros dropdowns abertos
+    document.querySelectorAll('.dropdown.open').forEach(d => {
+        if (d !== dropdown) {
+            d.classList.remove('open');
+            const btn = d.querySelector('.dropdown-toggle');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+    
+    // Toggle do dropdown atual
+    if (!isOpen) {
+        dropdown.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+    } else {
+        dropdown.classList.remove('open');
+        this.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Handler para clique fora do dropdown
+function dropdownOutsideClickHandler(e) {
+    document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+            const btn = dropdown.querySelector('.dropdown-toggle');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+} 
