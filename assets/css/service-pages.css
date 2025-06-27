@@ -1,0 +1,627 @@
+/* CSS para Páginas de Serviço - Landing Pages */
+
+/* Reset e Base */
+body {
+    padding-top: 80px;
+    font-family: 'Montserrat', sans-serif;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* Header - Mesmo estilo do index */
+.landing-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.landing-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.landing-header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* Botão hambúrguer para páginas de serviço */
+.landing-header .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+    z-index: 1001;
+}
+
+.landing-header .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #1e293b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.landing-header .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.landing-header .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.landing-header .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.landing-header nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.landing-header nav a {
+    color: #334155;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 0.2rem;
+    border-bottom: 2px solid transparent;
+    transition: border 0.2s, color 0.2s;
+}
+
+.landing-header nav a:hover, 
+.landing-header nav a.active {
+    color: #1e293b;
+    border-bottom: 2px solid #1e293b;
+}
+
+.landing-header .cta-nav {
+    background: #1e293b;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.landing-header .cta-nav:hover {
+    background: #334155;
+}
+
+/* Hero Section */
+.hero-landing {
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 6rem 0 6rem 0;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.hero-landing h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: #0f172a;
+}
+
+.hero-landing p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: #475569;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    background: #1e293b;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: 1px solid #1e293b;
+}
+
+.btn-hero-primary:hover {
+    background: #334155;
+    transform: translateY(-1px);
+}
+
+.btn-hero-secondary {
+    background: transparent;
+    color: #1e293b;
+    padding: 1rem 2rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-hero-secondary:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* Stats Section */
+.stats-section {
+    background: white;
+    padding: 4rem 0;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    padding: 2rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.stat-item p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Benefícios Section */
+.beneficios-landing {
+    background: #f8fafc;
+    padding: 6rem 0;
+}
+
+.beneficios-landing h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.beneficios-landing .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.beneficios-grid-landing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.beneficio-card-landing {
+    background: white;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    border: 1px solid #e2e8f0;
+}
+
+.beneficio-card-landing:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.beneficio-icon-landing {
+    width: 60px;
+    height: 60px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.beneficio-card-landing h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.beneficio-card-landing p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Como Funciona Section */
+.como-funciona-landing {
+    background: white;
+    padding: 6rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.como-funciona-landing h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.como-funciona-landing .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.timeline-landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.timeline-step-landing {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 300px;
+    position: relative;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.timeline-step-landing:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.timeline-number {
+    width: 50px;
+    height: 50px;
+    background: #1e293b;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 auto 1.5rem;
+}
+
+.timeline-step-landing h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.timeline-step-landing p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: #1e293b;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+    background: white;
+    color: #1e293b;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: 1px solid white;
+}
+
+.btn-cta-primary:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.btn-cta-secondary {
+    background: transparent;
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-cta-secondary:hover {
+    background: #334155;
+    border-color: #64748b;
+}
+
+/* Footer */
+.footer-landing {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-landing a {
+    color: #cbd5e1;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .landing-header .container { 
+        padding: 0 1rem; 
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    /* Mostrar botão hambúrguer */
+    .landing-header .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Esconder menu normal */
+    .landing-header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 1.5rem 2rem 1.5rem;
+        gap: 1rem;
+        box-shadow: -4px 0 12px rgba(30,41,59,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    /* Menu aberto */
+    .landing-header nav.active {
+        right: 0;
+    }
+    
+    .landing-header nav a {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 2px solid transparent;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    .landing-header nav a:last-child {
+        border-bottom: none;
+    }
+    
+    .landing-header nav a:hover, 
+    .landing-header nav a.active {
+        border-bottom: 2px solid #1e293b;
+    }
+    
+    .landing-header .cta-nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding: 0.8rem 1rem;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-landing h1 {
+        font-size: 2.25rem;
+    }
+    
+    .hero-landing p {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-landing {
+        flex-direction: column;
+    }
+    
+    .hero-cta, .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .beneficios-landing h2,
+    .como-funciona-landing h2,
+    .cta-section h2 {
+        font-size: 1.875rem;
+    }
+    
+    /* Manter estilos do menu hambúrguer para telas menores que 900px */
+    .landing-header .container {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    /* Mostrar botão hambúrguer */
+    .landing-header .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Esconder menu normal */
+    .landing-header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 1.5rem 2rem 1.5rem;
+        gap: 1rem;
+        box-shadow: -4px 0 12px rgba(30,41,59,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    /* Menu aberto */
+    .landing-header nav.active {
+        right: 0;
+    }
+    
+    .landing-header nav a {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 2px solid transparent;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    .landing-header nav a:last-child {
+        border-bottom: none;
+    }
+    
+    .landing-header nav a:hover, 
+    .landing-header nav a.active {
+        border-bottom: 2px solid #1e293b;
+    }
+    
+    .landing-header .cta-nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding: 0.8rem 1rem;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 600px) {
+    .landing-header .container {
+        padding: 0 1rem;
+    }
+    
+    .landing-header .logo {
+        font-size: 1.6rem;
+    }
+    
+    /* Ajustes específicos para telas muito pequenas */
+    .landing-header nav {
+        width: 280px;
+        padding: 80px 1rem 2rem 1rem;
+    }
+    
+    .landing-header nav a {
+        font-size: 0.95rem;
+        padding: 0.8rem 0;
+    }
+    
+    .landing-header .cta-nav {
+        font-size: 0.9rem;
+        padding: 0.7rem 0.8rem;
+    }
+} 

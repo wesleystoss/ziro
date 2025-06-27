@@ -4,253 +4,180 @@
     <!-- Componente Head será carregado dinamicamente -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziro Consultoria Digital</title>
-    <meta name="description" content="Consultoria digital completa: Loja virtual, Página de conversão, sites e atendimento online com Blip. Coloque sua empresa na internet e venda mais.">
+    <title>Atendimento Automatizado | Ziro Consultoria Digital</title>
+    <meta name="description" content="Automatize o atendimento da sua empresa com soluções digitais profissionais. Atendimento 24/7, redução de custos e aumento de vendas. Solicite um diagnóstico gratuito!">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- WebChat - DESABILITADO TEMPORARIAMENTE -->
     <!-- <script src="assets/js/webchat.js"></script> -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ziro Consultoria Digital",
+      "url": "https://ziro.digital",
+      "logo": "https://ziro.digital/assets/images/logo.png",
+      "description": "Automatize o atendimento da sua empresa com soluções digitais profissionais.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Brasil",
+        "addressCountry": "BR"
+      }
+    }
+    </script>
 </head>
 <body>
-    <!-- Placeholder para o componente Header -->
+    <!-- Header dinâmico -->
     <div data-component="header"></div>
-    
     <main>
-        <!-- Hero Impactante -->
-        <section class="ziro-hero ziro-hero-compact">
-            <div class="ziro-container">
-                <div class="ziro-hero-grid">
-                    <!-- Linha 1: Título -->
-                    <h1 class="ziro-hero-title">Transforme seu negócio com presença digital profissional</h1>
-                    
-                    <!-- Linha 2: Benefício -->
-                    <p class="ziro-hero-beneficio">Criamos Loja virtual, Página de conversão, sites institucionais e atendimento online que realmente vendem.</p>
-                    
-                    <!-- Linha 3: Estatísticas -->
-                    <div class="ziro-hero-stats">
-                        <div class="ziro-stat">
-                            <span class="ziro-stat-number" id="stat-dias" data-target="15">0</span>
-                            <span class="ziro-stat-label">dias para entrega</span>
-                        </div>
-                        <div class="ziro-stat">
-                            <span class="ziro-stat-number" id="stat-garantia" data-target="30">0</span>
-                            <span class="ziro-stat-label">dias de garantia</span>
-                        </div>
-                        <div class="ziro-stat">
-                            <span class="ziro-stat-number" id="stat-resultados" data-target="90">0</span>
-                            <span class="ziro-stat-label">dias para resultados</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Linha 4: Urgência -->
-                    <p class="ziro-hero-urgencia">Resultados em 15 dias • Sem compromisso</p>
-                    
-                    <!-- Linha 5: CTA -->
-                    <div class="ziro-hero-cta">
-                        <a href="#contato" class="ziro-btn-main">Quero vender mais online</a>
-                    </div>
-                    
-                    <!-- Linha 6: Garantia -->
-                    <p class="ziro-hero-garantia">Diagnóstico gratuito • Primeira consulta sem custo</p>
+        <!-- HERO PROFISSIONAL -->
+        <section class="hero">
+            <div class="container hero-flex">
+                <div class="hero-text">
+                    <h1>Automatize o Atendimento da Sua Empresa</h1>
+                    <p>Profissionalize o relacionamento com clientes, reduza custos e aumente vendas com soluções digitais sob medida.</p>
+                    <a href="#contato" class="btn-primary">Solicite um diagnóstico gratuito</a>
+                </div>
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Dashboard de atendimento digital" loading="lazy" />
                 </div>
             </div>
         </section>
-
-        <!-- Seção Combinada: Página de conversão + Diferenciais -->
-        <section class="ziro-servicos-diferenciais">
-            <div class="ziro-container">
-                <div class="ziro-servicos-diferenciais-grid">
-                    <!-- Coluna 1: Página de conversão -->
-                    <div class="ziro-servicos-col">
-                        <h2>O que fazemos</h2>
-                        <div class="ziro-servicos-grid">
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="#fbbf24"/>
-                                        <path d="M20 25c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z" fill="#1e293b"/>
-                                        <path d="M15 45c0-8.3 6.7-15 15-15s15 6.7 15 15" fill="#1e293b"/>
-                                    </svg>
-                                </div>
-                                <h3>Loja virtual</h3>
-                                <p>Lojas online completas e otimizadas para conversão. Integração com pagamentos, estoque e marketing digital.</p>
-                                <a href="servicos/loja-virtual" class="ziro-btn-card">Quero minha loja virtual</a>
-                            </div>
-                            
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="#2563eb"/>
-                                        <path d="M18 22h24v16H18z" fill="white"/>
-                                        <path d="M22 26h16v2H22z" fill="#2563eb"/>
-                                        <path d="M22 30h12v2H22z" fill="#2563eb"/>
-                                        <path d="M22 34h8v2H22z" fill="#2563eb"/>
-                                    </svg>
-                                </div>
-                                <h3>Página de conversão</h3>
-                                <p>Páginas de conversão que transformam visitantes em leads e clientes. Foco total em resultados.</p>
-                                <a href="servicos/landing-page" class="ziro-btn-card">Quero minha página de conversão</a>
-                            </div>
-                            
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="#10b981"/>
-                                        <path d="M15 20h30v20H15z" fill="white"/>
-                                        <path d="M20 25h20v2H20z" fill="#10b981"/>
-                                        <path d="M20 30h15v2H20z" fill="#10b981"/>
-                                        <path d="M20 35h10v2H20z" fill="#10b981"/>
-                                        <circle cx="25" cy="42" r="2" fill="#10b981"/>
-                                        <circle cx="35" cy="42" r="2" fill="#10b981"/>
-                                    </svg>
-                                </div>
-                                <h3>Sites Institucionais</h3>
-                                <p>Sites profissionais que transmitem credibilidade e convertem visitantes em oportunidades de negócio.</p>
-                                <a href="servicos/site-institucional" class="ziro-btn-card">Quero meu site institucional</a>
-                            </div>
-                            
-                            <div class="ziro-servico-card">
-                                <div class="ziro-servico-icon">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="#8b5cf6"/>
-                                        <path d="M20 25c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z" fill="white"/>
-                                        <path d="M15 40c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="white"/>
-                                        <path d="M35 20c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z" fill="white"/>
-                                        <path d="M30 35c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="white"/>
-                                    </svg>
-                                </div>
-                                <h3>Atendimento Online</h3>
-                                <p>Chatbots e atendimento omnichannel. Automatize conversas e escale o relacionamento digital.</p>
-                                <a href="servicos/atendimento-online" class="ziro-btn-card">Quero atendimento online</a>
-                            </div>
+        <!-- BENEFÍCIOS PROFISSIONAIS -->
+        <section class="beneficios" id="beneficios">
+            <div class="container">
+                <h2>Benefícios para sua empresa</h2>
+                <div class="beneficios-grid">
+                    <div class="beneficio-card">
+                        <span class="beneficio-icon">
+                            <!-- SVG minimalista: relógio -->
+                            <svg width="32" height="32" fill="none" stroke="#222" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </span>
+                        <h3>Atendimento 24/7</h3>
+                        <p>Seus clientes atendidos a qualquer hora, sem filas.</p>
+                    </div>
+                    <div class="beneficio-card">
+                        <span class="beneficio-icon">
+                            <!-- SVG minimalista: gráfico -->
+                            <svg width="32" height="32" fill="none" stroke="#222" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="8"/><rect x="9" y="8" width="4" height="12"/><rect x="15" y="4" width="4" height="16"/></svg>
+                        </span>
+                        <h3>Escalabilidade</h3>
+                        <p>Atenda múltiplos clientes simultaneamente, sem aumentar custos.</p>
+                    </div>
+                    <div class="beneficio-card">
+                        <span class="beneficio-icon">
+                            <!-- SVG minimalista: cadeado -->
+                            <svg width="32" height="32" fill="none" stroke="#222" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </span>
+                        <h3>Segurança</h3>
+                        <p>Dados protegidos e atendimento confiável para sua empresa.</p>
+                    </div>
+                    <div class="beneficio-card">
+                        <span class="beneficio-icon">
+                            <!-- SVG minimalista: integração -->
+                            <svg width="32" height="32" fill="none" stroke="#222" stroke-width="2" viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.59 10.51l6.83-3.02M8.59 13.49l6.83 3.02"/></svg>
+                        </span>
+                        <h3>Integração Omnichannel</h3>
+                        <p>WhatsApp, Instagram, Webchat e outros canais em um só lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- COMO FUNCIONA (TIMELINE) -->
+        <section class="como-funciona" id="como-funciona">
+            <div class="container">
+                <h2>Como funciona</h2>
+                <div class="timeline-modern">
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <!-- Ícone Diagnóstico -->
+                            <svg width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                        </div>
+                        <div>
+                            <h4>Diagnóstico</h4>
+                            <p>Análise do seu negócio e necessidades.</p>
                         </div>
                     </div>
-                    
-                    <!-- Coluna 2: Diferenciais -->
-                    <div class="ziro-diferenciais-col">
-                        <h2>Por que escolher a Ziro?</h2>
-                        <div class="ziro-diferenciais-grid">
-                            <div class="ziro-diferencial">
-                                <div class="ziro-diferencial-icon">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                                        <circle cx="25" cy="25" r="25" fill="#fbbf24"/>
-                                        <path d="M15 20l5 5 10-10" stroke="#1e293b" stroke-width="3" fill="none"/>
-                                    </svg>
-                                </div>
-                                <h3>Resultados rápidos</h3>
-                                <p>Projetos entregues em 15 dias com foco total em conversão e vendas.</p>
-                            </div>
-                            
-                            <div class="ziro-diferencial">
-                                <div class="ziro-diferencial-icon">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                                        <circle cx="25" cy="25" r="25" fill="#2563eb"/>
-                                        <path d="M20 15l5 5 10-10" stroke="white" stroke-width="3" fill="none"/>
-                                        <path d="M20 25l5 5 10-10" stroke="white" stroke-width="3" fill="none"/>
-                                        <path d="M20 35l5 5 10-10" stroke="white" stroke-width="3" fill="none"/>
-                                    </svg>
-                                </div>
-                                <h3>Foco em conversão</h3>
-                                <p>Cada elemento é pensado para gerar mais vendas e leads qualificados.</p>
-                            </div>
-                            
-                            <div class="ziro-diferencial">
-                                <div class="ziro-diferencial-icon">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                                        <circle cx="25" cy="25" r="25" fill="#10b981"/>
-                                        <path d="M15 20h20v2H15z" fill="white"/>
-                                        <path d="M15 25h15v2H15z" fill="white"/>
-                                        <path d="M15 30h10v2H15z" fill="white"/>
-                                        <path d="M15 35h5v2H15z" fill="white"/>
-                                    </svg>
-                                </div>
-                                <h3>Dados e métricas</h3>
-                                <p>Acompanhamento completo de resultados com relatórios detalhados.</p>
-                            </div>
-                            
-                            <div class="ziro-diferencial">
-                                <div class="ziro-diferencial-icon">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                                        <circle cx="25" cy="25" r="25" fill="#8b5cf6"/>
-                                        <path d="M20 20c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z" fill="white"/>
-                                        <path d="M15 35c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="white"/>
-                                    </svg>
-                                </div>
-                                <h3>Suporte contínuo</h3>
-                                <p>Não abandonamos você após a entrega. Suporte técnico e consultoria contínua.</p>
-                            </div>
+                    <div class="timeline-divider"></div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <!-- Ícone Implementação -->
+                            <svg width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="12" width="18" height="8" rx="2"/><path d="M7 12V8a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <div>
+                            <h4>Implementação</h4>
+                            <p>Configuração e integração das soluções digitais.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-divider"></div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <!-- Ícone Resultados -->
+                            <svg width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <div>
+                            <h4>Resultados</h4>
+                            <p>Acompanhamento e evolução contínua do atendimento.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Resultados -->
-        <section class="ziro-resultados ziro-resultados-compact">
-            <div class="ziro-container">
-                <h2>O que você vai conquistar</h2>
-                <div class="ziro-resultados-grid">
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#fbbf24"/>
-                                <path d="M12 18l4 4 8-8" stroke="#1e293b" stroke-width="2" fill="none"/>
-                                <path d="M12 22l4 4 8-8" stroke="#1e293b" stroke-width="2" fill="none"/>
-                                <path d="M12 26l4 4 8-8" stroke="#1e293b" stroke-width="2" fill="none"/>
-                            </svg>
-                        </div>
-                        <span class="ziro-resultado-numero" id="result-vendas" data-target="300">0</span>
-                        <p>Aumento em vendas online</p>
+        <!-- SERVIÇOS -->
+        <section class="servicos">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="servicos-grid">
+                    <div class="servico-card destaque">
+                        <h3>Atendimento Automatizado</h3>
+                        <p>Chatbots, integração omnichannel e automação de processos.</p>
                     </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#fbbf24"/>
-                                <path d="M14 16h12v2H14z" fill="#1e293b"/>
-                                <path d="M14 20h10v2H14z" fill="#1e293b"/>
-                                <path d="M14 24h8v2H14z" fill="#1e293b"/>
-                            </svg>
-                        </div>
-                        <span class="ziro-resultado-numero" id="result-leads" data-target="500">0</span>
-                        <p>Mais leads qualificados</p>
+                    <div class="servico-card">
+                        <h3>Loja Virtual</h3>
+                        <p>Venda online com plataforma segura e escalável.</p>
                     </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#fbbf24"/>
-                                <path d="M14 14c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.7-6-6z" fill="#1e293b"/>
-                                <path d="M10 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="#1e293b"/>
-                            </svg>
-                        </div>
-                        <span class="ziro-resultado-numero" id="result-reducao" data-target="85">0</span>
-                        <p>Redução no tempo de atendimento</p>
+                    <div class="servico-card">
+                        <h3>Landing Page</h3>
+                        <p>Captação de leads e conversão otimizada.</p>
                     </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <circle cx="20" cy="20" r="20" fill="#fbbf24"/>
-                                <path d="M12 14c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z" fill="#1e293b"/>
-                                <path d="M8 26c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="#1e293b"/>
-                                <path d="M20 14c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z" fill="#1e293b"/>
-                                <path d="M16 26c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="#1e293b"/>
-                            </svg>
-                        </div>
-                        <span class="ziro-resultado-numero" id="result-atendimento" data-target="24">0</span>
-                        <p>Atendimento automatizado</p>
+                    <div class="servico-card">
+                        <h3>Site Institucional</h3>
+                        <p>Presença digital profissional e confiável.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>Em quanto tempo meu atendimento automatizado fica pronto?</summary>
+                        <p>Em até 15 dias após o início do projeto.</p>
+                    </details>
+                    <details>
+                        <summary>Quais canais posso integrar?</summary>
+                        <p>WhatsApp, Instagram, Messenger, Webchat, entre outros.</p>
+                    </details>
+                    <details>
+                        <summary>Preciso de equipe técnica para operar?</summary>
+                        <p>Não! Nossa solução é simples, intuitiva e com suporte completo.</p>
+                    </details>
+                    <details>
+                        <summary>Posso testar antes de contratar?</summary>
+                        <p>Sim, oferecemos diagnóstico gratuito e demonstração sem compromisso.</p>
+                    </details>
                 </div>
             </div>
         </section>
     </main>
-    
-    <!-- Placeholder para o componente Footer -->
+    <!-- Footer dinâmico -->
     <div data-component="footer"></div>
-    
-    <!-- Scripts -->
-    <script src="assets/js/config.js"></script>
+    <!-- JS dinâmico -->
+    <div data-component="js"></div>
     <script src="assets/js/components.js"></script>
     <script src="assets/js/ziro.js"></script>
-    <script src="assets/js/pages/home.js"></script>
 </body>
 </html> 
