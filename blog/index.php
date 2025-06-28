@@ -16,13 +16,13 @@ $stmt = $pdo->prepare("
         a.is_featured,
         c.name as category_name,
         c.slug as category_slug,
-        GROUP_CONCAT(t.name) as tags
+        GROUP_CONCAT(t.name SEPARATOR ',') as tags
     FROM articles a
     LEFT JOIN categories c ON a.category_id = c.id
     LEFT JOIN article_tags at ON a.id = at.article_id
     LEFT JOIN tags t ON at.tag_id = t.id
     WHERE a.status = 'published'
-    GROUP BY a.id
+    GROUP BY a.id, a.title, a.excerpt, a.slug, a.published_at, a.is_featured, c.name, c.slug
     ORDER BY a.is_featured DESC, a.published_at DESC 
     LIMIT :limit OFFSET :offset
 ");
@@ -30,6 +30,36 @@ $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
 $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $articles = $stmt->fetchAll();
+
+// Debug: verificar se há erro
+if (empty($articles)) {
+    echo "<p>DEBUG: Nenhum artigo encontrado. Verificando consulta simples...</p>";
+    $stmtSimple = $pdo->prepare("SELECT COUNT(*) as total FROM articles WHERE status = 'published'");
+    $stmtSimple->execute();
+    $total = $stmtSimple->fetch()['total'];
+    echo "<p>DEBUG: Total de artigos publicados: $total</p>";
+    
+    // Tentar consulta mais simples
+    echo "<p>DEBUG: Tentando consulta simples...</p>";
+    $stmtSimple2 = $pdo->prepare("
+        SELECT 
+            a.id, 
+            a.title, 
+            a.excerpt, 
+            a.slug, 
+            a.published_at,
+            a.is_featured,
+            c.name as category_name
+        FROM articles a
+        LEFT JOIN categories c ON a.category_id = c.id
+        WHERE a.status = 'published'
+        ORDER BY a.published_at DESC 
+        LIMIT 6
+    ");
+    $stmtSimple2->execute();
+    $articles = $stmtSimple2->fetchAll();
+    echo "<p>DEBUG: Artigos com consulta simples: " . count($articles) . "</p>";
+}
 
 // Buscar total de artigos para paginação
 $stmtCount = $pdo->prepare("SELECT COUNT(*) as total FROM articles WHERE status = 'published'");
