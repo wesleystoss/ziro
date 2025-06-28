@@ -57,9 +57,25 @@ const ZIRO_CONFIG = {
 
     // Configurações de analytics
     analytics: {
-        googleAnalyticsId: '', // Adicione seu GA ID aqui
+        googleAnalyticsId: 'G-QGCLW60H6F',
         facebookPixelId: '',   // Adicione seu FB Pixel ID aqui
-        hotjarId: ''          // Adicione seu Hotjar ID aqui
+        hotjarId: '',          // Adicione seu Hotjar ID aqui
+        
+        // Páginas que devem excluir analytics
+        excludePages: [
+            '/servicos/salesforce.html',
+            '/servicos/zendesk.html',
+            '/test-auto-webchat.html',
+            '/test-simple-webchat.html',
+            '/test-simple.html',
+            '/test-webchat.html'
+        ],
+        
+        // Função para verificar se deve carregar analytics
+        shouldLoadAnalytics: function() {
+            const currentPath = window.location.pathname;
+            return !this.excludePages.some(page => currentPath.includes(page.replace('.html', '')));
+        }
     },
 
     // Configurações de performance
