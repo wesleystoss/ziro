@@ -31,11 +31,23 @@ body {
 }
 
 .landing-header .logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #1e293b;
     text-decoration: none;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.landing-header .logo .logo-image {
+    height: 50px;
+    width: auto;
+    transition: transform 0.2s;
+}
+
+.landing-header .logo:hover .logo-image {
+    transform: scale(1.05);
 }
 
 /* Botão hambúrguer para páginas de serviço */
@@ -607,6 +619,11 @@ body {
     
     .landing-header .logo {
         font-size: 1.6rem;
+    }
+    
+    .landing-header .logo .logo-image {
+        height: 28px;
+        max-width: 80px;
     }
     
     /* Ajustes específicos para telas muito pequenas */
