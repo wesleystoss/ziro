@@ -292,6 +292,7 @@ $stats = $stmtStats->fetch();
                 <!-- Todos os Artigos -->
                 <div class="blog-all-posts">
                     <h3>Todos os Artigos</h3>
+                    <!-- DEBUG: ARQUIVO ATUALIZADO EM <?= date('H:i:s') ?> -->
                     <div class="blog-posts-grid" id="blog-posts-container">
                         <?php 
                         echo "<p>DEBUG: Iniciando loop com " . count($articles) . " artigos</p>";
