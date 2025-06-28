@@ -1,3 +1,17 @@
+<?php require_once __DIR__ . '/connection.php'; ?>
+<?php
+// Exemplo de consulta segura com paginação
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$perPage = 6;
+$offset = ($page - 1) * $perPage;
+
+// Busca artigos publicados com prepared statement
+$stmt = $pdo->prepare("SELECT * FROM articles WHERE status = 'published' ORDER BY published_at DESC LIMIT :limit OFFSET :offset");
+$stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+$articles = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

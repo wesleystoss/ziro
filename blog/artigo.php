@@ -1,3 +1,29 @@
+<?php require_once __DIR__ . '/connection.php'; ?>
+<?php
+// Busca segura do artigo por slug ou id
+$slug = isset($_GET['slug']) ? $_GET['slug'] : null;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+
+if ($slug) {
+    $stmt = $pdo->prepare("SELECT * FROM articles WHERE slug = :slug AND status = 'published' LIMIT 1");
+    $stmt->bindValue(':slug', $slug, PDO::PARAM_STR);
+} elseif ($id) {
+    $stmt = $pdo->prepare("SELECT * FROM articles WHERE id = :id AND status = 'published' LIMIT 1");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+} else {
+    http_response_code(404);
+    echo '<h2>Artigo não encontrado.</h2>';
+    exit;
+}
+$stmt->execute();
+$article = $stmt->fetch();
+if (!$article) {
+    http_response_code(404);
+    echo '<h2>Artigo não encontrado.</h2>';
+    exit;
+}
+// Use htmlspecialchars para escapar saída!
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
