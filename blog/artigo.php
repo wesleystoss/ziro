@@ -40,6 +40,19 @@ if (!$article) {
 $stmtView = $pdo->prepare("UPDATE articles SET view_count = view_count + 1 WHERE id = :id");
 $stmtView->bindValue(':id', $id, PDO::PARAM_INT);
 $stmtView->execute();
+
+// Buscar artigos relacionados (mesma categoria, exceto o atual)
+$relatedStmt = $pdo->prepare("
+    SELECT id, title, excerpt, published_at
+    FROM articles
+    WHERE status = 'published' AND category_id = :cat_id AND id != :id
+    ORDER BY published_at DESC
+    LIMIT 3
+");
+$relatedStmt->bindValue(':cat_id', $article['category_id'], PDO::PARAM_INT);
+$relatedStmt->bindValue(':id', $article['id'], PDO::PARAM_INT);
+$relatedStmt->execute();
+$relatedArticles = $relatedStmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -174,7 +187,17 @@ $stmtView->execute();
                 <section class="blog-related" aria-labelledby="blog-related-title">
                     <h2 id="blog-related-title">Artigos relacionados</h2>
                     <div class="blog-related-grid" id="related-posts">
-                        <!-- Posts relacionados serÃ£o carregados dinamicamente -->
+                        <?php if (!empty($relatedArticles)): ?>
+                            <?php foreach ($relatedArticles as $rel): ?>
+                                <article class="related-article">
+                                    <h3><a href="artigo.php?id=<?= $rel['id'] ?>"><?= htmlspecialchars($rel['title']) ?></a></h3>
+                                    <p><?= htmlspecialchars($rel['excerpt']) ?></p>
+                                    <span class="related-date"><?= date('d/m/Y', strtotime($rel['published_at'])) ?></span>
+                                </article>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p>Nenhum artigo relacionado encontrado.</p>
+                        <?php endif; ?>
                     </div>
                 </section>
             </div>
