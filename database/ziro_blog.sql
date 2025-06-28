@@ -6,12 +6,8 @@
 -- Data: 2024
 -- ========================================
 
--- Criar banco de dados
-CREATE DATABASE IF NOT EXISTS ziro_blog
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
-
-USE ziro_blog;
+-- Usar banco de dados existente
+USE u474727782_ziro;
 
 -- ========================================
 -- TABELA: USUÁRIOS/ADMINISTRADORES
@@ -415,15 +411,6 @@ BEGIN
     CALL UpdateTagUsageCount();
 END //
 DELIMITER ;
-
--- ========================================
--- CRIAR USUÁRIO DO BANCO
--- ========================================
-
--- Criar usuário específico para o blog (execute como root)
--- CREATE USER 'ziro_user'@'localhost' IDENTIFIED BY 'sua_senha_segura_aqui';
--- GRANT ALL PRIVILEGES ON ziro_blog.* TO 'ziro_user'@'localhost';
--- FLUSH PRIVILEGES;
 
 -- ========================================
 -- COMENTÁRIOS FINAIS

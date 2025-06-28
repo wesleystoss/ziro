@@ -1,12 +1,11 @@
 <?php require_once __DIR__ . '/connection.php'; ?>
 <?php
-// Exemplo de consulta segura com paginação
+// Consulta segura com paginação
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $perPage = 6;
 $offset = ($page - 1) * $perPage;
 
-// Busca artigos publicados com prepared statement
-$stmt = $pdo->prepare("SELECT * FROM articles WHERE status = 'published' ORDER BY published_at DESC LIMIT :limit OFFSET :offset");
+$stmt = $pdo->prepare("SELECT id, title, excerpt, slug, published_at FROM articles WHERE status = 'published' ORDER BY published_at DESC LIMIT :limit OFFSET :offset");
 $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
 $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
@@ -196,7 +195,7 @@ $articles = $stmt->fetchAll();
                                     <span class="blog-post-tag">Conversão</span>
                                     <span class="blog-post-tag">Estratégia</span>
                                 </div>
-                                <a href="artigo.html?id=1" class="btn-primary">Ler artigo completo</a>
+                                <a href="artigo.php?id=1" class="btn-primary">Ler artigo completo</a>
                             </div>
                         </article>
                     </div>
@@ -206,221 +205,45 @@ $articles = $stmt->fetchAll();
                 <div class="blog-all-posts">
                     <h3>Todos os Artigos</h3>
                     <div class="blog-posts-grid" id="blog-posts-container">
-                        <!-- Artigo 1 -->
-                        <article class="blog-post-card" data-category="marketing vendas">
-                            <div class="blog-post-card-image">
-                                <div class="post-card-visual">
-                                    <div class="post-card-preview">
-                                        <div class="post-card-preview-header">
-                                            <div class="post-card-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                        <?php foreach ($articles as $art): ?>
+                            <article class="blog-post-card" data-category="<?= htmlspecialchars($art['category']) ?>">
+                                <div class="blog-post-card-image">
+                                    <div class="post-card-visual">
+                                        <div class="post-card-preview">
+                                            <div class="post-card-preview-header">
+                                                <div class="post-card-preview-dots">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="post-card-preview-content">
-                                            <div class="post-card-preview-text">
-                                                <div class="post-card-text-line"></div>
-                                                <div class="post-card-text-line"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-post-card-content">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-category">Marketing Digital</span>
-                                    <span class="blog-post-date">12 de Janeiro, 2024</span>
-                                </div>
-                                <h3>5 erros que matam suas vendas online</h3>
-                                <p>Descubra os principais erros que impedem sua empresa de vender mais na internet e como evitá-los.</p>
-                                <div class="blog-post-card-tags">
-                                    <span class="blog-post-tag">Vendas</span>
-                                    <span class="blog-post-tag">Erros</span>
-                                </div>
-                                <a href="artigo.html?id=2" class="blog-post-card-link">Ler mais</a>
-                            </div>
-                        </article>
-
-                        <!-- Artigo 2 -->
-                        <article class="blog-post-card" data-category="vendas tecnologia">
-                            <div class="blog-post-card-image">
-                                <div class="post-card-visual">
-                                    <div class="post-card-preview">
-                                        <div class="post-card-preview-header">
-                                            <div class="post-card-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                        <div class="post-card-preview-content">
-                                            <div class="post-card-preview-text">
-                                                <div class="post-card-text-line"></div>
-                                                <div class="post-card-text-line"></div>
+                                            <div class="post-card-preview-content">
+                                                <div class="post-card-preview-text">
+                                                    <div class="post-card-text-line"></div>
+                                                    <div class="post-card-text-line"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="blog-post-card-content">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-category">Vendas Online</span>
-                                    <span class="blog-post-date">10 de Janeiro, 2024</span>
-                                </div>
-                                <h3>Como criar uma loja virtual que vende</h3>
-                                <p>Guia completo para criar uma loja online profissional que realmente converte visitantes em clientes.</p>
-                                <div class="blog-post-card-tags">
-                                    <span class="blog-post-tag">E-commerce</span>
-                                    <span class="blog-post-tag">Conversão</span>
-                                </div>
-                                <a href="artigo.html?id=3" class="blog-post-card-link">Ler mais</a>
-                            </div>
-                        </article>
-
-                        <!-- Artigo 3 -->
-                        <article class="blog-post-card" data-category="atendimento tecnologia">
-                            <div class="blog-post-card-image">
-                                <div class="post-card-visual">
-                                    <div class="post-card-preview">
-                                        <div class="post-card-preview-header">
-                                            <div class="post-card-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                        <div class="post-card-preview-content">
-                                            <div class="post-card-preview-text">
-                                                <div class="post-card-text-line"></div>
-                                                <div class="post-card-text-line"></div>
-                                            </div>
-                                        </div>
+                                <div class="blog-post-card-content">
+                                    <div class="blog-post-meta">
+                                        <span class="blog-post-category"><?= htmlspecialchars($art['category']) ?></span>
+                                        <span class="blog-post-date"><?= htmlspecialchars($art['published_at']) ?></span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="blog-post-card-content">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-category">Atendimento</span>
-                                    <span class="blog-post-date">8 de Janeiro, 2024</span>
-                                </div>
-                                <h3>Atendimento online: O futuro das vendas</h3>
-                                <p>Como chatbots e automação podem revolucionar o atendimento da sua empresa e aumentar as vendas.</p>
-                                <div class="blog-post-card-tags">
-                                    <span class="blog-post-tag">Chatbot</span>
-                                    <span class="blog-post-tag">Automação</span>
-                                </div>
-                                <a href="artigo.html?id=4" class="blog-post-card-link">Ler mais</a>
-                            </div>
-                        </article>
-
-                        <!-- Artigo 4 -->
-                        <article class="blog-post-card" data-category="marketing tecnologia">
-                            <div class="blog-post-card-image">
-                                <div class="post-card-visual">
-                                    <div class="post-card-preview">
-                                        <div class="post-card-preview-header">
-                                            <div class="post-card-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                        <div class="post-card-preview-content">
-                                            <div class="post-card-preview-text">
-                                                <div class="post-card-text-line"></div>
-                                                <div class="post-card-text-line"></div>
-                                            </div>
-                                        </div>
+                                    <h3><?= htmlspecialchars($art['title']) ?></h3>
+                                    <p><?= htmlspecialchars($art['excerpt']) ?></p>
+                                    <div class="blog-post-card-tags">
+                                        <?php
+                                        $tags = explode(',', htmlspecialchars($art['tags']));
+                                        foreach ($tags as $tag): ?>
+                                            <span class="blog-post-tag"><?= htmlspecialchars($tag) ?></span>
+                                        <?php endforeach; ?>
                                     </div>
+                                    <a href="artigo.php?id=<?= $art['id'] ?>" class="blog-post-card-link">Ler mais</a>
                                 </div>
-                            </div>
-                            <div class="blog-post-card-content">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-category">Marketing Digital</span>
-                                    <span class="blog-post-date">5 de Janeiro, 2024</span>
-                                </div>
-                                <h3>SEO para pequenas empresas: Guia completo</h3>
-                                <p>Aprenda as estratégias de SEO que realmente funcionam para pequenas empresas e como implementá-las.</p>
-                                <div class="blog-post-card-tags">
-                                    <span class="blog-post-tag">SEO</span>
-                                    <span class="blog-post-tag">Google</span>
-                                </div>
-                                <a href="artigo.html?id=5" class="blog-post-card-link">Ler mais</a>
-                            </div>
-                        </article>
-
-                        <!-- Artigo 5 -->
-                        <article class="blog-post-card" data-category="vendas atendimento">
-                            <div class="blog-post-card-image">
-                                <div class="post-card-visual">
-                                    <div class="post-card-preview">
-                                        <div class="post-card-preview-header">
-                                            <div class="post-card-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                        <div class="post-card-preview-content">
-                                            <div class="post-card-preview-text">
-                                                <div class="post-card-text-line"></div>
-                                                <div class="post-card-text-line"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-post-card-content">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-category">Vendas Online</span>
-                                    <span class="blog-post-date">3 de Janeiro, 2024</span>
-                                </div>
-                                <h3>Psicologia das vendas: Como persuadir online</h3>
-                                <p>Descubra os princípios psicológicos que fazem as pessoas comprarem e como aplicá-los no seu negócio digital.</p>
-                                <div class="blog-post-card-tags">
-                                    <span class="blog-post-tag">Psicologia</span>
-                                    <span class="blog-post-tag">Persuasão</span>
-                                </div>
-                                <a href="artigo.html?id=6" class="blog-post-card-link">Ler mais</a>
-                            </div>
-                        </article>
-
-                        <!-- Artigo 6 -->
-                        <article class="blog-post-card" data-category="tecnologia marketing">
-                            <div class="blog-post-card-image">
-                                <div class="post-card-visual">
-                                    <div class="post-card-preview">
-                                        <div class="post-card-preview-header">
-                                            <div class="post-card-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                        <div class="post-card-preview-content">
-                                            <div class="post-card-preview-text">
-                                                <div class="post-card-text-line"></div>
-                                                <div class="post-card-text-line"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-post-card-content">
-                                <div class="blog-post-meta">
-                                    <span class="blog-post-category">Tecnologia</span>
-                                    <span class="blog-post-date">1 de Janeiro, 2024</span>
-                                </div>
-                                <h3>Inteligência Artificial no marketing digital</h3>
-                                <p>Como a IA está revolucionando o marketing digital e como sua empresa pode aproveitar essas tecnologias.</p>
-                                <div class="blog-post-card-tags">
-                                    <span class="blog-post-tag">IA</span>
-                                    <span class="blog-post-tag">Inovação</span>
-                                </div>
-                                <a href="artigo.html?id=7" class="blog-post-card-link">Ler mais</a>
-                            </div>
-                        </article>
+                            </article>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 

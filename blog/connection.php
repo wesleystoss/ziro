@@ -24,8 +24,8 @@ if (!function_exists('env')) {
 }
 
 $host = env('DB_HOST', 'localhost');
-$db   = env('DB_NAME', 'ziro_blog');
-$user = env('DB_USER', 'ziro_user');
+$db   = env('DB_NAME', 'u474727782_ziro');
+$user = env('DB_USER', 'u474727782_root');
 $pass = env('DB_PASSWORD', '');
 $charset = env('DB_CHARSET', 'utf8mb4');
 
