@@ -6,15 +6,40 @@ if (!$id) {
     echo '<h2>Artigo não encontrado.</h2>';
     exit;
 }
-$stmt = $pdo->prepare("SELECT * FROM articles WHERE id = :id AND status = 'published' LIMIT 1");
+
+// Consulta com JOINs para buscar informações relacionadas
+$stmt = $pdo->prepare("
+    SELECT 
+        a.*,
+        u.full_name as author_name,
+        u.avatar_url as author_avatar,
+        c.name as category_name,
+        c.slug as category_slug,
+        c.color as category_color,
+        GROUP_CONCAT(t.name) as tags
+    FROM articles a
+    LEFT JOIN users u ON a.author_id = u.id
+    LEFT JOIN categories c ON a.category_id = c.id
+    LEFT JOIN article_tags at ON a.id = at.article_id
+    LEFT JOIN tags t ON at.tag_id = t.id
+    WHERE a.id = :id AND a.status = 'published'
+    GROUP BY a.id
+    LIMIT 1
+");
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $article = $stmt->fetch();
+
 if (!$article) {
     http_response_code(404);
     echo '<h2>Artigo não encontrado.</h2>';
     exit;
 }
+
+// Incrementar visualizações
+$stmtView = $pdo->prepare("UPDATE articles SET view_count = view_count + 1 WHERE id = :id");
+$stmtView->bindValue(':id', $id, PDO::PARAM_INT);
+$stmtView->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -106,21 +131,20 @@ if (!$article) {
                     <!-- Cabeçalho do Post -->
                     <header class="blog-post-header">
                         <div class="blog-post-meta">
-                            <span class="blog-post-category" id="post-category">Marketing Digital</span>
-                            <span class="blog-post-date" id="post-date">15 de Janeiro, 2024</span>
-                            <span class="blog-post-read-time" id="post-read-time">5 min de leitura</span>
+                            <span class="blog-post-category" id="post-category"><?= htmlspecialchars($article['category_name'] ?? 'Sem categoria') ?></span>
+                            <span class="blog-post-date" id="post-date"><?= date('d F, Y', strtotime($article['published_at'])) ?></span>
+                            <span class="blog-post-read-time" id="post-read-time"><?= $article['read_time'] ?> min de leitura</span>
                         </div>
                         <h1 id="blog-post-title" class="blog-post-title"><?= htmlspecialchars($article['title']) ?></h1>
                         <p class="blog-post-excerpt" id="post-excerpt">
-                            Descubra estratégias comprovadas que podem transformar seu negócio digital e gerar resultados reais em apenas um mês. 
-                            Baseado em casos reais de clientes da Ziro.
+                            <?= htmlspecialchars($article['excerpt']) ?>
                         </p>
                         <div class="blog-post-author">
                             <div class="blog-post-author-avatar">
-                                <img src="../assets/images/ziro-logo.png" alt="Ziro Consultoria Digital" width="50" height="50">
+                                <img src="<?= htmlspecialchars($article['author_avatar'] ?: '../assets/images/ziro-logo.png') ?>" alt="<?= htmlspecialchars($article['author_name']) ?>" width="50" height="50">
                             </div>
                             <div class="blog-post-author-info">
-                                <strong>Equipe Ziro</strong>
+                                <strong><?= htmlspecialchars($article['author_name']) ?></strong>
                                 <span>Consultoria Digital</span>
                             </div>
                         </div>
@@ -128,138 +152,21 @@ if (!$article) {
 
                     <!-- Conteúdo do Post -->
                     <div class="blog-post-body" id="post-content">
-                        <p class="blog-post-intro">
-                            Se você é dono de uma pequena empresa e está lutando para vender online, este artigo é para você. 
-                            Vamos compartilhar estratégias que já ajudaram nossos clientes a aumentar suas vendas em até 300% em apenas 30 dias.
-                        </p>
-
-                        <h2>Por que sua empresa não está vendendo online?</h2>
-                        <p>
-                            Antes de falarmos sobre soluções, precisamos entender os problemas mais comuns que impedem 
-                            pequenas empresas de vender online:
-                        </p>
-
-                        <div class="blog-post-highlight">
-                            <h3>Principais problemas identificados:</h3>
-                            <ul>
-                                <li><strong>Falta de presença digital profissional:</strong> Sites mal feitos afastam clientes</li>
-                                <li><strong>Ausência de estratégia de conversão:</strong> Muitos visitantes, poucas vendas</li>
-                                <li><strong>Falta de automação:</strong> Processos manuais limitam o crescimento</li>
-                                <li><strong>Inexistência de dados:</strong> Decisões baseadas em "achismo"</li>
-                            </ul>
-                        </div>
-
-                        <h2>Estratégia 1: Otimize sua página de conversão</h2>
-                        <p>
-                            A primeira coisa que você precisa fazer é criar uma página de conversão profissional. 
-                            Não estamos falando de um site institucional comum, mas sim de uma página focada em converter visitantes em clientes.
-                        </p>
-
-                        <div class="blog-post-tip">
-                            <div class="blog-post-tip-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M9 12l2 2 4-4"/>
-                                </svg>
-                            </div>
-                            <div class="blog-post-tip-content">
-                                <strong>Dica da Ziro:</strong> Uma página de conversão bem feita pode aumentar suas vendas em até 200%. 
-                                O segredo está em focar em um único objetivo e eliminar distrações.
-                            </div>
-                        </div>
-
-                        <h3>Elementos essenciais de uma página de conversão:</h3>
-                        <ul>
-                            <li><strong>Título impactante:</strong> Que comunique claramente o benefício principal</li>
-                            <li><strong>Problema identificado:</strong> Mostre que você entende a dor do cliente</li>
-                            <li><strong>Solução apresentada:</strong> Como seu produto/serviço resolve o problema</li>
-                            <li><strong>Prova social:</strong> Depoimentos e casos de sucesso</li>
-                            <li><strong>Chamada para ação clara:</strong> Botão de compra/contato bem posicionado</li>
-                        </ul>
-
-                        <h2>Estratégia 2: Automatize seu atendimento</h2>
-                        <p>
-                            O atendimento online é fundamental para converter visitantes em clientes. 
-                            Com um chatbot profissional, você pode:
-                        </p>
-
-                        <div class="blog-post-stats">
-                            <div class="blog-post-stat">
-                                <span class="blog-post-stat-number">24/7</span>
-                                <span class="blog-post-stat-label">Atendimento disponível</span>
-                            </div>
-                            <div class="blog-post-stat">
-                                <span class="blog-post-stat-number">80%</span>
-                                <span class="blog-post-stat-label">Mais conversões</span>
-                            </div>
-                            <div class="blog-post-stat">
-                                <span class="blog-post-stat-number">50%</span>
-                                <span class="blog-post-stat-label">Redução de custos</span>
-                            </div>
-                        </div>
-
-                        <h2>Estratégia 3: Use dados para tomar decisões</h2>
-                        <p>
-                            Implementar analytics e acompanhar métricas é essencial para otimizar seus resultados. 
-                            Você precisa saber:
-                        </p>
-
-                        <ul>
-                            <li>De onde vêm seus visitantes</li>
-                            <li>Onde eles abandonam seu site</li>
-                            <li>Quais páginas convertem melhor</li>
-                            <li>Qual o comportamento dos seus clientes</li>
-                        </ul>
-
-                        <h2>Resultados reais de nossos clientes</h2>
-                        <p>
-                            Veja alguns casos de sucesso de clientes que implementaram essas estratégias:
-                        </p>
-
-                        <div class="blog-post-case">
-                            <h3>Cliente: Loja de Roupas Online</h3>
-                            <div class="blog-post-case-results">
-                                <div class="blog-post-case-result">
-                                    <span class="blog-post-case-number">+250%</span>
-                                    <span class="blog-post-case-label">Aumento nas vendas</span>
-                                </div>
-                                <div class="blog-post-case-result">
-                                    <span class="blog-post-case-number">15 dias</span>
-                                    <span class="blog-post-case-label">Para implementação</span>
-                                </div>
-                            </div>
-                            <p>
-                                "Implementamos uma página de conversão focada e um chatbot para atendimento. 
-                                Em 30 dias, nossas vendas aumentaram 250% e o tempo de resposta aos clientes caiu de 2 horas para 30 segundos."
-                            </p>
-                        </div>
-
-                        <h2>Próximos passos</h2>
-                        <p>
-                            Agora que você conhece as estratégias, é hora de implementá-las. 
-                            A Ziro pode ajudar você a:
-                        </p>
-
-                        <div class="blog-post-cta">
-                            <h3>Quer implementar essas estratégias na sua empresa?</h3>
-                            <p>Solicite um diagnóstico gratuito e veja como podemos transformar seu negócio digital.</p>
-                            <div class="blog-post-cta-buttons">
-                                <a href="https://wa.me/6199241137?text=Ol%C3%A1%2C+li+o+artigo+sobre+vendas+online+e+gostaria+de+uma+consultoria" target="_blank" class="btn-primary">
-                                    Falar com especialista
-                                </a>
-                                <a href="tel:+6199241137" class="btn-secondary">
-                                    Ligar agora
-                                </a>
-                            </div>
-                        </div>
-
+                        <?= nl2br(htmlspecialchars($article['content'])) ?>
+                        
                         <!-- Tags do Post -->
+                        <?php if (!empty($article['tags'])): ?>
                         <div class="blog-post-tags" id="post-tags">
-                            <span class="blog-post-tag">Marketing Digital</span>
-                            <span class="blog-post-tag">Vendas Online</span>
-                            <span class="blog-post-tag">Conversão</span>
-                            <span class="blog-post-tag">Pequenas Empresas</span>
+                            <?php
+                            $tags = explode(',', $article['tags']);
+                            foreach ($tags as $tag): 
+                                $tag = trim($tag);
+                                if (!empty($tag)): ?>
+                                    <span class="blog-post-tag"><?= htmlspecialchars($tag) ?></span>
+                                <?php endif;
+                            endforeach; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </article>
 

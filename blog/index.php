@@ -1,15 +1,53 @@
 <?php require_once __DIR__ . '/connection.php'; ?>
 <?php
-// Consulta segura com paginação
+// Consulta segura com paginação e JOINs para buscar informações relacionadas
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $perPage = 6;
 $offset = ($page - 1) * $perPage;
 
-$stmt = $pdo->prepare("SELECT id, title, excerpt, slug, published_at FROM articles WHERE status = 'published' ORDER BY published_at DESC LIMIT :limit OFFSET :offset");
+// Consulta principal com JOINs para buscar categoria e tags
+$stmt = $pdo->prepare("
+    SELECT 
+        a.id, 
+        a.title, 
+        a.excerpt, 
+        a.slug, 
+        a.published_at,
+        a.is_featured,
+        c.name as category_name,
+        c.slug as category_slug,
+        GROUP_CONCAT(t.name) as tags
+    FROM articles a
+    LEFT JOIN categories c ON a.category_id = c.id
+    LEFT JOIN article_tags at ON a.id = at.article_id
+    LEFT JOIN tags t ON at.tag_id = t.id
+    WHERE a.status = 'published'
+    GROUP BY a.id
+    ORDER BY a.is_featured DESC, a.published_at DESC 
+    LIMIT :limit OFFSET :offset
+");
 $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
 $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $articles = $stmt->fetchAll();
+
+// Buscar total de artigos para paginação
+$stmtCount = $pdo->prepare("SELECT COUNT(*) as total FROM articles WHERE status = 'published'");
+$stmtCount->execute();
+$totalArticles = $stmtCount->fetch()['total'];
+$totalPages = ceil($totalArticles / $perPage);
+
+// Buscar estatísticas do blog
+$stmtStats = $pdo->prepare("
+    SELECT 
+        COUNT(*) as total_articles,
+        SUM(view_count) as total_views,
+        COUNT(DISTINCT author_id) as total_authors
+    FROM articles 
+    WHERE status = 'published'
+");
+$stmtStats->execute();
+$stats = $stmtStats->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -84,16 +122,16 @@ $articles = $stmt->fetchAll();
                         <p>Insights e estratégias para transformar seu negócio digital</p>
                         <div class="blog-hero-stats">
                             <div class="blog-stat">
-                                <span class="blog-stat-number">50+</span>
+                                <span class="blog-stat-number"><?= $stats['total_articles'] ?>+</span>
                                 <span class="blog-stat-label">Artigos</span>
                             </div>
                             <div class="blog-stat">
-                                <span class="blog-stat-number">10k+</span>
-                                <span class="blog-stat-label">Leitores</span>
+                                <span class="blog-stat-number"><?= number_format($stats['total_views']) ?>+</span>
+                                <span class="blog-stat-label">Visualizações</span>
                             </div>
                             <div class="blog-stat">
-                                <span class="blog-stat-number">95%</span>
-                                <span class="blog-stat-label">Aprovação</span>
+                                <span class="blog-stat-number"><?= $stats['total_authors'] ?>+</span>
+                                <span class="blog-stat-label">Autores</span>
                             </div>
                         </div>
                     </div>
@@ -206,7 +244,7 @@ $articles = $stmt->fetchAll();
                     <h3>Todos os Artigos</h3>
                     <div class="blog-posts-grid" id="blog-posts-container">
                         <?php foreach ($articles as $art): ?>
-                            <article class="blog-post-card" data-category="<?= htmlspecialchars($art['category']) ?>">
+                            <article class="blog-post-card" data-category="<?= htmlspecialchars($art['category_name']) ?>">
                                 <div class="blog-post-card-image">
                                     <div class="post-card-visual">
                                         <div class="post-card-preview">
@@ -228,17 +266,23 @@ $articles = $stmt->fetchAll();
                                 </div>
                                 <div class="blog-post-card-content">
                                     <div class="blog-post-meta">
-                                        <span class="blog-post-category"><?= htmlspecialchars($art['category']) ?></span>
-                                        <span class="blog-post-date"><?= htmlspecialchars($art['published_at']) ?></span>
+                                        <span class="blog-post-category"><?= htmlspecialchars($art['category_name'] ?? 'Sem categoria') ?></span>
+                                        <span class="blog-post-date"><?= date('d/m/Y', strtotime($art['published_at'])) ?></span>
                                     </div>
                                     <h3><?= htmlspecialchars($art['title']) ?></h3>
                                     <p><?= htmlspecialchars($art['excerpt']) ?></p>
                                     <div class="blog-post-card-tags">
                                         <?php
-                                        $tags = explode(',', htmlspecialchars($art['tags']));
-                                        foreach ($tags as $tag): ?>
-                                            <span class="blog-post-tag"><?= htmlspecialchars($tag) ?></span>
-                                        <?php endforeach; ?>
+                                        if (!empty($art['tags'])) {
+                                            $tags = explode(',', $art['tags']);
+                                            foreach ($tags as $tag): 
+                                                $tag = trim($tag);
+                                                if (!empty($tag)): ?>
+                                                    <span class="blog-post-tag"><?= htmlspecialchars($tag) ?></span>
+                                                <?php endif;
+                                            endforeach;
+                                        }
+                                        ?>
                                     </div>
                                     <a href="artigo.php?id=<?= $art['id'] ?>" class="blog-post-card-link">Ler mais</a>
                                 </div>
@@ -249,17 +293,35 @@ $articles = $stmt->fetchAll();
 
                 <!-- Paginação -->
                 <div class="blog-pagination">
-                    <button class="pagination-btn" disabled aria-label="Página anterior">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"/>
-                        </svg>
-                    </button>
-                    <span class="pagination-info">Página 1 de 3</span>
-                    <button class="pagination-btn" aria-label="Próxima página">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </button>
+                    <?php if ($page > 1): ?>
+                        <a href="?page=<?= $page - 1 ?>" class="pagination-btn" aria-label="Página anterior">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"/>
+                            </svg>
+                        </a>
+                    <?php else: ?>
+                        <button class="pagination-btn" disabled aria-label="Página anterior">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"/>
+                            </svg>
+                        </button>
+                    <?php endif; ?>
+                    
+                    <span class="pagination-info">Página <?= $page ?> de <?= $totalPages ?></span>
+                    
+                    <?php if ($page < $totalPages): ?>
+                        <a href="?page=<?= $page + 1 ?>" class="pagination-btn" aria-label="Próxima página">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </a>
+                    <?php else: ?>
+                        <button class="pagination-btn" disabled aria-label="Próxima página">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </button>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
