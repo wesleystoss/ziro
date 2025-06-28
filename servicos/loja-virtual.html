@@ -4,146 +4,454 @@
     <!-- Componente Head será carregado dinamicamente -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lojas Virtuais que Vendem de Verdade | Ziro</title>
-    <meta name="description" content="Venda mais com uma loja virtual profissional, rápida e segura. Soluções completas para e-commerce, integração com pagamentos, automação de marketing e suporte especializado.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Loja Virtual Profissional | Vendas +400% | Ziro</title>
+    <meta name="description" content="Crie lojas virtuais que vendem 400% mais. E-commerce profissional, checkout otimizado, integração de pagamentos, implementação em 15 dias. Multiplique suas vendas!">
+    <meta name="keywords" content="loja virtual, e-commerce, vendas online, checkout otimizado, pagamentos online, automação de vendas">
+    <meta name="author" content="Ziro Consultoria Digital">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ziro.digital/servicos/loja-virtual.html">
+    <meta property="og:title" content="Loja Virtual Profissional | Vendas +400%">
+    <meta property="og:description" content="Crie lojas virtuais que vendem 400% mais. E-commerce profissional, checkout otimizado, integração de pagamentos, implementação em 15 dias.">
+    <meta property="og:image" content="https://ziro.digital/assets/images/loja-virtual-preview.jpg">
+    <meta property="og:site_name" content="Ziro Consultoria Digital">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ziro.digital/servicos/loja-virtual.html">
+    <meta property="twitter:title" content="Loja Virtual Profissional | Vendas +400%">
+    <meta property="twitter:description" content="Crie lojas virtuais que vendem 400% mais. E-commerce profissional, checkout otimizado, integração de pagamentos, implementação em 15 dias.">
+    <meta property="twitter:image" content="https://ziro.digital/assets/images/loja-virtual-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ziro.digital/servicos/loja-virtual.html">
+    
+    <!-- Preconnect para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/service-pages.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Loja Virtual Profissional",
+      "description": "Criação de lojas virtuais profissionais que vendem 400% mais. E-commerce completo, checkout otimizado, integração de pagamentos e implementação em 15 dias.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Ziro Consultoria Digital",
+        "url": "https://ziro.digital",
+        "logo": "https://ziro.digital/assets/images/ziro-logo.png"
+      },
+      "areaServed": "BR",
+      "serviceType": "E-commerce e Loja Virtual",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "Diagnóstico gratuito e implementação em 15 dias"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de E-commerce",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Loja Virtual Profissional",
+              "description": "E-commerce completo e otimizado para vendas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Checkout Otimizado",
+              "description": "Processo de compra rápido e seguro"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Integração de Pagamentos",
+              "description": "Múltiplas formas de pagamento"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para criar uma loja virtual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implementamos lojas virtuais completas em apenas 15 dias, desde o briefing até o go-live com integração de pagamentos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A loja virtual inclui integração de pagamentos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Integramos com os principais gateways de pagamento (Pix, cartão, boleto) para facilitar as vendas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual o aumento médio de vendas que posso esperar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nossas lojas virtuais geram em média 400% mais vendas e 60% mais conversões comparado a soluções básicas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A loja virtual funciona em dispositivos móveis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Todas nossas lojas virtuais são 100% responsivas e otimizadas para mobile, garantindo vendas em qualquer dispositivo."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Container para o header de serviços (será carregado dinamicamente) -->
     <div data-service-header></div>
 
-    <!-- Hero Sóbrio -->
-    <section class="hero-landing">
-        <div class="container">
-            <h1>Lojas Virtuais que Vendem de Verdade</h1>
-            <p>Transforme sua presença digital em uma máquina de vendas 24/7. Design exclusivo, integração completa com pagamentos e automação de marketing para multiplicar suas vendas online.</p>
-            <div class="hero-cta">
-                <a href="#contato" class="btn-hero-primary">Quero Vender Mais Online</a>
-                <a href="#como-funciona" class="btn-hero-secondary">Como Funciona</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Estatísticas Sóbrias -->
-    <section class="stats-section">
-        <div class="container">
-            <h2>Resultados que Multiplicam Vendas</h2>
-            <p class="subtitle">Empresas que migram para lojas virtuais profissionais experimentam crescimento exponencial em todos os indicadores de vendas</p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">+400%</div>
-                    <div class="stat-label">Aumento nas Vendas</div>
-                    <p>Empresas que migram para lojas virtuais profissionais experimentam crescimento exponencial no volume de vendas online.</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">+60%</div>
-                    <div class="stat-label">Mais Conversões</div>
-                    <p>Checkout otimizado e experiência de compra superior resultam em taxas de conversão significativamente maiores.</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">-80%</div>
-                    <div class="stat-label">Menos Abandono</div>
-                    <p>Automação inteligente e recuperação de carrinho reduzem drasticamente o abandono de compras.</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15</div>
-                    <div class="stat-label">Dias para Ficar Pronto</div>
-                    <p>Implementação rápida: em apenas 15 dias, sua loja virtual estará vendendo e gerando receita.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefícios -->
-    <section class="beneficios-landing" id="beneficios">
-        <div class="container">
-            <h2>Por que escolher nossa loja virtual?</h2>
-            <p class="subtitle">Desenvolvemos lojas que não apenas vendem, mas encantam e convertem visitantes em clientes fiéis</p>
-            <div class="beneficios-grid-landing">
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 9h6v6H9z"/>
-                        </svg>
+    <!-- Hero com Storytelling Impactante -->
+    <main>
+        <section class="hero-landing" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 id="hero-title">Transforme Seu Negócio em uma Máquina de Vendas 24/7 com Lojas Virtuais que Vendem 400% Mais</h1>
+                        <p class="hero-subtitle">Imagine perder 70% das vendas porque não tem uma loja virtual profissional. Agora imagine multiplicar suas vendas com um e-commerce que funciona 24 horas por dia, 7 dias por semana, gerando receita mesmo enquanto você dorme.</p>
+                        <div class="hero-highlight">
+                            <div class="highlight-icon" aria-hidden="true">🛒</div>
+                            <div class="highlight-text">
+                                <strong>Resultado Comprovado:</strong> Lojas virtuais profissionais geram 400% mais vendas e 60% mais conversões
+                            </div>
+                        </div>
+                        <div class="hero-cta">
+                            <a href="#contato" class="btn-hero-primary" aria-label="Solicitar loja virtual profissional">Quero Multiplicar Minhas Vendas</a>
+                            <a href="#como-funciona" class="btn-hero-secondary" aria-label="Ver como funciona o processo">Ver Demonstração</a>
+                        </div>
                     </div>
-                    <h3>Design Exclusivo</h3>
-                    <p>Layout moderno e responsivo que encanta seus clientes e aumenta a confiança na sua marca.</p>
-                </div>
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
+                    <div class="hero-visual">
+                        <div class="ecommerce-preview">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-nav">
+                                    <div class="nav-item"></div>
+                                    <div class="nav-item"></div>
+                                    <div class="nav-item"></div>
+                                    <div class="nav-item"></div>
+                                </div>
+                                <div class="preview-products">
+                                    <div class="product-card">
+                                        <div class="product-image"></div>
+                                        <div class="product-info">
+                                            <div class="product-title"></div>
+                                            <div class="product-price"></div>
+                                        </div>
+                                    </div>
+                                    <div class="product-card">
+                                        <div class="product-image"></div>
+                                        <div class="product-info">
+                                            <div class="product-title"></div>
+                                            <div class="product-price"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="preview-cart">
+                                    <div class="cart-icon">🛒</div>
+                                    <div class="cart-count">3</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Checkout Otimizado</h3>
-                    <p>Processo de compra rápido e seguro com integração completa de pagamentos e frete.</p>
-                </div>
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <circle cx="6" cy="12" r="3"/>
-                            <circle cx="18" cy="6" r="3"/>
-                            <circle cx="18" cy="18" r="3"/>
-                            <path d="M8.59 10.51l6.83-3.02M8.59 13.49l6.83 3.02"/>
-                        </svg>
-                    </div>
-                    <h3>Automação Inteligente</h3>
-                    <p>Recuperação de carrinho, e-mails automáticos e integração com WhatsApp para vender mais.</p>
-                </div>
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M5 12l5 5L20 7"/>
-                            <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                    </div>
-                    <h3>Suporte Dedicado</h3>
-                    <p>Acompanhamento completo durante e após a entrega para garantir seu sucesso total.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Como Funciona -->
-    <section class="como-funciona-landing" id="como-funciona">
-        <div class="container">
-            <h2>Como funciona nosso processo</h2>
-            <p class="subtitle">Em apenas 15 dias, sua loja virtual estará vendendo online</p>
-            <div class="timeline-landing">
-                <div class="timeline-step-landing">
-                    <div class="timeline-number">1</div>
-                    <h4>Diagnóstico Gratuito</h4>
-                    <p>Analisamos seu negócio e identificamos as melhores oportunidades para sua loja virtual vender mais.</p>
+        <!-- Problema e Solução -->
+        <section class="problem-solution" aria-labelledby="problem-title">
+            <div class="container">
+                <div class="problem-section">
+                    <h2 id="problem-title">O Problema que Está Custando Suas Vendas</h2>
+                    <div class="problem-grid">
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">📉</div>
+                            <h3>Vendas Limitadas</h3>
+                            <p>70% das vendas são perdidas por não ter uma loja virtual profissional. Sem e-commerce, você vende apenas quando está disponível.</p>
+                        </article>
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">🛒</div>
+                            <h3>Abandono de Carrinho</h3>
+                            <p>68% dos clientes abandonam o carrinho por checkout complicado ou falta de opções de pagamento.</p>
+                        </article>
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">📱</div>
+                            <h3>Experiência Mobile Ruim</h3>
+                            <p>60% das compras online são feitas no mobile. Sites não otimizados perdem vendas automaticamente.</p>
+                        </article>
+                    </div>
                 </div>
-                <div class="timeline-step-landing">
-                    <div class="timeline-number">2</div>
-                    <h4>Criação e Integração</h4>
-                    <p>Desenvolvemos a loja, integramos pagamentos, frete e configuramos todas as automações necessárias.</p>
-                </div>
-                <div class="timeline-step-landing">
-                    <div class="timeline-number">3</div>
-                    <h4>Go-live e Acompanhamento</h4>
-                    <p>Publicação, treinamento da equipe e acompanhamento dos resultados para garantir seu sucesso.</p>
+                
+                <div class="solution-section">
+                    <h2>A Solução que Multiplica Suas Vendas</h2>
+                    <div class="solution-highlight">
+                        <div class="solution-visual">
+                            <div class="sales-funnel">
+                                <div class="funnel-step">Visitante</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Loja Virtual</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Checkout</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Venda</div>
+                            </div>
+                        </div>
+                        <div class="solution-text">
+                            <h3>Lojas Virtuais Profissionais com Checkout Otimizado</h3>
+                            <p>Criamos e-commerces que vendem 24/7, com checkout otimizado, múltiplas formas de pagamento e automação inteligente para recuperar vendas perdidas.</p>
+                            <ul class="solution-benefits">
+                                <li>✅ 400% mais vendas online</li>
+                                <li>✅ Checkout otimizado e seguro</li>
+                                <li>✅ Múltiplas formas de pagamento</li>
+                                <li>✅ Automação de recuperação</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Final -->
-    <section class="cta-section" id="contato">
-        <div class="container">
-            <h2>Pronto para multiplicar suas vendas?</h2>
-            <p>Junte-se a centenas de empresas que já transformaram suas vendas online com nossas lojas virtuais profissionais.</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/6199241137" class="btn-cta-primary" target="blank">Falar no WhatsApp</a>
-                <a href="tel:+6199241137" class="btn-cta-secondary">Ligar Agora</a>
+        <!-- Estatísticas Impactantes -->
+        <section class="stats-section" id="beneficios" aria-labelledby="stats-title">
+            <div class="container">
+                <h2 id="stats-title">Números que Comprovam o Sucesso</h2>
+                <p class="subtitle">Resultados reais de empresas que implementaram nossas lojas virtuais profissionais</p>
+                <div class="stats-grid">
+                    <article class="stat-item">
+                        <div class="stat-number">+400%</div>
+                        <div class="stat-label">Mais Vendas</div>
+                        <p>Média de aumento no volume de vendas online com lojas virtuais profissionais</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">+60%</div>
+                        <div class="stat-label">Mais Conversões</div>
+                        <p>Aumento na taxa de conversão com checkout otimizado e UX superior</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">-80%</div>
+                        <div class="stat-label">Menos Abandono</div>
+                        <p>Redução no abandono de carrinho com automação inteligente</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Dias para Implementar</div>
+                        <p>Processo rápido e eficiente para começar a vender online</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Benefícios Detalhados -->
+        <section class="beneficios-landing"  aria-labelledby="beneficios-title">
+            <div class="container">
+                <h2 id="beneficios-title">Por que Nossas Lojas Virtuais Vendem Mais?</h2>
+                <p class="subtitle">Tecnologia avançada, design profissional e estratégias comprovadas de conversão</p>
+                <div class="beneficios-grid-landing">
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Design Exclusivo e Responsivo</h3>
+                        <p>Layouts modernos que encantam seus clientes e funcionam perfeitamente em todos os dispositivos.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <h3>Checkout Otimizado</h3>
+                        <p>Processo de compra rápido e seguro com múltiplas formas de pagamento e frete integrado.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Integração de Pagamentos</h3>
+                        <p>Pix, cartão de crédito, boleto e PIX integrados para facilitar o pagamento e aumentar conversões.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3>Automação Inteligente</h3>
+                        <p>Recuperação de carrinho, e-mails automáticos e WhatsApp para recuperar vendas perdidas.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Argumentos de Autoridade -->
+        <section class="authority-section" aria-labelledby="authority-title">
+            <div class="container">
+                <h2 id="authority-title">Tecnologias e Métodos que Vendem Mais</h2>
+                <p class="subtitle">Utilizamos as melhores práticas e ferramentas do mercado para garantir vendas</p>
+                <div class="authority-grid">
+                    <div class="authority-card">
+                        <div class="authority-icon">🛒</div>
+                        <h3>UX/UI Otimizada</h3>
+                        <p>Design baseado em princípios de conversão e experiência do usuário comprovados.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">💳</div>
+                        <h3>Gateway de Pagamento</h3>
+                        <p>Integração com os principais gateways para facilitar pagamentos e aumentar conversões.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">📊</div>
+                        <h3>Analytics Avançado</h3>
+                        <p>Relatórios detalhados para otimizar vendas e identificar oportunidades de melhoria.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">🔒</div>
+                        <h3>Segurança e Compliance</h3>
+                        <p>SSL, LGPD, proteção de dados e conformidade com regulamentações de e-commerce.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona - Processo Sequencial -->
+        <section class="como-funciona-landing" id="como-funciona" aria-labelledby="processo-title">
+            <div class="container">
+                <h2 id="processo-title">Implementação em 15 Dias</h2>
+                <p class="subtitle">Processo estruturado e eficiente para criar sua loja virtual de alta conversão</p>
+                <div class="timeline-landing">
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 1">1</div>
+                        <h4>Briefing e Estratégia (Dias 1-3)</h4>
+                        <p>Análise do seu negócio, definição de produtos e criação da estratégia de vendas online.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 2">2</div>
+                        <h4>Design e Desenvolvimento (Dias 4-10)</h4>
+                        <p>Criação do design exclusivo, desenvolvimento da loja e integração com sistemas de pagamento.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 3">3</div>
+                        <h4>Testes e Otimização (Dias 11-13)</h4>
+                        <p>Testes de usabilidade, performance e compatibilidade em todos os dispositivos e navegadores.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 4">4</div>
+                        <h4>Go-live e Acompanhamento (Dias 14-15)</h4>
+                        <p>Publicação, treinamento da equipe e acompanhamento dos resultados para maximizar vendas.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section para SEO -->
+        <section class="faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title">Perguntas Frequentes sobre Lojas Virtuais</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>Quanto tempo leva para criar uma loja virtual?</summary>
+                        <p>Implementamos lojas virtuais completas em apenas 15 dias, desde o briefing até o go-live com integração de pagamentos.</p>
+                    </details>
+                    <details>
+                        <summary>A loja virtual inclui integração de pagamentos?</summary>
+                        <p>Sim! Integramos com os principais gateways de pagamento (Pix, cartão, boleto) para facilitar as vendas.</p>
+                    </details>
+                    <details>
+                        <summary>Qual o aumento médio de vendas que posso esperar?</summary>
+                        <p>Nossas lojas virtuais geram em média 400% mais vendas e 60% mais conversões comparado a soluções básicas.</p>
+                    </details>
+                    <details>
+                        <summary>A loja virtual funciona em dispositivos móveis?</summary>
+                        <p>Sim! Todas nossas lojas virtuais são 100% responsivas e otimizadas para mobile, garantindo vendas em qualquer dispositivo.</p>
+                    </details>
+                    <details>
+                        <summary>Posso personalizar o design da loja virtual?</summary>
+                        <p>Absolutamente! Criamos designs únicos e personalizados para sua marca, mantendo as melhores práticas de conversão.</p>
+                    </details>
+                    <details>
+                        <summary>Inclui sistema de gestão de produtos?</summary>
+                        <p>Sim! Incluímos painel administrativo completo para gerenciar produtos, estoque, pedidos e relatórios de vendas.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garantia e CTA Final -->
+        <section class="cta-section" id="contato" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="guarantee-badge">
+                    <span aria-hidden="true">🛒</span>
+                    <strong>Garantia de Vendas</strong>
+                </div>
+                <h2 id="cta-title">Pronto para Multiplicar Suas Vendas Online?</h2>
+                <p>Junte-se a centenas de empresas que já transformaram suas vendas com lojas virtuais profissionais. Se não vir aumento nas vendas em 30 dias, devolvemos 100% do investimento.</p>
+                <div class="cta-benefits">
+                    <div class="cta-benefit">✅ Implementação em 15 dias</div>
+                    <div class="cta-benefit">✅ 400% mais vendas</div>
+                    <div class="cta-benefit">✅ Garantia de resultado</div>
+                    <div class="cta-benefit">✅ Suporte completo</div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6199241137?text=Olá! Quero saber mais sobre lojas virtuais profissionais" class="btn-cta-primary" target="blank" rel="noopener" aria-label="Falar no WhatsApp sobre lojas virtuais">Falar no WhatsApp</a>
+                    <a href="tel:+6199241137" class="btn-cta-secondary" aria-label="Ligar para saber mais sobre lojas virtuais">Ligar Agora</a>
+                </div>
+                <p class="cta-note">* Diagnóstico gratuito. Sem compromisso. Resultados garantidos.</p>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer-landing">

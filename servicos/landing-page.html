@@ -1,149 +1,441 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Componente Head será carregado dinamicamente -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Páginas de Conversão com Atendimento Online | Ziro</title>
-    <meta name="description" content="Crie páginas de conversão profissionais com atendimento online e aumente sua receita. Soluções completas para captação de leads, vendas e suporte digital.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Landing Page Profissional com Atendimento Online | Conversão 300% | Ziro</title>
+    <meta name="description" content="Crie landing pages profissionais que convertem 300% mais leads. Atendimento online integrado, automação inteligente, implementação em 10 dias. Aumente suas vendas!">
+    <meta name="keywords" content="landing page, página de conversão, atendimento online, captação de leads, automação de vendas, conversão, lead generation">
+    <meta name="author" content="Ziro Consultoria Digital">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ziro.digital/servicos/landing-page.html">
+    <meta property="og:title" content="Landing Page Profissional com Atendimento Online | Conversão 300%">
+    <meta property="og:description" content="Crie landing pages profissionais que convertem 300% mais leads. Atendimento online integrado, automação inteligente, implementação em 10 dias.">
+    <meta property="og:image" content="https://ziro.digital/assets/images/landing-page-preview.jpg">
+    <meta property="og:site_name" content="Ziro Consultoria Digital">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ziro.digital/servicos/landing-page.html">
+    <meta property="twitter:title" content="Landing Page Profissional com Atendimento Online | Conversão 300%">
+    <meta property="twitter:description" content="Crie landing pages profissionais que convertem 300% mais leads. Atendimento online integrado, automação inteligente, implementação em 10 dias.">
+    <meta property="twitter:image" content="https://ziro.digital/assets/images/landing-page-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ziro.digital/servicos/landing-page.html">
+    
+    <!-- Preconnect para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/service-pages.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Landing Page Profissional com Atendimento Online",
+      "description": "Criação de landing pages profissionais com atendimento online integrado. Conversão 300% maior, automação inteligente e implementação em 10 dias.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Ziro Consultoria Digital",
+        "url": "https://ziro.digital",
+        "logo": "https://ziro.digital/assets/images/ziro-logo.png"
+      },
+      "areaServed": "BR",
+      "serviceType": "Landing Page e Conversão",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "Diagnóstico gratuito e implementação em 10 dias"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Landing Page",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landing Page Profissional",
+              "description": "Páginas de conversão otimizadas para captar leads"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Atendimento Online Integrado",
+              "description": "Chat, WhatsApp e chatbots integrados"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automação de Vendas",
+              "description": "Sistemas inteligentes de qualificação e follow-up"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para criar uma landing page profissional?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implementamos landing pages completas em apenas 10 dias, desde o briefing até o go-live com atendimento online integrado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o atendimento online integrado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Integramos chat, WhatsApp e chatbots diretamente na landing page, qualificando leads automaticamente e direcionando para atendimento humano."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual o aumento médio de conversão que posso esperar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nossas landing pages com atendimento online geram em média 300% mais leads e 40% mais vendas comparado a páginas tradicionais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A landing page funciona em dispositivos móveis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Todas nossas landing pages são 100% responsivas e otimizadas para mobile, garantindo conversão em qualquer dispositivo."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Container para o header de serviços (será carregado dinamicamente) -->
     <div data-service-header></div>
 
-    <!-- Hero Sóbrio -->
-    <section class="hero-landing">
-        <div class="container">
-            <h1>Páginas de Conversão com Atendimento Online</h1>
-            <p>Transforme visitantes em clientes com páginas profissionais, rápidas e integradas ao atendimento digital. Aumente sua receita e conquiste mais leads qualificados com automação inteligente.</p>
-            <div class="hero-cta">
-                <a href="#contato" class="btn-hero-primary">Quero Aumentar Minha Receita</a>
-                <a href="#como-funciona" class="btn-hero-secondary">Como Funciona</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Estatísticas Sóbrias -->
-    <section class="stats-section">
-        <div class="container">
-            <h2>Resultados que Aumentam Conversões</h2>
-            <p class="subtitle">Páginas de conversão otimizadas com atendimento online integrado geram crescimento significativo em leads e vendas</p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">+300%</div>
-                    <div class="stat-label">Mais Leads</div>
-                    <p>Páginas de conversão otimizadas captam significativamente mais leads qualificados para seu negócio.</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">+40%</div>
-                    <div class="stat-label">Mais Vendas</div>
-                    <p>Atendimento online integrado aumenta drasticamente a taxa de conversão de leads em vendas.</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">-70%</div>
-                    <div class="stat-label">Tempo de Resposta</div>
-                    <p>Automação e chatbots reduzem o tempo de resposta, qualificando leads instantaneamente.</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10</div>
-                    <div class="stat-label">Dias para Ficar Pronto</div>
-                    <p>Implementação rápida: em apenas 10 dias, sua página de conversão estará gerando resultados.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefícios -->
-    <section class="beneficios-landing" id="beneficios">
-        <div class="container">
-            <h2>Por que escolher nossa solução?</h2>
-            <p class="subtitle">Desenvolvemos páginas que não apenas captam leads, mas os convertem em clientes com atendimento inteligente e automação</p>
-            <div class="beneficios-grid-landing">
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 9h6v6H9z"/>
-                        </svg>
+    <!-- Hero com Storytelling Impactante -->
+    <main>
+        <section class="hero-landing" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 id="hero-title">Transforme Visitantes em Clientes com Landing Pages que Convertem 300% Mais</h1>
+                        <p class="hero-subtitle">Imagine perder 95% dos visitantes do seu site porque não têm uma página focada em conversão. Agora imagine capturar todos eles com landing pages profissionais que convertem visitantes em leads qualificados instantaneamente.</p>
+                        <div class="hero-highlight">
+                            <div class="highlight-icon" aria-hidden="true">📈</div>
+                            <div class="highlight-text">
+                                <strong>Resultado Comprovado:</strong> Landing pages com atendimento online integrado geram 300% mais leads e 40% mais vendas
+                            </div>
+                        </div>
+                        <div class="hero-cta">
+                            <a href="#contato" class="btn-hero-primary" aria-label="Solicitar landing page profissional">Quero Aumentar Minhas Conversões</a>
+                            <a href="#como-funciona" class="btn-hero-secondary" aria-label="Ver como funciona o processo">Ver Demonstração</a>
+                        </div>
                     </div>
-                    <h3>Páginas de Alta Conversão</h3>
-                    <p>Landing pages otimizadas para captar leads e gerar vendas, com layout moderno e responsivo que converte.</p>
-                </div>
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
+                    <div class="hero-visual">
+                        <div class="landing-preview">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-hero">
+                                    <div class="preview-title"></div>
+                                    <div class="preview-subtitle"></div>
+                                </div>
+                                <div class="preview-form">
+                                    <div class="form-field"></div>
+                                    <div class="form-field"></div>
+                                    <div class="form-button"></div>
+                                </div>
+                                <div class="preview-chat">
+                                    <div class="chat-bubble"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Atendimento Online Integrado</h3>
-                    <p>Chat, WhatsApp e chatbots conectados direto na página para atendimento instantâneo e qualificação automática.</p>
-                </div>
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <circle cx="6" cy="12" r="3"/>
-                            <circle cx="18" cy="6" r="3"/>
-                            <circle cx="18" cy="18" r="3"/>
-                            <path d="M8.59 10.51l6.83-3.02M8.59 13.49l6.83 3.02"/>
-                        </svg>
-                    </div>
-                    <h3>Automação Inteligente</h3>
-                    <p>Formulários inteligentes, integração com CRM e automação de follow-up para não perder nenhuma oportunidade.</p>
-                </div>
-                <div class="beneficio-card-landing">
-                    <div class="beneficio-icon-landing">
-                        <svg width="32" height="32" fill="none" stroke="#475569" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M5 12l5 5L20 7"/>
-                            <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                    </div>
-                    <h3>Suporte Dedicado</h3>
-                    <p>Acompanhamento completo durante e após a entrega para garantir sua satisfação e resultados.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Como Funciona -->
-    <section class="como-funciona-landing" id="como-funciona">
-        <div class="container">
-            <h2>Como funciona nosso processo</h2>
-            <p class="subtitle">Em apenas 10 dias, sua página de conversão estará captando leads e gerando vendas</p>
-            <div class="timeline-landing">
-                <div class="timeline-step-landing">
-                    <div class="timeline-number">1</div>
-                    <h4>Diagnóstico Gratuito</h4>
-                    <p>Analisamos seu negócio e identificamos as melhores oportunidades de conversão e automação.</p>
+        <!-- Problema e Solução -->
+        <section class="problem-solution" aria-labelledby="problem-title">
+            <div class="container">
+                <div class="problem-section">
+                    <h2 id="problem-title">O Problema que Está Custando Suas Vendas</h2>
+                    <div class="problem-grid">
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">📉</div>
+                            <h3>Taxa de Conversão Baixa</h3>
+                            <p>95% dos visitantes abandonam sites sem conversão. Sem uma landing page focada, você está perdendo vendas todos os dias.</p>
+                        </article>
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">⏰</div>
+                            <h3>Perda de Leads por Demora</h3>
+                            <p>Visitantes interessados não esperam. Sem atendimento instantâneo, você perde oportunidades valiosas de venda.</p>
+                        </article>
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">📱</div>
+                            <h3>Experiência Mobile Ruim</h3>
+                            <p>60% do tráfego vem do mobile. Sites não otimizados perdem vendas automaticamente.</p>
+                        </article>
+                    </div>
                 </div>
-                <div class="timeline-step-landing">
-                    <div class="timeline-number">2</div>
-                    <h4>Criação e Integração</h4>
-                    <p>Desenvolvemos a página, integramos o atendimento e configuramos todas as automações necessárias.</p>
-                </div>
-                <div class="timeline-step-landing">
-                    <div class="timeline-number">3</div>
-                    <h4>Go-live e Acompanhamento</h4>
-                    <p>Publicação, treinamento da equipe e acompanhamento dos resultados para garantir seu sucesso.</p>
+                
+                <div class="solution-section">
+                    <h2>A Solução que Multiplica Suas Conversões</h2>
+                    <div class="solution-highlight">
+                        <div class="solution-visual">
+                            <div class="conversion-funnel">
+                                <div class="funnel-step">Visitante</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Landing Page</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Lead Qualificado</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Cliente</div>
+                            </div>
+                        </div>
+                        <div class="solution-text">
+                            <h3>Landing Pages Profissionais com Atendimento Online</h3>
+                            <p>Criamos páginas de conversão otimizadas que captam leads qualificados e os convertem em clientes com atendimento inteligente integrado.</p>
+                            <ul class="solution-benefits">
+                                <li>✅ Conversão 300% maior que sites tradicionais</li>
+                                <li>✅ Atendimento online integrado 24/7</li>
+                                <li>✅ Design responsivo e otimizado</li>
+                                <li>✅ Automação inteligente de follow-up</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Final -->
-    <section class="cta-section" id="contato">
-        <div class="container">
-            <h2>Pronto para aumentar suas vendas?</h2>
-            <p>Junte-se a centenas de empresas que já transformaram suas conversões com nossas páginas de conversão profissionais.</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/6199241137" class="btn-cta-primary" target="blank">Falar no WhatsApp</a>
-                <a href="tel:+6199241137" class="btn-cta-secondary">Ligar Agora</a>
+        <!-- Estatísticas Impactantes -->
+        <section class="stats-section" id="beneficios" id="beneficios" aria-labelledby="stats-title">
+            <div class="container">
+                <h2 id="stats-title">Números que Comprovam o Sucesso</h2>
+                <p class="subtitle">Resultados reais de empresas que implementaram nossas landing pages com atendimento online</p>
+                <div class="stats-grid">
+                    <article class="stat-item">
+                        <div class="stat-number">+300%</div>
+                        <div class="stat-label">Mais Leads</div>
+                        <p>Média de aumento na captação de leads com landing pages otimizadas</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">+40%</div>
+                        <div class="stat-label">Mais Vendas</div>
+                        <p>Aumento na taxa de conversão de leads em vendas com atendimento online</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">-70%</div>
+                        <div class="stat-label">Menos Abandono</div>
+                        <p>Redução no abandono de formulários com automação inteligente</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Dias para Implementar</div>
+                        <p>Processo rápido e eficiente para começar a converter</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Benefícios Detalhados -->
+        <section class="beneficios-landing"  aria-labelledby="beneficios-title">
+            <div class="container">
+                <h2 id="beneficios-title">Por que Nossas Landing Pages Convertem Mais?</h2>
+                <p class="subtitle">Tecnologia avançada, design profissional e estratégias comprovadas de conversão</p>
+                <div class="beneficios-grid-landing">
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3>Design Otimizado para Conversão</h3>
+                        <p>Layouts baseados em psicologia de vendas, cores estratégicas e elementos visuais que guiam o visitante para a ação.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>100% Responsivo</h3>
+                        <p>Funciona perfeitamente em desktop, tablet e mobile. 60% do tráfego vem de dispositivos móveis - não perca essas vendas.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Atendimento Online Integrado</h3>
+                        <p>Chat, WhatsApp e chatbots conectados diretamente na página. Qualificação automática de leads e atendimento instantâneo.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3>Automação Inteligente</h3>
+                        <p>Formulários inteligentes, integração com CRM, follow-up automático e qualificação de leads em tempo real.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Argumentos de Autoridade -->
+        <section class="authority-section" aria-labelledby="authority-title">
+            <div class="container">
+                <h2 id="authority-title">Tecnologias e Métodos Comprovados</h2>
+                <p class="subtitle">Utilizamos as melhores práticas e ferramentas do mercado para garantir resultados</p>
+                <div class="authority-grid">
+                    <div class="authority-card">
+                        <div class="authority-icon">🎯</div>
+                        <h3>Copywriting Persuasivo</h3>
+                        <p>Textos baseados em princípios de psicologia de vendas e gatilhos mentais comprovados.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">📊</div>
+                        <h3>A/B Testing</h3>
+                        <p>Testes contínuos para otimizar conversão e identificar os elementos que mais convertem.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">⚡</div>
+                        <h3>Performance Otimizada</h3>
+                        <p>Carregamento ultra-rápido (menos de 3 segundos) para não perder visitantes por lentidão.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">🔒</div>
+                        <h3>Segurança e Compliance</h3>
+                        <p>LGPD, SSL, proteção de dados e conformidade com todas as regulamentações.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona - Processo Sequencial -->
+        <section class="como-funciona-landing" id="como-funciona" aria-labelledby="processo-title">
+            <div class="container">
+                <h2 id="processo-title">Implementação em 10 Dias</h2>
+                <p class="subtitle">Processo estruturado e eficiente para criar sua landing page de alta conversão</p>
+                <div class="timeline-landing">
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 1">1</div>
+                        <h4>Briefing e Estratégia (Dias 1-2)</h4>
+                        <p>Análise do seu negócio, definição de público-alvo e criação da estratégia de conversão personalizada.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 2">2</div>
+                        <h4>Design e Desenvolvimento (Dias 3-7)</h4>
+                        <p>Criação do design otimizado, desenvolvimento da página e integração com sistemas de atendimento online.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 3">3</div>
+                        <h4>Testes e Otimização (Dias 8-9)</h4>
+                        <p>Testes de usabilidade, performance e compatibilidade em todos os dispositivos e navegadores.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 4">4</div>
+                        <h4>Go-live e Acompanhamento (Dia 10)</h4>
+                        <p>Publicação, treinamento da equipe e acompanhamento dos resultados para maximizar conversões.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section para SEO -->
+        <section class="faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title">Perguntas Frequentes sobre Landing Pages</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>Quanto tempo leva para criar uma landing page profissional?</summary>
+                        <p>Implementamos landing pages completas em apenas 10 dias, desde o briefing até o go-live com atendimento online integrado.</p>
+                    </details>
+                    <details>
+                        <summary>Como funciona o atendimento online integrado?</summary>
+                        <p>Integramos chat, WhatsApp e chatbots diretamente na landing page, qualificando leads automaticamente e direcionando para atendimento humano.</p>
+                    </details>
+                    <details>
+                        <summary>Qual o aumento médio de conversão que posso esperar?</summary>
+                        <p>Nossas landing pages com atendimento online geram em média 300% mais leads e 40% mais vendas comparado a páginas tradicionais.</p>
+                    </details>
+                    <details>
+                        <summary>A landing page funciona em dispositivos móveis?</summary>
+                        <p>Sim! Todas nossas landing pages são 100% responsivas e otimizadas para mobile, garantindo conversão em qualquer dispositivo.</p>
+                    </details>
+                    <details>
+                        <summary>Posso personalizar o design da landing page?</summary>
+                        <p>Absolutamente! Criamos designs únicos e personalizados para sua marca, mantendo as melhores práticas de conversão.</p>
+                    </details>
+                    <details>
+                        <summary>Inclui integração com meu CRM?</summary>
+                        <p>Sim! Integramos com os principais CRMs do mercado (Salesforce, HubSpot, RD Station, etc.) para automatizar o processo de vendas.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garantia e CTA Final -->
+        <section class="cta-section" id="contato" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="guarantee-badge">
+                    <span aria-hidden="true">🎯</span>
+                    <strong>Garantia de Conversão</strong>
+                </div>
+                <h2 id="cta-title">Pronto para Multiplicar Suas Conversões?</h2>
+                <p>Junte-se a centenas de empresas que já transformaram seus resultados com landing pages profissionais. Se não vir aumento nas conversões em 30 dias, devolvemos 100% do investimento.</p>
+                <div class="cta-benefits">
+                    <div class="cta-benefit">✅ Implementação em 10 dias</div>
+                    <div class="cta-benefit">✅ Conversão 300% maior</div>
+                    <div class="cta-benefit">✅ Garantia de resultado</div>
+                    <div class="cta-benefit">✅ Suporte completo</div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6199241137?text=Olá! Quero saber mais sobre landing pages profissionais" class="btn-cta-primary" target="blank" rel="noopener" aria-label="Falar no WhatsApp sobre landing pages">Falar no WhatsApp</a>
+                    <a href="tel:+6199241137" class="btn-cta-secondary" aria-label="Ligar para saber mais sobre landing pages">Ligar Agora</a>
+                </div>
+                <p class="cta-note">* Diagnóstico gratuito. Sem compromisso. Resultados garantidos.</p>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer-landing">
