@@ -1349,3 +1349,9 @@ body {
         transform: none !important;
     }
 } 
+.ziro-footer{
+    background: #0f172a;
+    color: #64748b;
+    padding: 2rem 0;
+    text-align: center;
+}
