@@ -11,25 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header - Mesmo estilo do index -->
-    <header class="landing-header">
-        <div class="container">
-            <a href="/" class="logo">ZIRO</a>
-            
-            <!-- Botão hambúrguer para mobile -->
-            <button class="hamburger-menu" aria-label="Abrir menu de navegação">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <nav class="nav-menu">
-                <a href="#beneficios">Benefícios</a>
-                <a href="#como-funciona">Como Funciona</a>
-                <a href="#contato" class="cta-nav">Fale Conosco</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Container para o header de serviços (será carregado dinamicamente) -->
+    <div data-service-header></div>
 
     <!-- Hero Sóbrio -->
     <section class="hero-landing">
@@ -170,6 +153,7 @@
     </footer>
     
     <!-- Scripts -->
+    <script src="../assets/js/components/service-header.js"></script>
     <script src="../assets/js/pages/servicos.js"></script>
 </body>
 </html> 
