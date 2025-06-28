@@ -6,11 +6,12 @@ const LOJA_VIRTUAL_CONFIG = {
         jsPath: '../assets/js/'
     },
     header: {
-        homeUrl: '../index.html',
-        blipUrl: 'blip.html',
-        servicosUrl: 'landing-page.html',
-        lojaVirtualUrl: 'loja-virtual.html',
-        siteInstitucionalUrl: 'site-institucional.html',
+        homeUrl: '../',
+        blipUrl: 'blip',
+        servicosUrl: 'landing-page',
+        lojaVirtualUrl: 'loja-virtual',
+        siteInstitucionalUrl: 'site-institucional',
+        atendimentoOnlineUrl: 'atendimento-online',
         isLojaVirtuaservicosage: true,
         isHomePage: false
     },

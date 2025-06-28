@@ -1,4 +1,20 @@
 # Redirecionamento de erro 404 para 404.html
 ErrorDocument 404 /404.html
 
-# Outras configurações podem ser personalizadas posteriormente 
+# Remoção de extensão .html de todas as URLs
+RewriteEngine On
+
+# Regra 1: Redireciona URLs com .html para URLs sem .html
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1? [NC,L,R=301]
+
+# Regra 2: Internamente adiciona .html para arquivos que existem
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# Regra 3: Redireciona /servicos/alguma-coisa para /servicos/alguma-coisa.html (mantida para compatibilidade)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^servicos/([^/]+)$ /servicos/$1.html [L]

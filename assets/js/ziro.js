@@ -2,6 +2,52 @@
  * Ziro Consultoria Digital - JavaScript Principal
  */
 
+// Funções utilitárias Ziro (placeholder)
+
+// Função para controlar o menu hambúrguer
+function initHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    
+    if (!hamburger || !navMenu) return;
+    
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+    }
+    
+    // Toggle do menu ao clicar no hambúrguer
+    hamburger.addEventListener('click', toggleMenu);
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Fechar menu ao clicar fora dele
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            closeMenu();
+        }
+    });
+    
+    // Fechar menu ao redimensionar a janela para desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+}
+
 // Função para animar contagem de números
 function animateCounter(element, target, duration = 2000, suffix = '') {
     // Se o elemento já foi animado, não anima novamente
@@ -121,6 +167,42 @@ function startResultsAnimation() {
     window.addEventListener('scroll', animateResults);
 }
 
+// Função para animar estatísticas da seção "Resultados em Números"
+function startStatsSectionAnimation() {
+    const statsElements = [
+        { selector: '.stats-grid .stat-item:nth-child(1) .stat-number', target: 300, suffix: '%' },
+        { selector: '.stats-grid .stat-item:nth-child(2) .stat-number', target: 80, suffix: '%' },
+        { selector: '.stats-grid .stat-item:nth-child(3) .stat-number', target: 24, suffix: '/7' },
+        { selector: '.stats-grid .stat-item:nth-child(4) .stat-number', target: 15, suffix: '' }
+    ];
+    
+    let hasAnimated = false;
+    
+    function animateStatsSection() {
+        if (hasAnimated) return;
+        
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection && isElementInViewport(statsSection)) {
+            hasAnimated = true;
+            
+            statsElements.forEach((stat, index) => {
+                const element = document.querySelector(stat.selector);
+                if (element && !element.classList.contains('counter-animated')) {
+                    setTimeout(() => {
+                        animateCounter(element, stat.target, 2000, stat.suffix);
+                    }, index * 300);
+                }
+            });
+        }
+    }
+    
+    // Verifica imediatamente
+    animateStatsSection();
+    
+    // Verifica no scroll
+    window.addEventListener('scroll', animateStatsSection);
+}
+
 // Inicializa quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
     // Atualiza o ano no footer
@@ -136,4 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicia animação dos resultados
     startResultsAnimation();
+    
+    // Inicia animação da seção de estatísticas
+    startStatsSectionAnimation();
 }); 

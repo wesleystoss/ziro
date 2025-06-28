@@ -1,2290 +1,1357 @@
+/* RESET E BASE */
 body {
     font-family: 'Montserrat', Arial, sans-serif;
-    background: #f8fafb;
+    background: #f7f8fa;
     color: #23272a;
     margin: 0;
     padding: 0;
+    padding-top: 80px;
 }
-.ziro-navbar {
-    background: #fff;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 0.5rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-.ziro-container {
+.container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 24px;
+}
+
+/* HEADER FIXO NO TOPO */
+.ziro-navbar {
+    background: #fff;
+    border-bottom: 1.5px solid #e5e7eb;
+    box-shadow: 0 2px 12px rgba(30,41,59,0.04);
+    padding: 1.2rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: box-shadow 0.2s;
+}
+.header-flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
 }
-.ziro-logo, .ziro-logo:visited, .ziro-logo:active {
+.ziro-logo {
     text-decoration: none;
-    color: #1db954;
-    font-weight: 700;
-    font-size: 1.7rem;
-    letter-spacing: 2px;
+    color: #1e293b;
+    font-weight: 800;
+    font-size: 2.3rem;
+    letter-spacing: 2.5px;
+    margin-right: 2.5rem;
+    padding-left: 0.2rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+.ziro-logo .logo-image {
+    height: 50px;
+    width: auto;
+    max-width: 120px;
+    transition: transform 0.2s;
 }
 .ziro-logo:hover {
-    color: #1db954;
-    text-decoration: none;
-    opacity: 0.85;
+    color: #2563eb;
 }
-.ziro-navbar nav a {
-    color: #23272a;
-    text-decoration: none;
-    margin-left: 2rem;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-.ziro-navbar nav a:hover {
-    color: #1db954;
-}
-.ziro-navbar nav a.active {
-    color: #1db954;
-    position: relative;
-}
-.ziro-navbar nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #1db954;
-    border-radius: 1px;
-}
-.ziro-hero {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: white;
-    padding: 6rem 0;
-    position: relative;
-    overflow: hidden;
-}
-.ziro-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    pointer-events: none;
-}
-.ziro-hero-grid {
-    display: grid;
-    grid-template-rows: auto auto auto auto auto auto;
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-/* Linha 0: Logo da Blip */
-.ziro-hero-logo {
-    animation: fadeInUp 0.8s ease-out 0s both;
-}
-
-.ziro-logo-blip {
-    height: 200px;
-    width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-.ziro-logo-blip:hover {
-    opacity: 1;
+.ziro-logo:hover .logo-image {
     transform: scale(1.05);
 }
 
-/* Linha 1: Título */
-.ziro-hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
-    margin: 0;
+/* MENU HAMBÚRGUER - IMPLEMENTAÇÃO LIMPA */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+    z-index: 1001;
 }
 
-/* Linha 2: Benefício */
-.ziro-hero-beneficio {
-    font-size: 1.3rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto;
-    animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-/* Linha 3: Estatísticas */
-.ziro-hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    animation: fadeInUp 0.8s ease-out 0.6s both;
-    margin: 1rem 0;
-}
-
-.ziro-stat {
-    text-align: center;
-    padding: 1rem;
-}
-
-.ziro-stat-number {
+.hamburger-menu span {
     display: block;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #fbbf24;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    width: 25px;
+    height: 3px;
+    background-color: #1e293b;
+    border-radius: 2px;
     transition: all 0.3s ease;
 }
 
-.ziro-stat-number.animate {
-    animation: pulse 0.5s ease-in-out;
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
-.ziro-stat-number.counter-animated {
-    /* Previne que o elemento seja animado novamente */
-    pointer-events: none;
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
 }
 
-.ziro-stat-label {
-    font-size: 1rem;
-    color: #cbd5e1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Linha 4: Urgência */
-.ziro-hero-urgencia {
-    font-size: 1.1rem;
-    color: #fbbf24;
+/* NAVEGAÇÃO DESKTOP */
+.ziro-navbar nav {
+    display: flex;
+    gap: 2.8rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.ziro-navbar nav a {
+    color: #23272a;
+    text-decoration: none;
     font-weight: 600;
-    animation: fadeInUp 0.8s ease-out 0.8s both;
-    margin: 0;
+    font-size: 1.08rem;
+    transition: color 0.2s, background 0.2s;
+    padding: 0.4rem 1.1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-/* Linha 5: CTA */
-.ziro-hero-cta {
-    animation: fadeInUp 0.8s ease-out 1s both;
-    margin: 0;
+.ziro-navbar nav a:hover, .ziro-navbar nav a.btn-primary {
+    color: #2563eb;
+    background: #f1f5f9;
 }
-
-/* Linha 6: Garantia */
-.ziro-hero-garantia {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    animation: fadeInUp 0.8s ease-out 1.2s both;
-    margin: 0;
-}
-
-.ziro-btn-main {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-    color: #1e293b;
-    padding: 1.2rem 3rem;
+.btn-primary {
+    background: #1e293b;
+    color: #fff;
+    padding: 0.7rem 1.7rem;
     border: none;
     border-radius: 32px;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(30,41,59,0.07);
 }
-.ziro-btn-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+.btn-primary:hover {
+    background: #2563eb;
+    color: #fff;
 }
-.ziro-btn-main:hover::before {
-    left: 100%;
+
+/* HERO MELHORADO */
+.hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 5rem 0 3rem 0;
+    color: #23272a;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
 }
-.ziro-btn-main:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
 }
-.ziro-servicos {
+
+.hero-text {
+    flex: 1 1 500px;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #1e293b;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #475569;
+}
+
+.hero-highlight {
     background: #fff;
-    padding: 4rem 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-.ziro-servicos h2 {
+
+.highlight-icon {
+    color: #22c55e;
+}
+
+.highlight-text {
+    color: #2563eb;
+    font-size: 1.1rem;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #2563eb;
+    padding: 0.7rem 1.7rem;
+    border: 2px solid #2563eb;
+    border-radius: 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+.hero-img {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.dashboard-preview {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(30,41,59,0.10);
+    border: 1px solid #e5e7eb;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.preview-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.preview-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e5e7eb;
+}
+
+.preview-dots span:first-child {
+    background: #ef4444;
+}
+
+.preview-dots span:nth-child(2) {
+    background: #f59e0b;
+}
+
+.preview-dots span:last-child {
+    background: #22c55e;
+}
+
+.preview-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.preview-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.preview-stats .stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f7f8fa;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.preview-stats .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.25rem;
+}
+
+.preview-stats .stat-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.preview-chart {
+    display: flex;
+    align-items: end;
+    gap: 0.5rem;
+    height: 60px;
+    padding: 0.5rem;
+    background: #f7f8fa;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.chart-bar {
+    flex: 1;
+    background: linear-gradient(to top, #2563eb, #60a5fa);
+    border-radius: 4px 4px 0 0;
+    min-height: 20px;
+}
+
+.chart-bar:nth-child(1) { height: 40%; }
+.chart-bar:nth-child(2) { height: 70%; }
+.chart-bar:nth-child(3) { height: 90%; }
+.chart-bar:nth-child(4) { height: 60%; }
+
+/* PROBLEMA E SOLUÇÃO */
+.problem-solution {
+    background: #fff;
+    padding: 5rem 0 2rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.problem-section, .solution-section {
+    margin-bottom: 4rem;
+}
+
+.problem-section h2, .solution-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: #1e293b;
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.problem-card {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.problem-card:hover {
+    box-shadow: 0 4px 20px rgba(30,41,59,0.08);
+}
+
+.problem-icon {
+    width: 64px;
+    height: 64px;
+    background: #1e293b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.problem-card:hover .problem-icon {
+    background: #334155;
+    transform: scale(1.1);
+}
+
+.problem-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.problem-card p {
+    color: #475569;
+    line-height: 1.6;
+}
+
+.solution-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background: #f8fafc;
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.solution-visual {
+    text-align: center;
+}
+
+.transformation-funnel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.funnel-step {
+    background: #1e293b;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 150px;
+    text-align: center;
+}
+
+.funnel-arrow {
+    font-size: 1.5rem;
+    color: #64748b;
+    font-weight: bold;
+}
+
+.solution-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.solution-text p {
+    color: #475569;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.solution-benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.solution-benefits li {
+    padding: 0.5rem 0;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* ESTATÍSTICAS */
+.stats-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    padding: 5rem 0 2rem 0;
+    color: #fff;
+    border-bottom: none;
+}
+
+.stats-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.stats-section .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 3rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.stats-grid .stat-item {
+    background: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(30,41,59,0.10);
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 180px;
+}
+
+.stats-grid .stat-item:hover {
+    box-shadow: 0 8px 32px rgba(30,41,59,0.15);
+}
+
+.stats-grid .stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stats-grid .stat-label {
+    font-size: 1.1rem;
+    color: #1e293b;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.stats-grid .stat-item p {
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* AUTORIDADE */
+.authority-section {
+    background: #fff;
+    padding: 5rem 0 2rem 0;
+}
+
+.authority-section h2 {
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
     color: #1e293b;
 }
-.ziro-section-subtitle {
+
+.authority-section .subtitle {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #64748b;
     margin-bottom: 3rem;
+}
+
+.authority-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.authority-card {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(30,41,59,0.04);
+}
+
+.authority-card:hover {
+    box-shadow: 0 4px 20px rgba(30,41,59,0.08);
+}
+
+.authority-icon {
+    width: 64px;
+    height: 64px;
+    background: #1e293b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.authority-card:hover .authority-icon {
+    background: #334155;
+    transform: scale(1.1);
+}
+
+.authority-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.authority-card p {
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* SERVIÇOS MELHORADOS */
+.servicos {
+    background: #fff;
+    padding: 5rem 0 2rem 0;
+}
+
+.servicos h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.servicos .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.servico-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(30,41,59,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.servico-card:hover::before {
+    transform: scaleX(1);
+}
+
+.servico-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(30,41,59,0.1);
+}
+
+.servico-card.destaque {
+    border-color: #2563eb;
+    background: #f1f5f9;
+}
+
+.servico-icon {
+    width: 64px;
+    height: 64px;
+    background: #1e293b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.servico-card:hover .servico-icon {
+    background: #334155;
+    transform: scale(1.1);
+}
+
+.servico-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.servico-card p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.servico-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.servico-benefits span {
+    color: #059669;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.servico-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+}
+
+.servico-link:hover {
+    gap: 0.75rem;
+}
+
+/* CTA FINAL - Mesma paleta das páginas de serviço */
+.cta-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    padding: 5rem 0 2rem 0;
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    color: #fff;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.cta-section p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: #cbd5e1;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
 }
-.ziro-servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-.ziro-servico-card {
-    background: #f8fafb;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #e5e7eb;
-}
-.ziro-servico-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-}
-.ziro-servico-card img {
-    height: 40px;
-    width: auto;
-    margin-bottom: 1rem;
-}
-.ziro-servico-card h3 {
-    color: #1e293b;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-}
-.ziro-servico-card p {
-    color: #64748b;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-.ziro-btn-card {
-    background: #1db954;
-    color: #fff;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 20px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-    display: inline-block;
-}
-.ziro-btn-card:hover {
-    background: #159c43;
-}
-.ziro-servico-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1rem auto;
+
+.cta-benefits {
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.15);
-    transition: all 0.3s ease;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
 }
-.ziro-servico-icon svg {
-    width: 32px;
-    height: 32px;
-    transition: all 0.3s ease;
-}
-.ziro-servico-card:hover .ziro-servico-icon {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.25);
-}
-.ziro-servico-card:hover .ziro-servico-icon svg {
-    transform: scale(1.1);
-}
-.ziro-cases {
-    background: #e8f5e9;
-    padding: 3.5rem 0 2.5rem 0;
-    text-align: center;
-}
-.ziro-cases h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-.ziro-cases blockquote {
-    font-size: 1.2rem;
-    color: #23272a;
-    background: #fff;
-    border-left: 5px solid #1db954;
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    margin: 0 auto 1.5rem auto;
-    max-width: 600px;
-    font-style: italic;
-}
-.ziro-cases span {
-    display: block;
-    color: #159c43;
+
+.cta-benefit {
+    color: #fbbf24;
     font-weight: 600;
-    margin-top: 1rem;
-    font-size: 1rem;
-}
-.ziro-contato {
-    background: #fff;
-    padding: 4rem 0 3rem 0;
-    text-align: center;
-}
-.ziro-contato h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-}
-.ziro-contato p {
-    color: #374151;
     font-size: 1.1rem;
-    margin-bottom: 2rem;
 }
-.ziro-btn-whatsapp {
-    background: #1db954;
-    color: #fff;
-    padding: 1rem 2.5rem;
-    border: none;
-    border-radius: 32px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-    box-shadow: 0 2px 12px rgba(30,185,84,0.08);
-    display: inline-block;
-}
-.ziro-btn-whatsapp:hover {
-    background: #159c43;
-}
-.ziro-outros-servicos {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e5e7eb;
-}
-.ziro-outros-servicos p {
-    color: #4b5563;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
-.ziro-servicos-links {
+
+.cta-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-}
-.ziro-footer {
-    background: #23272a;
-    color: #fff;
-    text-align: center;
-    padding: 1.2rem 0;
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
-@media (max-width: 900px) {
-    .ziro-servicos-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .ziro-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .ziro-servicos-links {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-@media (max-width: 600px) {
-    .ziro-hero h1 {
-        font-size: 2rem;
-    }
-    .ziro-servico-card {
-        padding: 1.5rem 0.7rem 1rem 0.7rem;
-    }
-    .ziro-cases blockquote {
-        padding: 1rem 0.7rem;
-    }
+    margin-bottom: 2rem;
 }
 
-/* Hero Section Melhorado */
-.ziro-hero-content {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    text-align: left;
-}
-
-.ziro-hero-text {
-    flex: 1;
-}
-
-.ziro-hero-text h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+.btn-cta-primary {
+    background: #fbbf24;
     color: #1e293b;
-    line-height: 1.2;
-}
-
-.ziro-hero-image {
-    flex: 1;
-    text-align: center;
-}
-
-.ziro-hero-image img {
-    max-width: 300px;
-    height: auto;
-}
-
-.ziro-hero-subtitle {
-    font-size: 1.3rem;
-    color: #64748b;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.ziro-beneficios-rapidos {
-    margin: 2rem 0;
-}
-
-.ziro-beneficio-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #475569;
-    font-weight: 500;
-}
-
-.ziro-check {
-    background: #1db954;
-    color: white;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    margin-right: 12px;
-    flex-shrink: 0;
-}
-
-.ziro-cta-group {
-    margin-top: 2rem;
-}
-
-.ziro-garantia {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: #059669;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
     font-weight: 600;
-}
-
-/* Seção de Problemas */
-.ziro-problemas {
-    background: #fef2f2;
-    padding: 4rem 0;
-}
-
-.ziro-problemas h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    color: #dc2626;
-}
-
-.ziro-problemas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.ziro-problema-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    border-left: 4px solid #dc2626;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.ziro-problema-card h3 {
-    color: #dc2626;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.ziro-solucao {
-    background: #1db954;
-    color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.ziro-solucao h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-/* Features nos cards de serviço */
-.ziro-features {
-    list-style: none;
-    padding: 0;
-    margin-top: 1rem;
-}
-
-.ziro-features li {
-    padding: 0.5rem 0;
-    color: #374151;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.ziro-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #1db954;
-    font-weight: bold;
-}
-
-/* Seção de Resultados */
-.ziro-resultados {
-    background: #f0f9ff;
-    padding: 4rem 0;
-}
-
-.ziro-resultados h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-.ziro-metricas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.ziro-metrica {
-    text-align: center;
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.ziro-numero {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #1db954;
-    margin-bottom: 0.5rem;
-}
-
-.ziro-metrica p {
-    color: #374151;
-    font-weight: 600;
-}
-
-.ziro-fonte-dados {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e5e7eb;
-}
-
-.ziro-fonte-dados p {
-    color: white;
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
-/* Depoimentos Melhorados */
-.ziro-depoimentos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-}
-
-.ziro-depoimento {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid #1db954;
-}
-
-.ziro-depoimento p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-}
-
-.ziro-cliente {
-    border-top: 1px solid #e5e7eb;
-    padding-top: 1rem;
-}
-
-.ziro-cliente strong {
-    display: block;
-    color: #1db954;
-    font-size: 1.1rem;
-}
-
-.ziro-cliente span {
-    color: #6b7280;
-    font-size: 0.9rem;
-}
-
-/* Seção de Processo */
-.ziro-processo {
-    background: white;
-    padding: 4rem 0;
-}
-
-.ziro-processo h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-.ziro-processo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.ziro-etapa {
-    text-align: center;
-    padding: 2rem;
-    border-radius: 12px;
-    background: #f8fafb;
-    position: relative;
-}
-
-.ziro-etapa-numero {
-    background: #1db954;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 auto 1.5rem auto;
-}
-
-.ziro-etapa h3 {
-    color: #1db954;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.ziro-tempo {
-    background: #1db954;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
     display: inline-block;
-    margin-top: 1rem;
 }
 
-/* Seção de Garantias */
-.ziro-garantias {
-    background: #f0fdf4;
-    padding: 4rem 0;
+.btn-cta-primary:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.ziro-garantias h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-.ziro-garantias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.ziro-garantia-item {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 2px solid #1db954;
-}
-
-.ziro-garantia-item h3 {
-    color: #1db954;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-/* Seção de Urgência e CTA Final */
-.ziro-urgencia {
-    background: #fef3c7;
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    border: 2px solid #f59e0b;
-}
-
-.ziro-urgencia h2 {
-    color: #d97706;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.ziro-urgencia-texto {
-    font-size: 1.1rem;
-    color: #92400e;
-    margin-bottom: 1rem;
+.btn-cta-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
     font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: 2px solid #fff;
+    cursor: pointer;
+    display: inline-block;
 }
 
-.ziro-bonus {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
+.btn-cta-secondary:hover {
+    background: #fff;
+    color: #1e293b;
+    transform: translateY(-2px);
 }
 
-.ziro-bonus li {
-    padding: 0.5rem 0;
-    color: #92400e;
-    font-weight: 600;
-}
-
-.ziro-total-bonus {
-    font-size: 1.3rem;
-    color: #d97706;
-    font-weight: 700;
-    text-align: center;
+.cta-note {
+    font-size: 0.875rem;
+    color: #94a3b8;
     margin-top: 1.5rem;
+    font-style: italic;
 }
 
-.ziro-cta-final {
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.ziro-cta-final h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #1db954;
-    font-weight: 700;
-}
-
-.ziro-urgencia-footer {
-    margin-top: 1rem;
-    color: #dc2626;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .ziro-hero-grid {
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .ziro-hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-hero-beneficio {
-        font-size: 1.1rem;
-    }
-    
-    .ziro-hero-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .ziro-stat-number {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-diferenciais-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-resultados-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .ziro-resultado-numero {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .ziro-hero-grid {
-        gap: 1rem;
-        padding: 0 0.5rem;
-    }
-    
-    .ziro-hero-title {
-        font-size: 2rem;
-    }
-    
-    .ziro-hero-beneficio {
-        font-size: 1rem;
-    }
-    
-    .ziro-hero-stats {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-    
-    .ziro-stat {
-        padding: 0.5rem;
-    }
-    
-    .ziro-stat-number {
-        font-size: 2rem;
-    }
-    
-    .ziro-stat-label {
-        font-size: 0.9rem;
-    }
-    
-    .ziro-btn-main {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-    }
-}
-
-/* Animações para criar fluxo visual */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Badge no Hero */
-.ziro-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #1db954 0%, #059669 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-/* Seção de Credibilidade */
-.ziro-credibilidade {
-    background: #f8fafb;
-    padding: 3rem 0;
-    text-align: center;
-}
-
-.ziro-logos-grid {
+/* BENEFÍCIOS */
+.beneficios {
+    background: #fff;
+    padding: 4rem 0 2rem 0;
+    min-height: 70vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 3rem;
+}
+.beneficios h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: #1e293b;
+}
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+.beneficio-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(30,41,59,0.04);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+.beneficio-card:hover {
+    box-shadow: 0 4px 20px rgba(30,41,59,0.08);
+    border-color: #2563eb;
+}
+.beneficio-icon {
+    width: 64px;
+    height: 64px;
+    background: #1e293b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1.5rem;
+}
+.beneficio-card:hover .beneficio-icon {
+    background: #334155;
+    transform: scale(1.1);
+}
+.beneficio-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+}
+.beneficio-card p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* COMO FUNCIONA */
+.como-funciona {
+    background: #f8fafc;
+    padding: 4rem 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+.como-funciona h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #1e293b;
+}
+.como-funciona .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+}
+.timeline-modern {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
     flex-wrap: wrap;
 }
-
-.ziro-logo-item img {
-    max-height: 60px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-.ziro-logo-item img:hover {
-    opacity: 1;
-}
-
-.ziro-credibilidade-text {
-    color: #6b7280;
-    font-size: 1rem;
-    font-style: italic;
-}
-
-/* Problemas com custos */
-.ziro-problema-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.ziro-custo {
-    background: #dc2626;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 1rem;
+.timeline-step {
+    flex: 1;
     text-align: center;
-}
-
-/* Valores dos Página de conversão */
-.ziro-servico-valor {
-    margin-top: 1.5rem;
-    text-align: center;
-    padding: 1rem;
-    background: #f0fdf4;
-    border-radius: 8px;
-    border: 2px solid #1db954;
-}
-
-.ziro-valor-antigo {
-    text-decoration: line-through;
-    color: #6b7280;
-    font-size: 0.9rem;
-    margin-right: 1rem;
-}
-
-.ziro-valor-atual {
-    color: #1db954;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-/* Seção de Demo */
-.ziro-demo {
-    background: #f0f9ff;
-    padding: 4rem 0;
-}
-
-.ziro-demo h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-.ziro-demo-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-width: 200px;
+    min-height: 280px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(30,41,59,0.04);
+    transition: box-shadow 0.2s, transform 0.2s;
 }
-
-.ziro-demo-video {
+.timeline-step:hover {
+    box-shadow: 0 4px 20px rgba(30,41,59,0.08);
+    transform: translateY(-2px);
+}
+.timeline-icon {
+    width: 64px;
+    height: 64px;
+    background: #1e293b;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.ziro-demo-text h3 {
-    color: #1db954;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-.ziro-demo-text ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-}
-
-.ziro-demo-text li {
-    padding: 0.5rem 0;
-    color: #374151;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.ziro-btn-demo {
-    background: #1db954;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 32px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-    display: inline-block;
-}
-
-.ziro-btn-demo:hover {
-    background: #059669;
-}
-
-/* Entregáveis no processo */
-.ziro-entregavel {
-    background: #f0fdf4;
-    border: 1px solid #1db954;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #374151;
-}
-
-.ziro-entregavel strong {
-    color: #1db954;
-}
-
-/* Video preview no hero */
-.ziro-video-preview {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.ziro-video-thumbnail {
-    position: relative;
-    display: inline-block;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    margin-bottom: 1rem;
-}
-
-.ziro-video-thumbnail img {
-    max-width: 100%;
-    height: auto;
-}
-
-.ziro-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(29, 185, 84, 0.9);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
     font-size: 1.5rem;
-    cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.3s ease;
 }
-
-.ziro-play-button:hover {
-    background: rgba(29, 185, 84, 1);
+.timeline-step:hover .timeline-icon {
+    background: #334155;
+    transform: scale(1.1);
 }
-
-.ziro-video-preview p {
-    color: #6b7280;
-    font-size: 0.9rem;
+.timeline-divider {
+    flex: 0 0 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    border-radius: 1px;
+}
+.timeline-step h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
     margin: 0;
 }
-
-/* Responsividade para demo */
-@media (max-width: 900px) {
-    .ziro-demo-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .ziro-logos-grid {
-        gap: 2rem;
-    }
-    
-    .ziro-logo-item img {
-        max-height: 40px;
-    }
+.timeline-step p {
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}
+.timeline-step > div:last-child {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Hero com estatísticas */
-.ziro-hero-content {
+/* FAQ */
+.faq {
+    background: #f7f8fa;
+    padding: 4rem 0;
+}
+.faq h2 {
     text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: #1e293b;
+}
+.faq-list {
     max-width: 800px;
     margin: 0 auto;
 }
-
-.ziro-hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #666;
-}
-
-.ziro-hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-}
-
-.ziro-stat {
-    text-align: center;
-}
-
-.ziro-stat-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2563eb;
-    margin-bottom: 0.5rem;
-}
-
-.ziro-stat-label {
-    font-size: 0.9rem;
-    color: #cbd5e1;
-}
-
-/* Melhorias nos cards de Página de conversão */
-.ziro-servico-icon {
-    font-size: 3rem;
+.faq-list details {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
     margin-bottom: 1rem;
-    text-align: center;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
 }
-
-.ziro-servico-features {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
+.faq-list details[open] {
+    box-shadow: 0 4px 20px rgba(30,41,59,0.08);
 }
-
-.ziro-servico-features li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.ziro-servico-features li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #2563eb;
-    font-weight: bold;
-}
-
-.ziro-servico-features li:last-child {
-    border-bottom: none;
-}
-
-/* Seção de diferenciais */
-.ziro-diferenciais {
-    background: #f8fafc;
-    padding: 4rem 0;
-}
-
-.ziro-diferenciais-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.ziro-diferencial {
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.ziro-diferencial-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.ziro-diferencial h3 {
+.faq-list summary {
+    padding: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
     color: #1e293b;
-    margin-bottom: 1rem;
+    transition: background 0.2s;
+    position: relative;
 }
-
-/* Seção de resultados */
-.ziro-resultados {
-    padding: 4rem 0;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: white;
+.faq-list summary:hover {
+    background: #f8fafc;
 }
-
-.ziro-resultados h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: white;
+.faq-list summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #2563eb;
+    transition: transform 0.2s;
 }
-
-.ziro-resultados-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+.faq-list details[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
 }
-
-.ziro-resultado {
-    text-align: center;
-    padding: 2rem;
-}
-
-.ziro-resultado-numero {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #fbbf24;
-    display: block;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.ziro-resultado-numero.animate {
-    animation: pulse 0.5s ease-in-out;
-}
-
-.ziro-resultado-numero.counter-animated {
-    /* Previne que o elemento seja animado novamente */
-    pointer-events: none;
-}
-
-.ziro-resultado p {
-    font-size: 1.1rem;
+.faq-list p {
+    padding: 0 1.5rem 1.5rem;
+    color: #64748b;
+    line-height: 1.6;
     margin: 0;
 }
 
-/* Ícones SVG nos resultados */
-.ziro-resultado-icon {
-    margin-bottom: 1rem;
-}
-
-.ziro-resultado-icon svg {
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-
-/* Seção de contato com ilustração */
-.ziro-contato-content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 3rem;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.ziro-contato-text {
-    text-align: left;
-}
-
-.ziro-contato-text h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-    color: #1e293b;
-}
-
-.ziro-contato-text p {
-    color: #64748b;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.ziro-contato-illustration {
-    text-align: center;
-}
-
-.ziro-contato-illustration svg {
-    max-width: 200px;
-    height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
-/* Responsividade para contato */
-@media (max-width: 768px) {
-    .ziro-contato-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
+/* RESPONSIVIDADE */
+@media (max-width: 1100px) {
+    .container {
+        padding: 0 20px;
     }
-    
-    .ziro-contato-text {
-        text-align: center;
-    }
-    
-    .ziro-contato-illustration svg {
-        max-width: 150px;
-    }
-    
-    .ziro-hero-grid {
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .ziro-hero-title {
+    .hero-text h1 {
         font-size: 2.5rem;
     }
-    
-    .ziro-hero-beneficio {
-        font-size: 1.1rem;
-    }
-    
-    .ziro-hero-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .ziro-stat-number {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-diferenciais-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-resultados-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .ziro-resultado-numero {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .ziro-hero-grid {
-        gap: 1rem;
-        padding: 0 0.5rem;
-    }
-    
-    .ziro-hero-title {
-        font-size: 2rem;
-    }
-    
-    .ziro-hero-beneficio {
-        font-size: 1rem;
-    }
-    
-    .ziro-hero-stats {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-    
-    .ziro-stat {
-        padding: 0.5rem;
-    }
-    
-    .ziro-stat-number {
-        font-size: 2rem;
-    }
-    
-    .ziro-stat-label {
-        font-size: 0.9rem;
-    }
-    
-    .ziro-btn-main {
-        padding: 1rem 2rem;
+    .hero-text p {
         font-size: 1.1rem;
     }
 }
 
 @media (max-width: 900px) {
-    .ziro-hero-content {
+    .header-flex {
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+    .ziro-navbar nav {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+        margin-left: 0;
+        transform: none;
+    }
+    .ziro-navbar nav.active {
+        right: 0;
+    }
+    .ziro-navbar nav a {
+        font-size: 1.25rem;
+        padding: 1rem 0;
+        width: auto;
+        max-width: none;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        color: #1e293b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+        border-bottom: 2px solid transparent;
+    }
+    .ziro-navbar nav a:last-child {
+        background: #1e293b;
+        color: #fff;
+        margin-top: 1rem;
+        padding: 1rem 2rem;
+        border-radius: 6px;
+    }
+    .ziro-navbar nav a:hover {
+        border-bottom: 2px solid #1e293b;
+    }
+    .ziro-navbar nav .dropdown {
+        width: auto;
+        max-width: none;
+    }
+    .ziro-navbar nav .dropdown-toggle {
+        width: auto;
+        justify-content: center;
+        padding: 1rem 0;
+        border-radius: 0;
+        background: transparent;
+        color: #1e293b;
+        font-size: 1.25rem;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s;
+    }
+    .ziro-navbar nav .dropdown-toggle:hover {
+        color: #1e293b;
+        border-bottom: 2px solid #1e293b;
+    }
+    .ziro-navbar nav .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin-top: 1rem;
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+    }
+    .ziro-navbar nav .dropdown.open .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .ziro-navbar nav .dropdown-menu a {
+        padding: 0.8rem 0;
+        border-radius: 0;
+        background: transparent;
+        color: #475569;
+        font-size: 1rem;
+        width: auto;
+        text-align: center;
+        margin-bottom: 0;
+        border-bottom: 2px solid transparent;
+    }
+    .ziro-navbar nav .dropdown-menu a:hover {
+        background: transparent;
+        color: #1e293b;
+        border-bottom: 2px solid #1e293b;
+    }
+    .ziro-logo {
+        font-size: 2rem;
+        margin-right: 0;
+    }
+    .ziro-logo .logo-image {
+        height: 40px;
+    }
+}
+
+@media (max-width: 940px) {
+    .hero-flex {
         flex-direction: column;
         text-align: center;
     }
-    
-    .ziro-hero-image {
-        order: -1;
+    .hero-text h1 {
+        font-size: 2.2rem;
     }
-    
-    .ziro-hero-image img {
-        max-width: 200px;
-    }
-    
-    .ziro-problemas-grid,
-    .ziro-metricas-grid,
-    .ziro-depoimentos-grid,
-    .ziro-processo-grid,
-    .ziro-garantias-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .ziro-hero-text h1 {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .ziro-servico-card {
-        padding: 1.5rem 0.7rem 1rem 0.7rem;
-    }
-    
-    .ziro-cases blockquote {
-        padding: 1rem 0.7rem;
-    }
-}
-
-/* Hero da página Blip - Estilo específico */
-.ziro-hero-beneficios {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 2rem 0;
-    animation: fadeInUp 0.8s ease-out 0.6s both;
-}
-
-.ziro-hero-beneficios .ziro-beneficio-item {
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-    color: #cbd5e1;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.ziro-hero-beneficios .ziro-check {
-    background: #fbbf24;
-    color: #1e293b;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    margin-right: 12px;
-    flex-shrink: 0;
-    font-weight: bold;
-}
-
-/* Responsividade para hero da Blip */
-@media (max-width: 768px) {
-    .ziro-hero-beneficios {
-        gap: 0.8rem;
-        margin: 1.5rem 0;
-    }
-    
-    .ziro-hero-beneficios .ziro-beneficio-item {
+    .hero-text p {
         font-size: 1rem;
-        padding: 0.8rem 1.2rem;
     }
-    
-    .ziro-logo-blip {
-        height: 50px;
+    .hero-img img {
+        max-width: 100%;
+    }
+    .timeline-modern {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .timeline-divider {
+        width: 2px;
+        height: 40px;
+        flex: none;
+    }
+    .timeline-step {
+        flex: none;
+    }
+    .beneficios-grid, .servicos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    body {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+    .hero-img img {
+        max-width: 100%;
+    }
+    .beneficios-grid, .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+    .timeline-step {
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+    }
+    .header-flex {
+        padding: 0 1rem;
+    }
+    .hamburger-menu {
+        margin-right: 0;
     }
 }
 
 @media (max-width: 480px) {
-    .ziro-hero-beneficios .ziro-beneficio-item {
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    .hero-text p {
         font-size: 0.9rem;
-        padding: 0.7rem 1rem;
     }
-    
-    .ziro-logo-blip {
-        height: 40px;
+    .hero-img img {
+        max-width: 100%;
+    }
+    .timeline-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    .beneficio-card, .servico-card {
+        padding: 1.5rem;
+    }
+    .ziro-logo {
+        font-size: 1.8rem;
+    }
+    .ziro-logo .logo-image {
+        height: 35px;
     }
 }
 
-/* Hero Compacto para Blip */
-.ziro-hero-compact {
-    padding: 4rem 0;
-}
-
-.ziro-hero-compact .ziro-hero-grid {
-    gap: 1.5rem;
-}
-
-.ziro-hero-compact .ziro-hero-title {
-    font-size: 3rem;
-}
-
-.ziro-hero-compact .ziro-hero-beneficio {
-    font-size: 1.2rem;
-}
-
-.ziro-hero-compact .ziro-hero-beneficios {
-    margin: 1.5rem 0;
-}
-
-.ziro-hero-compact .ziro-hero-beneficios .ziro-beneficio-item {
-    padding: 0.8rem 1.2rem;
-    font-size: 1rem;
-}
-
-/* Seção Combinada: Problemas + Página de conversão */
-.ziro-problemas-servicos {
-    background: #fff;
-    padding: 3rem 0;
-}
-
-.ziro-problemas-servicos-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.ziro-problemas-col h2,
-.ziro-servicos-col h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.ziro-problemas-grid {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.ziro-problema-card {
-    background: #fef2f2;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #ef4444;
-}
-
-.ziro-problema-card h3 {
-    color: #dc2626;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.ziro-problema-card p {
-    color: #7f1d1d;
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-.ziro-solucao {
-    background: #f0fdf4;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 2px solid #22c55e;
-    text-align: center;
-}
-
-.ziro-solucao h3 {
-    color: #16a34a;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.ziro-solucao p {
-    color: #15803d;
-    font-size: 1rem;
-    margin: 0;
-}
-
-.ziro-servicos-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.ziro-servico-card {
-    background: #f8fafb;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #e5e7eb;
-}
-
-.ziro-servico-card img {
-    height: 40px;
-    width: auto;
-    margin-bottom: 1rem;
-}
-
-.ziro-servico-card h3 {
-    color: #1db954;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.ziro-servico-card p {
-    color: #374151;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin: 0;
-}
-
-/* Seção Combinada: Resultados + Processo */
-.ziro-resultados-processo {
-    background: #f8fafb;
-    padding: 3rem 0;
-}
-
-.ziro-resultados-processo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.ziro-resultados-col h2,
-.ziro-processo-col h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.ziro-metricas-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-.ziro-metrica {
-    text-align: center;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.ziro-numero {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1db954;
-    margin-bottom: 0.5rem;
-}
-
-.ziro-metrica p {
-    color: #374151;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-.ziro-processo-grid {
-    display: grid;
-    gap: 1rem;
-}
-
-.ziro-etapa {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* DROPDOWN */
+.dropdown {
     position: relative;
 }
-
-.ziro-etapa-numero {
-    background: #1db954;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.dropdown-toggle {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0 auto 1rem auto;
-}
-
-.ziro-etapa h3 {
-    color: #1db954;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.ziro-etapa p {
-    color: #374151;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-}
-
-.ziro-tempo {
-    background: #1db954;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: inline-block;
-}
-
-/* Garantias Compactas */
-.ziro-garantias-compact {
-    background: #f0fdf4;
-    padding: 3rem 0;
-}
-
-.ziro-garantias-compact h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.ziro-garantias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.ziro-garantia-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 2px solid #1db954;
-}
-
-.ziro-garantia-item h3 {
-    color: #1db954;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.ziro-garantia-item p {
-    color: #374151;
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-/* Responsividade para seções compactas */
-@media (max-width: 768px) {
-    .ziro-hero-compact {
-        padding: 3rem 0;
-    }
-    
-    .ziro-hero-compact .ziro-hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .ziro-hero-compact .ziro-hero-beneficio {
-        font-size: 1.1rem;
-    }
-    
-    .ziro-problemas-servicos-grid,
-    .ziro-resultados-processo-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .ziro-servicos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-servico-icon {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .ziro-servico-icon svg {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .ziro-metricas-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-    
-    .ziro-garantias-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .ziro-hero-compact .ziro-hero-title {
-        font-size: 2rem;
-    }
-    
-    .ziro-servico-icon {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .ziro-servico-icon svg {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .ziro-metricas-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-numero {
-        font-size: 2rem;
-    }
-}
-
-/* Seção Combinada: Página de conversão + Diferenciais */
-.ziro-servicos-diferenciais {
-    background: #fff;
-    padding: 3rem 0;
-}
-
-.ziro-servicos-diferenciais-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.ziro-servicos-col h2,
-.ziro-diferenciais-col h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.ziro-servicos-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.ziro-servico-card {
-    background: #f8fafb;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
-}
-
-.ziro-servico-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.ziro-servico-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.15);
-    transition: all 0.3s ease;
-}
-
-.ziro-servico-icon svg {
-    width: 32px;
-    height: 32px;
-    transition: all 0.3s ease;
-}
-
-.ziro-servico-card:hover .ziro-servico-icon {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.25);
-}
-
-.ziro-servico-card:hover .ziro-servico-icon svg {
-    transform: scale(1.1);
-}
-
-.ziro-servico-card h3 {
-    color: #1db954;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.ziro-servico-card p {
-    color: #374151;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-}
-
-.ziro-btn-card {
-    background: #1db954;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.4rem 1.1rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    color: #23272a;
     text-decoration: none;
-    font-size: 0.9rem;
     font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.ziro-btn-card:hover {
-    background: #159c43;
-    transform: translateY(-1px);
-}
-
-.ziro-diferenciais-grid {
-    display: grid;
-    gap: 1rem;
-}
-
-.ziro-diferencial {
-    background: #f8fafb;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
-}
-
-.ziro-diferencial:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.ziro-diferencial-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(29, 185, 84, 0.15);
-    transition: all 0.3s ease;
-}
-
-.ziro-diferencial-icon svg {
-    width: 28px;
-    height: 28px;
-    transition: all 0.3s ease;
-}
-
-.ziro-diferencial:hover .ziro-diferencial-icon {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(29, 185, 84, 0.25);
-}
-
-.ziro-diferencial:hover .ziro-diferencial-icon svg {
-    transform: scale(1.1);
-}
-
-.ziro-diferencial h3 {
-    color: #1db954;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.ziro-diferencial p {
-    color: #374151;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin: 0;
-}
-
-/* Resultados Compactos */
-.ziro-resultados-compact {
-    background: #f8fafb;
-    padding: 3rem 0;
-}
-
-.ziro-resultados-compact h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: black;
-}
-
-.ziro-resultados-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.ziro-resultado {
-    text-align: center;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.ziro-resultado:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.ziro-resultado-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(251, 191, 36, 0.2);
-    transition: all 0.3s ease;
-}
-
-.ziro-resultado-icon svg {
-    width: 28px;
-    height: 28px;
-    transition: all 0.3s ease;
-}
-
-.ziro-resultado:hover .ziro-resultado-icon {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
-}
-
-.ziro-resultado:hover .ziro-resultado-icon svg {
-    transform: scale(1.1);
-}
-
-.ziro-resultado-numero {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fbbf24;
-    display: block;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.ziro-resultado p {
-    color: #374151;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin: 0;
-}
-
-/* Responsividade para seções compactas do index */
-@media (max-width: 768px) {
-    .ziro-servicos-diferenciais-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .ziro-servicos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-resultados-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-    
-    .ziro-servico-icon,
-    .ziro-diferencial-icon,
-    .ziro-resultado-icon {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .ziro-servico-icon svg,
-    .ziro-diferencial-icon svg,
-    .ziro-resultado-icon svg {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-@media (max-width: 480px) {
-    .ziro-resultados-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ziro-resultado-numero {
-        font-size: 2rem;
-    }
-    
-    .ziro-servico-icon,
-    .ziro-diferencial-icon,
-    .ziro-resultado-icon {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .ziro-servico-icon svg,
-    .ziro-diferencial-icon svg,
-    .ziro-resultado-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-/* Dropdown Navbar */
-.ziro-dropdown {
-    position: relative;
-    display: inline-block;
-}
-.ziro-dropdown-btn {
+    font-size: 1.08rem;
     background: none;
     border: none;
-    color: #23272a;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-left: 2rem;
-    display: flex;
-    align-items: center;
-    transition: color 0.2s;
 }
-.ziro-dropdown-btn:hover, .ziro-dropdown-btn:focus {
-    color: #1db954;
+.dropdown-toggle:hover, .dropdown.open .dropdown-toggle, .dropdown-toggle:focus {
+    background: #f1f5f9;
+    color: #2563eb;
 }
-.ziro-dropdown-icon {
-    margin-left: 0.5rem;
-    font-size: 1rem;
+.dropdown-arrow {
     transition: transform 0.2s;
+    color: #23272a;
 }
-.ziro-dropdown-content {
-    display: none;
+.dropdown-toggle:hover .dropdown-arrow, 
+.dropdown.open .dropdown-arrow, 
+.dropdown-toggle:focus .dropdown-arrow {
+    color: #2563eb;
+}
+.dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+.dropdown-menu {
     position: absolute;
-    background: #fff;
-    min-width: 220px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    border-radius: 8px;
-    z-index: 100;
-    margin-top: 0.5rem;
-    padding: 0.5rem 0;
+    top: 100%;
     left: 0;
-    margin-left: 30px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(30,41,59,0.1);
+    min-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s;
 }
-.ziro-dropdown:focus-within .ziro-dropdown-content {
-    display: block !important;
+.dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
-.ziro-dropdown-btn:focus + .ziro-dropdown-content {
+.dropdown-menu a {
     display: block;
-}
-.ziro-dropdown-content a {
-    color: #23272a;
-    padding: 0.7rem 1.2rem 0.7rem 0.9rem;
+    padding: 0.8rem 1.2rem;
+    color: #475569;
     text-decoration: none;
-    display: block;
-    font-weight: 500;
-    transition: background 0.2s, color 0.2s;
-    border-radius: 6px;
-    margin-left: 0;
-}
-.ziro-dropdown-content a:hover {
-    background: #f0fdf4;
-    color: #1db954;
-}
-.ziro-dropdown-img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
+    transition: background 0.2s;
     border-radius: 4px;
-    background: #f8fafb;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    margin-right: 0.5rem;
+    margin: 0.2rem;
+}
+.dropdown-menu a:hover {
+    background: #f1f5f9;
+    color: #2563eb;
 }
 
-.ziro-dropdown-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.ziro-dropdown-list li {
-    margin: 0;
-    padding: 0;
-}
-.ziro-dropdown-list li a {
-    display: block;
-    color: #23272a;
-    padding: 0.7rem 1.2rem;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
-    margin: 0px;
-}
-.ziro-dropdown-list li:hover {
-    background: #f0fdf4;
-    color: #1db954;
-}
-
-.ziro-btn-secondary {
-    display: inline-block;
-    background: #e5e7eb;
-    color: #23272a;
-    padding: 0.7rem 2rem;
-    border: none;
-    border-radius: 24px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    cursor: pointer;
-    box-shadow: none;
-}
-.ziro-btn-secondary:hover, .ziro-btn-secondary:focus {
-    background: #d1d5db;
-    color: #1db954;
+@media (min-width: 901px) {
+    .hamburger-menu {
+        display: none !important;
+    }
+    .ziro-navbar nav {
+        position: static !important;
+        right: auto !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 2.8rem !important;
+        transition: none !important;
+        z-index: auto !important;
+        padding: 0 !important;
+        margin-left: auto !important;
+        transform: none !important;
+    }
 } 
+.ziro-footer{
+    background: #0f172a;
+    color: #64748b;
+    padding: 2rem 0;
+    text-align: center;
+}

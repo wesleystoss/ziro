@@ -4,151 +4,455 @@
     <!-- Componente Head será carregado dinamicamente -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sites Institucionais Profissionais | Ziro</title>
-    <meta name="description" content="Transmita credibilidade e conquiste mais clientes com um site institucional profissional, rápido e responsivo. Soluções completas para presença digital, autoridade e geração de oportunidades.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Site Institucional Profissional | Autoridade +200% | Ziro</title>
+    <meta name="description" content="Crie sites institucionais que geram 200% mais contatos e 70% mais credibilidade. Design profissional, SEO avançado, implementação em 10 dias. Aumente sua autoridade!">
+    <meta name="keywords" content="site institucional, site empresarial, presença digital, autoridade online, credibilidade, SEO institucional">
+    <meta name="author" content="Ziro Consultoria Digital">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ziro.digital/servicos/site-institucional.html">
+    <meta property="og:title" content="Site Institucional Profissional | Autoridade +200%">
+    <meta property="og:description" content="Crie sites institucionais que geram 200% mais contatos e 70% mais credibilidade. Design profissional, SEO avançado, implementação em 10 dias.">
+    <meta property="og:image" content="https://ziro.digital/assets/images/site-institucional-preview.jpg">
+    <meta property="og:site_name" content="Ziro Consultoria Digital">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ziro.digital/servicos/site-institucional.html">
+    <meta property="twitter:title" content="Site Institucional Profissional | Autoridade +200%">
+    <meta property="twitter:description" content="Crie sites institucionais que geram 200% mais contatos e 70% mais credibilidade. Design profissional, SEO avançado, implementação em 10 dias.">
+    <meta property="twitter:image" content="https://ziro.digital/assets/images/site-institucional-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ziro.digital/servicos/site-institucional.html">
+    
+    <!-- Preconnect para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/service-pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Site Institucional Profissional",
+      "description": "Criação de sites institucionais profissionais que geram autoridade e credibilidade. 200% mais contatos, SEO avançado e implementação em 10 dias.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Ziro Consultoria Digital",
+        "url": "https://ziro.digital",
+        "logo": "https://ziro.digital/assets/images/ziro-logo.png"
+      },
+      "areaServed": "BR",
+      "serviceType": "Site Institucional e Presença Digital",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "Diagnóstico gratuito e implementação em 10 dias"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Site Institucional",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Site Institucional Profissional",
+              "description": "Sites que transmitem credibilidade e autoridade"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Avançado",
+              "description": "Otimização para aparecer no Google"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Design Profissional",
+              "description": "Layout moderno e institucional"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para criar um site institucional?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implementamos sites institucionais completos em apenas 10 dias, desde o briefing até o go-live com SEO otimizado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O site inclui otimização para SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Todos nossos sites institucionais incluem SEO avançado para aparecer no Google e gerar mais oportunidades de negócio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual o aumento médio de contatos que posso esperar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nossos sites institucionais geram em média 200% mais contatos e 70% mais credibilidade comparado a sites básicos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O site funciona em dispositivos móveis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Todos nossos sites institucionais são 100% responsivos e otimizados para mobile, garantindo credibilidade em qualquer dispositivo."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Placeholder para o componente Header -->
-    <div data-component="header"></div>
+    <!-- Container para o header de serviços (será carregado dinamicamente) -->
+    <div data-service-header></div>
+
+    <!-- Hero com Storytelling Impactante -->
     <main>
-        <!-- Hero Section -->
-        <section class="ziro-hero ziro-hero-compact">
-            <div class="ziro-container">
-                <div class="ziro-hero-grid">
-                    <div class="ziro-hero-logo">
-                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="60" cy="60" r="60" fill="#10b981"/>
-                            <rect x="35" y="50" width="50" height="30" rx="8" fill="#fff"/>
-                            <rect x="45" y="60" width="30" height="10" rx="3" fill="#10b981"/>
-                        </svg>
-                    </div>
-                    <h1 class="ziro-hero-title">Sites Institucionais que Geram Autoridade</h1>
-                    <p class="ziro-hero-beneficio">Tenha um site profissional, rápido e responsivo para transmitir confiança, fortalecer sua marca e conquistar mais clientes. Design exclusivo, SEO avançado e integração com WhatsApp.</p>
-                    <div class="ziro-hero-beneficios">
-                        <div class="ziro-beneficio-item"><span class="ziro-check">✓</span><span>Design moderno e responsivo</span></div>
-                        <div class="ziro-beneficio-item"><span class="ziro-check">✓</span><span>SEO avançado para Google</span></div>
-                        <div class="ziro-beneficio-item"><span class="ziro-check">✓</span><span>Integração com WhatsApp e redes sociais</span></div>
-                    </div>
-                    <div class="ziro-hero-cta">
-                        <a href="#contato" class="ziro-btn-main">Quero um site profissional</a>
-                    </div>
-                    <p class="ziro-hero-garantia">✅ Garantia de satisfação ou seu dinheiro de volta</p>
-                </div>
-            </div>
-        </section>
-        <!-- Seção de Página de conversão -->
-        <section class="ziro-servicos">
-            <div class="ziro-container">
-                <h2>O que seu site institucional terá</h2>
-                <div class="ziro-servicos-grid">
-                    <div class="ziro-servico-card">
-                        <div class="ziro-servico-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="16" width="32" height="20" rx="4" fill="#10b981"/><rect x="14" y="22" width="20" height="8" rx="2" fill="#fff"/></svg>
+        <section class="hero-landing" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 id="hero-title">Transforme Sua Presença Digital em Autoridade com Sites Institucionais que Convertem</h1>
+                        <p class="hero-subtitle">Imagine perder oportunidades de negócio porque seu site não transmite credibilidade. Agora imagine conquistar clientes com um site institucional profissional que gera 200% mais contatos e 70% mais autoridade no mercado.</p>
+                        <div class="hero-highlight">
+                            <div class="highlight-icon" aria-hidden="true">🏢</div>
+                            <div class="highlight-text">
+                                <strong>Resultado Comprovado:</strong> Sites institucionais profissionais geram 200% mais contatos e 70% mais credibilidade
+                            </div>
                         </div>
-                        <h3>Layout moderno e institucional</h3>
-                        <p>Design pensado para transmitir credibilidade, com navegação intuitiva e visual marcante.</p>
-                    </div>
-                    <div class="ziro-servico-card">
-                        <div class="ziro-servico-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#fbbf24"/><path d="M24 16v8l6 4" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="hero-cta">
+                            <a href="#contato" class="btn-hero-primary" aria-label="Solicitar site institucional profissional">Quero Aumentar Minha Autoridade</a>
+                            <a href="#como-funciona" class="btn-hero-secondary" aria-label="Ver como funciona o processo">Ver Demonstração</a>
                         </div>
-                        <h3>SEO avançado</h3>
-                        <p>Seu site preparado para aparecer no Google e captar mais oportunidades de negócio.</p>
                     </div>
-                    <div class="ziro-servico-card">
-                        <div class="ziro-servico-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="8" fill="#10b981"/><path d="M16 24h16M24 16v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+                    <div class="hero-visual">
+                        <div class="institutional-preview">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-nav">
+                                    <div class="nav-item"></div>
+                                    <div class="nav-item"></div>
+                                    <div class="nav-item"></div>
+                                    <div class="nav-item"></div>
+                                </div>
+                                <div class="preview-hero">
+                                    <div class="preview-title"></div>
+                                    <div class="preview-subtitle"></div>
+                                </div>
+                                <div class="preview-sections">
+                                    <div class="section-card"></div>
+                                    <div class="section-card"></div>
+                                    <div class="section-card"></div>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Integração com WhatsApp</h3>
-                        <p>Botão de contato direto, formulários inteligentes e integração com redes sociais.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Seção de Resultados -->
-        <section class="ziro-resultados ziro-resultados-compact">
-            <div class="ziro-container">
-                <h2>Resultados que você pode esperar</h2>
-                <div class="ziro-resultados-grid">
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#fbbf24"/><path d="M12 22l6 6 10-10" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="ziro-resultado-numero">+200%</div>
-                        <p>Mais contatos e oportunidades</p>
+
+        <!-- Problema e Solução -->
+        <section class="problem-solution" aria-labelledby="problem-title">
+            <div class="container">
+                <div class="problem-section">
+                    <h2 id="problem-title">O Problema que Está Custando Sua Autoridade</h2>
+                    <div class="problem-grid">
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">📉</div>
+                            <h3>Falta de Credibilidade</h3>
+                            <p>75% dos clientes desconfiam de empresas sem presença digital profissional. Sem um site institucional, você perde autoridade.</p>
+                        </article>
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">🔍</div>
+                            <h3>Invisibilidade no Google</h3>
+                            <p>93% das experiências online começam com uma busca. Sites não otimizados não aparecem e perdem oportunidades.</p>
+                        </article>
+                        <article class="problem-card">
+                            <div class="problem-icon" aria-hidden="true">📱</div>
+                            <h3>Experiência Mobile Ruim</h3>
+                            <p>60% do tráfego vem do mobile. Sites não responsivos perdem credibilidade automaticamente.</p>
+                        </article>
                     </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#10b981"/><path d="M20 12v16M12 20h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+                </div>
+                
+                <div class="solution-section">
+                    <h2>A Solução que Multiplica Sua Autoridade</h2>
+                    <div class="solution-highlight">
+                        <div class="solution-visual">
+                            <div class="authority-funnel">
+                                <div class="funnel-step">Visitante</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Site Institucional</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Credibilidade</div>
+                                <div class="funnel-arrow">↓</div>
+                                <div class="funnel-step">Cliente</div>
+                            </div>
                         </div>
-                        <div class="ziro-resultado-numero">+70%</div>
-                        <p>Mais credibilidade para sua marca</p>
-                    </div>
-                    <div class="ziro-resultado">
-                        <div class="ziro-resultado-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#fbbf24"/><path d="M20 12v16M12 20h16" stroke="#10b981" stroke-width="3" stroke-linecap="round"/></svg>
+                        <div class="solution-text">
+                            <h3>Sites Institucionais Profissionais com SEO Avançado</h3>
+                            <p>Criamos sites que transmitem credibilidade, aparecem no Google e convertem visitantes em clientes com design institucional e otimização completa.</p>
+                            <ul class="solution-benefits">
+                                <li>✅ 200% mais contatos qualificados</li>
+                                <li>✅ 70% mais credibilidade no mercado</li>
+                                <li>✅ SEO avançado para aparecer no Google</li>
+                                <li>✅ Design profissional e responsivo</li>
+                            </ul>
                         </div>
-                        <div class="ziro-resultado-numero">-60%</div>
-                        <p>Redução no tempo de resposta</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Seção de Processo -->
-        <section class="ziro-processo">
-            <div class="ziro-container">
-                <h2>Como funciona o nosso processo</h2>
-                <div class="ziro-processo-grid">
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">1</div>
-                        <h3>Diagnóstico gratuito</h3>
-                        <p>Analisamos sua empresa e identificamos como o site pode gerar mais autoridade e oportunidades.</p>
-                        <span class="ziro-tempo">Dia 1</span>
+
+        <!-- Estatísticas Impactantes -->
+        <section class="stats-section" id="beneficios" id="beneficios" aria-labelledby="stats-title">
+            <div class="container">
+                <h2 id="stats-title">Números que Comprovam a Autoridade</h2>
+                <p class="subtitle">Resultados reais de empresas que implementaram nossos sites institucionais profissionais</p>
+                <div class="stats-grid">
+                    <article class="stat-item">
+                        <div class="stat-number">+200%</div>
+                        <div class="stat-label">Mais Contatos</div>
+                        <p>Média de aumento na geração de contatos qualificados com sites institucionais profissionais</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">+70%</div>
+                        <div class="stat-label">Mais Credibilidade</div>
+                        <p>Aumento na percepção de autoridade e confiança da marca no mercado</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">-60%</div>
+                        <div class="stat-label">Menos Tempo de Resposta</div>
+                        <p>Redução no tempo de qualificação com informações claras e formulários otimizados</p>
+                    </article>
+                    <article class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Dias para Implementar</div>
+                        <p>Processo rápido e eficiente para começar a gerar autoridade</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios Detalhados -->
+        <section class="beneficios-landing"  aria-labelledby="beneficios-title">
+            <div class="container">
+                <h2 id="beneficios-title">Por que Nossos Sites Institucionais Geram Mais Autoridade?</h2>
+                <p class="subtitle">Tecnologia avançada, design profissional e estratégias comprovadas de credibilidade</p>
+                <div class="beneficios-grid-landing">
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Design Institucional Profissional</h3>
+                        <p>Layouts modernos e institucionais que transmitem credibilidade e fortalecem sua marca no mercado.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <h3>SEO Avançado</h3>
+                        <p>Otimização completa para aparecer no Google e captar mais oportunidades de negócio organicamente.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>100% Responsivo</h3>
+                        <p>Funciona perfeitamente em desktop, tablet e mobile. 60% do tráfego vem de dispositivos móveis.</p>
+                    </article>
+                    <article class="beneficio-card-landing">
+                        <div class="beneficio-icon-landing" aria-hidden="true">
+                            <svg width="32" height="32" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3>Integração Completa</h3>
+                        <p>WhatsApp, formulários inteligentes, redes sociais e CRM integrados para facilitar o contato.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Argumentos de Autoridade -->
+        <section class="authority-section" aria-labelledby="authority-title">
+            <div class="container">
+                <h2 id="authority-title">Tecnologias e Métodos que Geram Autoridade</h2>
+                <p class="subtitle">Utilizamos as melhores práticas e ferramentas do mercado para garantir credibilidade</p>
+                <div class="authority-grid">
+                    <div class="authority-card">
+                        <div class="authority-icon">🎨</div>
+                        <h3>Design Institucional</h3>
+                        <p>Layouts baseados em princípios de design institucional e psicologia de credibilidade comprovados.</p>
                     </div>
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">2</div>
-                        <h3>Criação e integração</h3>
-                        <p>Desenvolvemos o site, integramos formulários, WhatsApp e otimizamos para SEO.</p>
-                        <span class="ziro-tempo">Dias 2-7</span>
+                    <div class="authority-card">
+                        <div class="authority-icon">📊</div>
+                        <h3>SEO Técnico Avançado</h3>
+                        <p>Otimização técnica completa para rankear bem no Google e gerar tráfego qualificado.</p>
                     </div>
-                    <div class="ziro-etapa">
-                        <div class="ziro-etapa-numero">3</div>
-                        <h3>Go-live e acompanhamento</h3>
-                        <p>Publicação, treinamento e acompanhamento dos resultados para garantir sucesso.</p>
-                        <span class="ziro-tempo">Dias 8-10</span>
+                    <div class="authority-card">
+                        <div class="authority-icon">⚡</div>
+                        <h3>Performance Otimizada</h3>
+                        <p>Carregamento ultra-rápido (menos de 3 segundos) para não perder credibilidade por lentidão.</p>
+                    </div>
+                    <div class="authority-card">
+                        <div class="authority-icon">🔒</div>
+                        <h3>Segurança e Compliance</h3>
+                        <p>SSL, LGPD, proteção de dados e conformidade com todas as regulamentações.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Seção de Garantias -->
-        <section class="ziro-garantias ziro-garantias-compact">
-            <div class="ziro-container">
-                <h2>Garantias para sua tranquilidade</h2>
-                <div class="ziro-garantias-grid">
-                    <div class="ziro-garantia-item">
-                        <h3>🛡️ Garantia de satisfação</h3>
-                        <p>Se não ficar satisfeito, devolvemos 100% do seu dinheiro.</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>⚡ Implantação rápida</h3>
-                        <p>Seu site no ar em até 10 dias úteis.</p>
-                    </div>
-                    <div class="ziro-garantia-item">
-                        <h3>📞 Suporte dedicado</h3>
-                        <p>Acompanhamento próximo durante e após a entrega.</p>
-                    </div>
+
+        <!-- Como Funciona - Processo Sequencial -->
+        <section class="como-funciona-landing" id="como-funciona" aria-labelledby="processo-title">
+            <div class="container">
+                <h2 id="processo-title">Implementação em 10 Dias</h2>
+                <p class="subtitle">Processo estruturado e eficiente para criar seu site institucional de alta credibilidade</p>
+                <div class="timeline-landing">
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 1">1</div>
+                        <h4>Briefing e Estratégia (Dias 1-2)</h4>
+                        <p>Análise da sua empresa, definição de público-alvo e criação da estratégia de autoridade digital.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 2">2</div>
+                        <h4>Design e Desenvolvimento (Dias 3-7)</h4>
+                        <p>Criação do design institucional, desenvolvimento do site e otimização SEO completa.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 3">3</div>
+                        <h4>Testes e Otimização (Dias 8-9)</h4>
+                        <p>Testes de usabilidade, performance e compatibilidade em todos os dispositivos e navegadores.</p>
+                    </article>
+                    <div class="timeline-connector" aria-hidden="true"></div>
+                    <article class="timeline-step-landing">
+                        <div class="timeline-number" aria-label="Passo 4">4</div>
+                        <h4>Go-live e Acompanhamento (Dia 10)</h4>
+                        <p>Publicação, treinamento da equipe e acompanhamento dos resultados para maximizar autoridade.</p>
+                    </article>
                 </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section para SEO -->
+        <section class="faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title">Perguntas Frequentes sobre Sites Institucionais</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>Quanto tempo leva para criar um site institucional?</summary>
+                        <p>Implementamos sites institucionais completos em apenas 10 dias, desde o briefing até o go-live com SEO otimizado.</p>
+                    </details>
+                    <details>
+                        <summary>O site inclui otimização para SEO?</summary>
+                        <p>Sim! Todos nossos sites institucionais incluem SEO avançado para aparecer no Google e gerar mais oportunidades de negócio.</p>
+                    </details>
+                    <details>
+                        <summary>Qual o aumento médio de contatos que posso esperar?</summary>
+                        <p>Nossos sites institucionais geram em média 200% mais contatos e 70% mais credibilidade comparado a sites básicos.</p>
+                    </details>
+                    <details>
+                        <summary>O site funciona em dispositivos móveis?</summary>
+                        <p>Sim! Todos nossos sites institucionais são 100% responsivos e otimizados para mobile, garantindo credibilidade em qualquer dispositivo.</p>
+                    </details>
+                    <details>
+                        <summary>Posso personalizar o design do site?</summary>
+                        <p>Absolutamente! Criamos designs únicos e personalizados para sua marca, mantendo as melhores práticas de design institucional.</p>
+                    </details>
+                    <details>
+                        <summary>Inclui integração com WhatsApp e formulários?</summary>
+                        <p>Sim! Integramos WhatsApp, formulários inteligentes e outros canais de contato para facilitar a comunicação com seus clientes.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garantia e CTA Final -->
+        <section class="cta-section" id="contato" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="guarantee-badge">
+                    <span aria-hidden="true">🏢</span>
+                    <strong>Garantia de Autoridade</strong>
+                </div>
+                <h2 id="cta-title">Pronto para Multiplicar Sua Autoridade Digital?</h2>
+                <p>Junte-se a centenas de empresas que já transformaram sua presença digital com sites institucionais profissionais. Se não vir aumento na credibilidade em 30 dias, devolvemos 100% do investimento.</p>
+                <div class="cta-benefits">
+                    <div class="cta-benefit">✅ Implementação em 10 dias</div>
+                    <div class="cta-benefit">✅ 200% mais contatos</div>
+                    <div class="cta-benefit">✅ Garantia de resultado</div>
+                    <div class="cta-benefit">✅ Suporte completo</div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6199241137?text=Olá! Quero saber mais sobre sites institucionais profissionais" class="btn-cta-primary" target="blank" rel="noopener" aria-label="Falar no WhatsApp sobre sites institucionais">Falar no WhatsApp</a>
+                    <a href="tel:+6199241137" class="btn-cta-secondary" aria-label="Ligar para saber mais sobre sites institucionais">Ligar Agora</a>
+                </div>
+                <p class="cta-note">* Diagnóstico gratuito. Sem compromisso. Resultados garantidos.</p>
             </div>
         </section>
     </main>
-    <!-- Placeholder para o componente Footer -->
-    <div data-component="footer"></div>
+
+    <!-- Footer -->
+    <footer class="footer-landing">
+        <div class="container">
+            <p>&copy; 2025 Ziro Consultoria Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
     <!-- Scripts -->
     <script src="../assets/js/config.js"></script>
-    <script src="../assets/js/components.js"></script>
-    <script src="../assets/js/ziro.js"></script>
-    <script src="../assets/js/pages/site-institucional.js"></script>
+    <script src="../assets/js/analytics.js"></script>
+    <script src="../assets/js/components/service-header.js"></script>
+    <script src="../assets/js/pages/servicos.js"></script>
 </body>
 </html> 

@@ -14,33 +14,33 @@ const ZIRO_CONFIG = {
 
     // URLs das páginas
     pages: {
-        home: '/index.html',
-        salesforce: '/servicos/salesforce.html',
-        blip: '/servicos/blip.html',
-        zendesk: '/servicos/zendesk.html'
+        home: '/',
+        siteInstitucional: '/servicos/site-institucional',
+        atendimentoOnline: '/servicos/atendimento-online',
+        lojaVirtual: '/servicos/loja-virtual'
     },
 
     // Configurações de SEO
     seo: {
         home: {
             title: 'Ziro Consultoria Digital',
-            description: 'Consultoria em Salesforce, Blip e Zendesk para empresas que querem inovar, vender mais e transformar o atendimento.',
-            keywords: 'consultoria digital, salesforce, blip, zendesk, automação, crm, chatbot, atendimento'
+            description: 'Consultoria em criação de sites, atendimento automatizado e soluções digitais para empresas que querem inovar, vender mais e transformar o atendimento.',
+            keywords: 'consultoria digital, criação de sites, atendimento automatizado, chatbot, automação, e-commerce, site institucional'
         },
-        salesforce: {
-            title: 'Consultoria Salesforce | Ziro',
-            description: 'Consultoria Salesforce para empresas que querem crescer, vender mais e automatizar processos. Implantação, integração e automação de vendas.',
-            keywords: 'consultoria salesforce, crm, automação de vendas, implantação salesforce, integração salesforce'
+        siteInstitucional: {
+            title: 'Criação de Site Institucional | Ziro',
+            description: 'Criação de sites institucionais profissionais para empresas que querem crescer, vender mais e estabelecer presença digital. Design moderno e responsivo.',
+            keywords: 'criação de site, site institucional, design responsivo, presença digital, marketing digital'
         },
-        blip: {
-            title: 'Consultoria Blip | Ziro',
-            description: 'Consultoria Blip para automação de atendimento, chatbots, WhatsApp, Instagram e canais digitais. Soluções omnichannel para sua empresa inovar.',
-            keywords: 'consultoria blip, chatbot, whatsapp business, instagram, atendimento digital, omnichannel'
+        atendimentoOnline: {
+            title: 'Atendimento Online | Ziro',
+            description: 'Automação de atendimento, chatbots, WhatsApp, Instagram e canais digitais. Soluções omnichannel para sua empresa inovar.',
+            keywords: 'atendimento online, chatbot, whatsapp business, instagram, atendimento digital, omnichannel'
         },
-        zendesk: {
-            title: 'Consultoria Zendesk | Ziro',
-            description: 'Consultoria Zendesk para empresas que querem elevar o atendimento ao cliente, aumentar vendas e otimizar processos. Implantação, automação e integração de canais digitais.',
-            keywords: 'consultoria zendesk, suporte ao cliente, atendimento, automação de tickets, heservicosdesk'
+        lojaVirtual: {
+            title: 'Criação de Loja Virtual | Ziro',
+            description: 'Criação de lojas virtuais e e-commerce para empresas que querem vender online. Plataformas completas com pagamento e gestão de pedidos.',
+            keywords: 'loja virtual, e-commerce, venda online, plataforma de vendas, site de vendas'
         }
     },
 
@@ -49,17 +49,33 @@ const ZIRO_CONFIG = {
         baseUrl: 'https://wa.me/',
         messages: {
             home: 'Olá, gostaria de uma consultoria digital com a Ziro',
-            salesforce: 'Olá, gostaria de uma consultoria Salesforce com a Ziro',
-            blip: 'Olá, gostaria de uma consultoria Blip com a Ziro',
-            zendesk: 'Olá, gostaria de uma consultoria Zendesk com a Ziro'
+            siteInstitucional: 'Olá, gostaria de um site institucional com a Ziro',
+            atendimentoOnline: 'Olá, gostaria de um atendimento online com a Ziro',
+            lojaVirtual: 'Olá, gostaria de uma loja virtual com a Ziro'
         }
     },
 
     // Configurações de analytics
     analytics: {
-        googleAnalyticsId: '', // Adicione seu GA ID aqui
+        googleAnalyticsId: 'G-QGCLW60H6F',
         facebookPixelId: '',   // Adicione seu FB Pixel ID aqui
-        hotjarId: ''          // Adicione seu Hotjar ID aqui
+        hotjarId: '',          // Adicione seu Hotjar ID aqui
+        
+        // Páginas que devem excluir analytics
+        excludePages: [
+            '/servicos/site-institucional.html',
+            '/servicos/loja-virtual.html',
+            '/test-auto-webchat.html',
+            '/test-simple-webchat.html',
+            '/test-simple.html',
+            '/test-webchat.html'
+        ],
+        
+        // Função para verificar se deve carregar analytics
+        shouldLoadAnalytics: function() {
+            const currentPath = window.location.pathname;
+            return !this.excludePages.some(page => currentPath.includes(page.replace('.html', '')));
+        }
     },
 
     // Configurações de performance
