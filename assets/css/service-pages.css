@@ -313,7 +313,96 @@ body {
     border: 1px solid #e2e8f0;
 }
 
+/* E-commerce Preview */
+.ecommerce-preview {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.preview-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.product-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.product-image {
+    height: 80px;
+    background: #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.product-info {
+    padding: 0.75rem;
+}
+
+.product-title {
+    height: 12px;
+    background: #cbd5e1;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    width: 80%;
+}
+
+.product-price {
+    height: 16px;
+    background: #1e293b;
+    border-radius: 4px;
+    width: 60%;
+}
+
+.preview-cart {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: #10b981;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
 .authority-funnel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sales-funnel {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1227,6 +1316,14 @@ body {
     
     .institutional-preview {
         max-width: 350px;
+    }
+    
+    .ecommerce-preview {
+        max-width: 400px;
+    }
+    
+    .preview-products {
+        grid-template-columns: 1fr;
     }
     
     .conversion-funnel {
