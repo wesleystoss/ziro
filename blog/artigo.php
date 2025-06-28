@@ -189,10 +189,33 @@ $relatedArticles = $relatedStmt->fetchAll();
                     <div class="blog-related-grid" id="related-posts">
                         <?php if (!empty($relatedArticles)): ?>
                             <?php foreach ($relatedArticles as $rel): ?>
-                                <article class="related-article">
-                                    <h3><a href="artigo.php?id=<?= $rel['id'] ?>"><?= htmlspecialchars($rel['title']) ?></a></h3>
-                                    <p><?= htmlspecialchars($rel['excerpt']) ?></p>
-                                    <span class="related-date"><?= date('d/m/Y', strtotime($rel['published_at'])) ?></span>
+                                <article class="blog-related-post">
+                                    <div class="blog-related-post-image">
+                                        <div class="related-post-visual">
+                                            <div class="related-preview">
+                                                <div class="related-preview-header">
+                                                    <div class="related-preview-dots">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="related-preview-content">
+                                                    <div class="related-text-line"></div>
+                                                    <div class="related-text-line"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog-related-post-content">
+                                        <h3>
+                                            <a href="artigo.php?id=<?= $rel['id'] ?>" class="blog-related-post-link">
+                                                <?= htmlspecialchars($rel['title']) ?>
+                                            </a>
+                                        </h3>
+                                        <p><?= htmlspecialchars($rel['excerpt']) ?></p>
+                                        <span class="related-date"><?= date('d/m/Y', strtotime($rel['published_at'])) ?></span>
+                                    </div>
                                 </article>
                             <?php endforeach; ?>
                         <?php else: ?>

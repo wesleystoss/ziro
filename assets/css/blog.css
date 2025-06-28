@@ -974,6 +974,16 @@
     color: #1d4ed8;
 }
 
+.related-date {
+    display: block;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .blog-hero-content {
