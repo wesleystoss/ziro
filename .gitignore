@@ -1,0 +1,189 @@
+# ========================================
+# ARQUIVOS DE CONFIGURAÇÃO SENSÍVEIS
+# ========================================
+
+# Arquivo de variáveis de ambiente
+.env
+.env.local
+.env.production
+.env.staging
+
+# Configurações de banco de dados
+database/config.php
+database/credentials.php
+
+# ========================================
+# ARQUIVOS DO SISTEMA
+# ========================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ========================================
+# ARQUIVOS DE DESENVOLVIMENTO
+# ========================================
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+error_log
+access_log
+
+# Cache
+cache/
+tmp/
+temp/
+*.cache
+
+# ========================================
+# ARQUIVOS DE BACKUP
+# ========================================
+
+# Backups do banco
+*.sql.bak
+*.sql.gz
+*.sql.zip
+backup_*.sql
+database/backup/
+
+# Backups de arquivos
+*.bak
+*.backup
+*.old
+*.orig
+
+# ========================================
+# ARQUIVOS DE UPLOAD
+# ========================================
+
+# Uploads de usuários (se houver)
+uploads/
+user_uploads/
+media/uploads/
+
+# ========================================
+# ARQUIVOS DE DEPENDÊNCIAS
+# ========================================
+
+# Node.js (se usar)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Composer (se usar PHP)
+vendor/
+composer.lock
+
+# ========================================
+# ARQUIVOS DE BUILD/DIST
+# ========================================
+
+# Arquivos compilados
+dist/
+build/
+*.min.js
+*.min.css
+
+# ========================================
+# ARQUIVOS DE TESTE
+# ========================================
+
+# Arquivos de teste
+test-*.html
+test-*.php
+*.test.php
+tests/
+
+# ========================================
+# ARQUIVOS TEMPORÁRIOS
+# ========================================
+
+# Arquivos temporários do PHP
+*.tmp
+*.temp
+
+# Sessões PHP
+sessions/
+
+# ========================================
+# ARQUIVOS DE SEGURANÇA
+# ========================================
+
+# Arquivos de configuração sensíveis
+config.php
+credentials.php
+database.php
+connection.php
+
+# Chaves privadas
+*.key
+*.pem
+*.p12
+
+# ========================================
+# ARQUIVOS DE MONITORAMENTO
+# ========================================
+
+# Analytics e monitoramento
+analytics/
+stats/
+monitoring/
+
+# ========================================
+# ARQUIVOS DE DEPLOY
+# ========================================
+
+# Arquivos de deploy
+deploy/
+deployment/
+*.deploy
+
+# ========================================
+# ARQUIVOS ESPECÍFICOS DO PROJETO
+# ========================================
+
+# Arquivos específicos que não devem ser versionados
+# Adicione aqui arquivos específicos do seu projeto 
