@@ -29,7 +29,7 @@ $stmt = $pdo->prepare("
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $article = $stmt->fetch();
-
+echo '<pre>'; print_r($article); echo '</pre>';
 if (!$article) {
     http_response_code(404);
     echo '<h2>Artigo não encontrado.</h2>';
