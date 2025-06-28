@@ -31,20 +31,6 @@ $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $articles = $stmt->fetchAll();
 
-// Debug temporário
-echo "<div style='background: #f0f0f0; padding: 10px; margin: 10px; border: 1px solid #ccc;'>";
-echo "<h3>DEBUG - Artigos encontrados: " . count($articles) . "</h3>";
-if (!empty($articles)) {
-    echo "<ul>";
-    foreach ($articles as $art) {
-        echo "<li>ID: {$art['id']} - {$art['title']} (Categoria: {$art['category_name']})</li>";
-    }
-    echo "</ul>";
-} else {
-    echo "<p>Nenhum artigo encontrado!</p>";
-}
-echo "</div>";
-
 // Buscar total de artigos para paginação
 $stmtCount = $pdo->prepare("SELECT COUNT(*) as total FROM articles WHERE status = 'published'");
 $stmtCount->execute();
