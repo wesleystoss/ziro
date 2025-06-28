@@ -132,7 +132,7 @@ $stmtView->execute();
                     <header class="blog-post-header">
                         <div class="blog-post-meta">
                             <span class="blog-post-category" id="post-category"><?= htmlspecialchars($article['category_name'] ?? 'Sem categoria') ?></span>
-                            <span class="blog-post-date" id="post-date"><?= date('d F, Y', strtotime($article['published_at'] ?></span>
+                            <span class="blog-post-date" id="post-date"><?= date('d F, Y', strtotime($article['published_at'])) ?></span>
                             <span class="blog-post-read-time" id="post-read-time"><?= $article['read_time'] ?> min de leitura</span>
                         </div>
                         <h1 id="blog-post-title" class="blog-post-title"><?= htmlspecialchars($article['title']) ?></h1>
@@ -152,16 +152,16 @@ $stmtView->execute();
 
                     <!-- ConteÃºdo do Post -->
                     <div class="blog-post-body" id="post-content">
-                        <?= ($article['content'] ?>
+                        <?= $article['content'] ?>
                         
                         <!-- Tags do Post -->
-                        <?php if (!empty($article['tags']: ?>
+                        <?php if (!empty($article['tags'])): ?>
                         <div class="blog-post-tags" id="post-tags">
                             <?php
                             $tags = explode(',', $article['tags']);
                             foreach ($tags as $tag): 
                                 $tag = trim($tag);
-                                if (!empty($tag: ?>
+                                if (!empty($tag)): ?>
                                     <span class="blog-post-tag"><?= htmlspecialchars($tag) ?></span>
                                 <?php endif;
                             endforeach; ?>
