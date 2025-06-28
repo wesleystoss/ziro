@@ -14,6 +14,7 @@ $stmt = $pdo->prepare("
         a.slug, 
         a.published_at,
         a.is_featured,
+        a.featured_image,
         c.name as category_name,
         c.slug as category_slug,
         GROUP_CONCAT(t.name SEPARATOR ',') as tags
@@ -22,7 +23,7 @@ $stmt = $pdo->prepare("
     LEFT JOIN article_tags at ON a.id = at.article_id
     LEFT JOIN tags t ON at.tag_id = t.id
     WHERE a.status = 'published'
-    GROUP BY a.id, a.title, a.excerpt, a.slug, a.published_at, a.is_featured, c.name, c.slug
+    GROUP BY a.id, a.title, a.excerpt, a.slug, a.published_at, a.is_featured, a.featured_image, c.name, c.slug
     ORDER BY a.is_featured DESC, a.published_at DESC 
     LIMIT :limit OFFSET :offset
 ");
@@ -206,6 +207,7 @@ $stats = $stmtStats->fetch();
                         a.slug, 
                         a.published_at,
                         a.read_time,
+                        a.featured_image,
                         c.name as category_name,
                         GROUP_CONCAT(t.name SEPARATOR ',') as tags
                     FROM articles a
@@ -213,7 +215,7 @@ $stats = $stmtStats->fetch();
                     LEFT JOIN article_tags at ON a.id = at.article_id
                     LEFT JOIN tags t ON at.tag_id = t.id
                     WHERE a.status = 'published' AND a.is_featured = 1
-                    GROUP BY a.id, a.title, a.excerpt, a.slug, a.published_at, a.read_time, c.name
+                    GROUP BY a.id, a.title, a.excerpt, a.slug, a.published_at, a.read_time, a.featured_image, c.name
                     ORDER BY a.published_at DESC 
                     LIMIT 1
                 ");
@@ -227,24 +229,28 @@ $stats = $stmtStats->fetch();
                         <?php foreach ($featuredArticles as $art): ?>
                         <article class="blog-featured-post">
                             <div class="blog-featured-image">
-                                <div class="featured-post-visual">
-                                    <div class="featured-preview">
-                                        <div class="featured-preview-header">
-                                            <div class="featured-preview-dots">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                <?php if (!empty($art['featured_image'])): ?>
+                                    <img src="<?= htmlspecialchars($art['featured_image']) ?>" alt="<?= htmlspecialchars($art['title']) ?>" loading="lazy">
+                                <?php else: ?>
+                                    <div class="featured-post-visual">
+                                        <div class="featured-preview">
+                                            <div class="featured-preview-header">
+                                                <div class="featured-preview-dots">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="featured-preview-content">
-                                            <div class="featured-preview-text">
-                                                <div class="featured-text-line"></div>
-                                                <div class="featured-text-line"></div>
-                                                <div class="featured-text-line"></div>
+                                            <div class="featured-preview-content">
+                                                <div class="featured-preview-text">
+                                                    <div class="featured-text-line"></div>
+                                                    <div class="featured-text-line"></div>
+                                                    <div class="featured-text-line"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                <?php endif; ?>
                             </div>
                             <div class="blog-featured-content">
                                 <div class="blog-post-meta">
@@ -282,23 +288,27 @@ $stats = $stmtStats->fetch();
                         <?php foreach ($articles as $art): ?>
                             <article class="blog-post-card" data-category="<?= htmlspecialchars($art['category_name'] ?? 'Sem categoria') ?>">
                                 <div class="blog-post-card-image">
-                                    <div class="post-card-visual">
-                                        <div class="post-card-preview">
-                                            <div class="post-card-preview-header">
-                                                <div class="post-card-preview-dots">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
+                                    <?php if (!empty($art['featured_image'])): ?>
+                                        <img src="<?= htmlspecialchars($art['featured_image']) ?>" alt="<?= htmlspecialchars($art['title']) ?>" loading="lazy">
+                                    <?php else: ?>
+                                        <div class="post-card-visual">
+                                            <div class="post-card-preview">
+                                                <div class="post-card-preview-header">
+                                                    <div class="post-card-preview-dots">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="post-card-preview-content">
-                                                <div class="post-card-preview-text">
-                                                    <div class="post-card-text-line"></div>
-                                                    <div class="post-card-text-line"></div>
+                                                <div class="post-card-preview-content">
+                                                    <div class="post-card-preview-text">
+                                                        <div class="post-card-text-line"></div>
+                                                        <div class="post-card-text-line"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="blog-post-card-content">
                                     <div class="blog-post-meta">

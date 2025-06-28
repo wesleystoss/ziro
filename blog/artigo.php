@@ -43,7 +43,7 @@ $stmtView->execute();
 
 // Buscar artigos relacionados (mesma categoria, exceto o atual)
 $relatedStmt = $pdo->prepare("
-    SELECT id, title, excerpt, published_at
+    SELECT id, title, excerpt, published_at, featured_image
     FROM articles
     WHERE status = 'published' AND category_id = :cat_id AND id != :id
     ORDER BY published_at DESC
@@ -143,6 +143,11 @@ $relatedArticles = $relatedStmt->fetchAll();
 
                     <!-- CabeÃ§alho do Post -->
                     <header class="blog-post-header">
+                        <?php if (!empty($article['featured_image'])): ?>
+                            <div class="blog-post-featured-image">
+                                <img src="<?= htmlspecialchars($article['featured_image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>" loading="lazy">
+                            </div>
+                        <?php endif; ?>
                         <div class="blog-post-meta">
                             <span class="blog-post-category" id="post-category"><?= htmlspecialchars($article['category_name'] ?? 'Sem categoria') ?></span>
                             <span class="blog-post-date" id="post-date"><?= date('d F, Y', strtotime($article['published_at'])) ?></span>
@@ -191,21 +196,25 @@ $relatedArticles = $relatedStmt->fetchAll();
                             <?php foreach ($relatedArticles as $rel): ?>
                                 <article class="blog-related-post">
                                     <div class="blog-related-post-image">
-                                        <div class="related-post-visual">
-                                            <div class="related-preview">
-                                                <div class="related-preview-header">
-                                                    <div class="related-preview-dots">
-                                                        <span></span>
-                                                        <span></span>
-                                                        <span></span>
+                                        <?php if (!empty($rel['featured_image'])): ?>
+                                            <img src="<?= htmlspecialchars($rel['featured_image']) ?>" alt="<?= htmlspecialchars($rel['title']) ?>" loading="lazy">
+                                        <?php else: ?>
+                                            <div class="related-post-visual">
+                                                <div class="related-preview">
+                                                    <div class="related-preview-header">
+                                                        <div class="related-preview-dots">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="related-preview-content">
+                                                        <div class="related-text-line"></div>
+                                                        <div class="related-text-line"></div>
                                                     </div>
                                                 </div>
-                                                <div class="related-preview-content">
-                                                    <div class="related-text-line"></div>
-                                                    <div class="related-text-line"></div>
-                                                </div>
                                             </div>
-                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="blog-related-post-content">
                                         <h3>
