@@ -293,7 +293,11 @@ $stats = $stmtStats->fetch();
                 <div class="blog-all-posts">
                     <h3>Todos os Artigos</h3>
                     <div class="blog-posts-grid" id="blog-posts-container">
-                        <?php foreach ($articles as $art): ?>
+                        <?php 
+                        echo "<p>DEBUG: Iniciando loop com " . count($articles) . " artigos</p>";
+                        foreach ($articles as $art): 
+                            echo "<p>DEBUG: Processando artigo ID {$art['id']} - {$art['title']}</p>";
+                        ?>
                             <article class="blog-post-card" data-category="<?= htmlspecialchars($art['category_name']) ?>">
                                 <div class="blog-post-card-image">
                                     <div class="post-card-visual">
