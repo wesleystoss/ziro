@@ -1095,8 +1095,6 @@ body {
         border-radius: 6px;
     }
     .ziro-navbar nav a:hover {
-        color: #1e293b;
-        background: transparent;
         border-bottom: 2px solid #1e293b;
     }
     .ziro-navbar nav .dropdown {
@@ -1151,13 +1149,6 @@ body {
         text-align: center;
         margin-bottom: 0;
         border-bottom: 2px solid transparent;
-    }
-    .ziro-navbar nav .dropdown-menu a:last-child {
-        background: #1e293b;
-        color: #fff;
-        padding: 1rem 2rem;
-        border-radius: 6px;
-        margin-top: 1rem;
     }
     .ziro-navbar nav .dropdown-menu a:hover {
         background: transparent;
