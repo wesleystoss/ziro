@@ -3,97 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Ziro Consultoria Digital</title>
-    <meta name="description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital para empresas.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Blog - Ziro Consultoria Digital | Insights e Estratégias Digitais</title>
+    <meta name="description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital. Dicas práticas para empresários que querem crescer no digital.">
+    <meta name="keywords" content="blog, marketing digital, vendas online, transformação digital, dicas empresariais, automação">
+    <meta name="author" content="Ziro Consultoria Digital">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ziro.digital/blog.html">
+    <meta property="og:title" content="Blog - Ziro Consultoria Digital | Insights e Estratégias Digitais">
+    <meta property="og:description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital. Dicas práticas para empresários.">
+    <meta property="og:image" content="https://ziro.digital/assets/images/ziro-logo.png">
+    <meta property="og:site_name" content="Ziro Consultoria Digital">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ziro.digital/blog.html">
+    <meta property="twitter:title" content="Blog - Ziro Consultoria Digital | Insights e Estratégias Digitais">
+    <meta property="twitter:description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital.">
+    <meta property="twitter:image" content="https://ziro.digital/assets/images/ziro-logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ziro.digital/blog.html">
+    
+    <!-- Preconnect para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/blog.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Como aumentar suas vendas online em 30 dias: Guia completo para pequenas empresas",
+      "description": "Descubra estratégias comprovadas que podem transformar seu negócio digital e gerar resultados reais em apenas um mês.",
+      "image": "https://ziro.digital/assets/images/ziro-logo.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Ziro Consultoria Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ziro Consultoria Digital",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ziro.digital/assets/images/ziro-logo.png"
+        }
+      },
+      "datePublished": "2024-01-15",
+      "dateModified": "2024-01-15",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ziro.digital/blog.html"
+      }
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="ziro-navbar">
-        <div class="ziro-container">
-            <a href="index.html" class="ziro-logo">Ziro</a>
-            <nav>
-                <div class="ziro-dropdown" id="ziroDropdown">
-                    <button class="ziro-dropdown-btn" id="ziroDropdownBtn" type="button" aria-haspopup="true" aria-expanded="false">
-                        Veja os nossas soluções
-                        <span class="ziro-dropdown-icon">▼</span>
-                    </button>
-                    <div class="ziro-dropdown-content" id="ziroDropdownContent">
-                        <ul class="ziro-dropdown-list">
-                            <li><a href="servicos/atendimento-online.html">Atendimento online</a></li>
-                            <li><a href="servicos/landing-page.html">Página de conversão</a></li>
-                            <li><a href="servicos/loja-virtual.html">Loja virtual</a></li>
-                            <li><a href="servicos/site-institucional.html">Site institucional</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <a href="#contato">Contato</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Header dinâmico -->
+    <div data-component="header"></div>
 
     <main>
         <!-- Hero do Blog -->
-        <section class="ziro-blog-hero">
-            <div class="ziro-container">
-                <div class="ziro-blog-hero-content">
-                    <div class="ziro-blog-hero-text">
-                        <h1>Blog Ziro</h1>
+        <section class="blog-hero" aria-labelledby="blog-hero-title">
+            <div class="container">
+                <div class="blog-hero-content">
+                    <div class="blog-hero-text">
+                        <h1 id="blog-hero-title">Blog Ziro</h1>
                         <p>Insights e estratégias para transformar seu negócio digital</p>
+                        <div class="blog-hero-stats">
+                            <div class="blog-stat">
+                                <span class="blog-stat-number">50+</span>
+                                <span class="blog-stat-label">Artigos</span>
+                            </div>
+                            <div class="blog-stat">
+                                <span class="blog-stat-number">10k+</span>
+                                <span class="blog-stat-label">Leitores</span>
+                            </div>
+                            <div class="blog-stat">
+                                <span class="blog-stat-number">95%</span>
+                                <span class="blog-stat-label">Aprovação</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ziro-blog-hero-illustration">
-                        <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-                            <circle cx="100" cy="100" r="100" fill="#f8fafc"/>
-                            <rect x="40" y="60" width="120" height="80" rx="8" fill="#2563eb"/>
-                            <rect x="50" y="70" width="100" height="8" rx="4" fill="white"/>
-                            <rect x="50" y="85" width="80" height="8" rx="4" fill="white"/>
-                            <rect x="50" y="100" width="60" height="8" rx="4" fill="white"/>
-                            <rect x="50" y="115" width="40" height="8" rx="4" fill="white"/>
-                            <circle cx="60" cy="140" r="3" fill="#fbbf24"/>
-                            <circle cx="80" cy="140" r="3" fill="#fbbf24"/>
-                            <circle cx="100" cy="140" r="3" fill="#fbbf24"/>
-                        </svg>
+                    <div class="blog-hero-illustration">
+                        <div class="blog-visual">
+                            <div class="blog-preview">
+                                <div class="preview-header">
+                                    <div class="preview-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="preview-content">
+                                    <div class="preview-text">
+                                        <div class="text-line"></div>
+                                        <div class="text-line"></div>
+                                        <div class="text-line"></div>
+                                    </div>
+                                    <div class="preview-tags">
+                                        <span class="tag">Marketing</span>
+                                        <span class="tag">Vendas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Conteúdo do Blog -->
-        <section class="ziro-blog-content">
-            <div class="ziro-container">
-                <article class="ziro-blog-post">
+        <section class="blog-content" aria-labelledby="blog-post-title">
+            <div class="container">
+                <article class="blog-post">
                     <!-- Breadcrumb -->
-                    <nav class="ziro-breadcrumb">
-                        <a href="index.html">Home</a>
+                    <nav class="breadcrumb" aria-label="Navegação do breadcrumb">
+                        <a href="/">Home</a>
                         <span>/</span>
-                        <a href="blog.html">Blog</a>
+                        <a href="/blog.html">Blog</a>
                         <span>/</span>
-                        <span>Como aumentar suas vendas online em 30 dias</span>
+                        <span aria-current="page">Como aumentar suas vendas online em 30 dias</span>
                     </nav>
 
                     <!-- Cabeçalho do Post -->
-                    <header class="ziro-blog-post-header">
-                        <div class="ziro-blog-post-meta">
-                            <span class="ziro-blog-post-category">Marketing Digital</span>
-                            <span class="ziro-blog-post-date">15 de Janeiro, 2024</span>
-                            <span class="ziro-blog-post-read-time">5 min de leitura</span>
+                    <header class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Marketing Digital</span>
+                            <span class="blog-post-date">15 de Janeiro, 2024</span>
+                            <span class="blog-post-read-time">5 min de leitura</span>
                         </div>
-                        <h1 class="ziro-blog-post-title">Como aumentar suas vendas online em 30 dias: Guia completo para pequenas empresas</h1>
-                        <p class="ziro-blog-post-excerpt">
+                        <h1 id="blog-post-title" class="blog-post-title">Como aumentar suas vendas online em 30 dias: Guia completo para pequenas empresas</h1>
+                        <p class="blog-post-excerpt">
                             Descubra estratégias comprovadas que podem transformar seu negócio digital e gerar resultados reais em apenas um mês. 
                             Baseado em casos reais de clientes da Ziro.
                         </p>
-                        <div class="ziro-blog-post-author">
-                            <div class="ziro-blog-post-author-avatar">
-                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                                    <circle cx="25" cy="25" r="25" fill="#2563eb"/>
-                                    <path d="M15 20c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z" fill="white"/>
-                                    <path d="M10 35c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="white"/>
-                                </svg>
+                        <div class="blog-post-author">
+                            <div class="blog-post-author-avatar">
+                                <img src="/assets/images/ziro-logo.png" alt="Ziro Consultoria Digital" width="50" height="50">
                             </div>
-                            <div class="ziro-blog-post-author-info">
+                            <div class="blog-post-author-info">
                                 <strong>Equipe Ziro</strong>
                                 <span>Consultoria Digital</span>
                             </div>
@@ -101,8 +159,8 @@
                     </header>
 
                     <!-- Conteúdo do Post -->
-                    <div class="ziro-blog-post-body">
-                        <p class="ziro-blog-post-intro">
+                    <div class="blog-post-body">
+                        <p class="blog-post-intro">
                             Se você é dono de uma pequena empresa e está lutando para vender online, este artigo é para você. 
                             Vamos compartilhar estratégias que já ajudaram nossos clientes a aumentar suas vendas em até 300% em apenas 30 dias.
                         </p>
@@ -113,7 +171,7 @@
                             pequenas empresas de vender online:
                         </p>
 
-                        <div class="ziro-blog-post-highlight">
+                        <div class="blog-post-highlight">
                             <h3>Principais problemas identificados:</h3>
                             <ul>
                                 <li><strong>Falta de presença digital profissional:</strong> Sites mal feitos afastam clientes</li>
@@ -129,14 +187,14 @@
                             Não estamos falando de um site institucional comum, mas sim de uma página focada em converter visitantes em clientes.
                         </p>
 
-                        <div class="ziro-blog-post-tip">
-                            <div class="ziro-blog-post-tip-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <circle cx="12" cy="12" r="12" fill="#fbbf24"/>
-                                    <path d="M9 12l2 2 4-4" stroke="#1e293b" stroke-width="2" fill="none"/>
+                        <div class="blog-post-tip">
+                            <div class="blog-post-tip-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M9 12l2 2 4-4"/>
                                 </svg>
                             </div>
-                            <div class="ziro-blog-post-tip-content">
+                            <div class="blog-post-tip-content">
                                 <strong>Dica da Ziro:</strong> Uma página de conversão bem feita pode aumentar suas vendas em até 200%. 
                                 O segredo está em focar em um único objetivo e eliminar distrações.
                             </div>
@@ -157,18 +215,18 @@
                             Com um chatbot profissional, você pode:
                         </p>
 
-                        <div class="ziro-blog-post-stats">
-                            <div class="ziro-blog-post-stat">
-                                <span class="ziro-blog-post-stat-number">24/7</span>
-                                <span class="ziro-blog-post-stat-label">Atendimento disponível</span>
+                        <div class="blog-post-stats">
+                            <div class="blog-post-stat">
+                                <span class="blog-post-stat-number">24/7</span>
+                                <span class="blog-post-stat-label">Atendimento disponível</span>
                             </div>
-                            <div class="ziro-blog-post-stat">
-                                <span class="ziro-blog-post-stat-number">80%</span>
-                                <span class="ziro-blog-post-stat-label">Mais conversões</span>
+                            <div class="blog-post-stat">
+                                <span class="blog-post-stat-number">80%</span>
+                                <span class="blog-post-stat-label">Mais conversões</span>
                             </div>
-                            <div class="ziro-blog-post-stat">
-                                <span class="ziro-blog-post-stat-number">50%</span>
-                                <span class="ziro-blog-post-stat-label">Redução de custos</span>
+                            <div class="blog-post-stat">
+                                <span class="blog-post-stat-number">50%</span>
+                                <span class="blog-post-stat-label">Redução de custos</span>
                             </div>
                         </div>
 
@@ -190,16 +248,16 @@
                             Veja alguns casos de sucesso de clientes que implementaram essas estratégias:
                         </p>
 
-                        <div class="ziro-blog-post-case">
+                        <div class="blog-post-case">
                             <h3>Cliente: Loja de Roupas Online</h3>
-                            <div class="ziro-blog-post-case-results">
-                                <div class="ziro-blog-post-case-result">
-                                    <span class="ziro-blog-post-case-number">+250%</span>
-                                    <span class="ziro-blog-post-case-label">Aumento nas vendas</span>
+                            <div class="blog-post-case-results">
+                                <div class="blog-post-case-result">
+                                    <span class="blog-post-case-number">+250%</span>
+                                    <span class="blog-post-case-label">Aumento nas vendas</span>
                                 </div>
-                                <div class="ziro-blog-post-case-result">
-                                    <span class="ziro-blog-post-case-number">15 dias</span>
-                                    <span class="ziro-blog-post-case-label">Para implementação</span>
+                                <div class="blog-post-case-result">
+                                    <span class="blog-post-case-number">15 dias</span>
+                                    <span class="blog-post-case-label">Para implementação</span>
                                 </div>
                             </div>
                             <p>
@@ -214,73 +272,111 @@
                             A Ziro pode ajudar você a:
                         </p>
 
-                        <div class="ziro-blog-post-cta">
+                        <div class="blog-post-cta">
                             <h3>Quer implementar essas estratégias na sua empresa?</h3>
-                            <p>Fale com nossos especialistas e receba um diagnóstico gratuito do seu negócio digital.</p>
-                            <a href="https://wa.me/6199241137?text=Ol%C3%A1%2C+li+o+artigo+sobre+vendas+online+e+gostaria+de+uma+consultoria" target="_blank" class="ziro-btn-main">
-                                Falar com especialista
-                            </a>
+                            <p>Solicite um diagnóstico gratuito e veja como podemos transformar seu negócio digital.</p>
+                            <div class="blog-post-cta-buttons">
+                                <a href="https://wa.me/6199241137?text=Ol%C3%A1%2C+li+o+artigo+sobre+vendas+online+e+gostaria+de+uma+consultoria" target="_blank" class="btn-primary">
+                                    Falar com especialista
+                                </a>
+                                <a href="tel:+6199241137" class="btn-secondary">
+                                    Ligar agora
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Tags do Post -->
-                        <div class="ziro-blog-post-tags">
-                            <span class="ziro-blog-post-tag">Marketing Digital</span>
-                            <span class="ziro-blog-post-tag">Vendas Online</span>
-                            <span class="ziro-blog-post-tag">Conversão</span>
-                            <span class="ziro-blog-post-tag">Pequenas Empresas</span>
+                        <div class="blog-post-tags">
+                            <span class="blog-post-tag">Marketing Digital</span>
+                            <span class="blog-post-tag">Vendas Online</span>
+                            <span class="blog-post-tag">Conversão</span>
+                            <span class="blog-post-tag">Pequenas Empresas</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Posts Relacionados -->
-                <section class="ziro-blog-related">
-                    <h2>Artigos relacionados</h2>
-                    <div class="ziro-blog-related-grid">
-                        <article class="ziro-blog-related-post">
-                            <div class="ziro-blog-related-post-image">
-                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                                    <rect width="100" height="100" fill="#f8fafc"/>
-                                    <circle cx="50" cy="50" r="30" fill="#2563eb"/>
-                                    <path d="M35 50l8 8 12-12" stroke="white" stroke-width="3" fill="none"/>
-                                </svg>
+                <section class="blog-related" aria-labelledby="blog-related-title">
+                    <h2 id="blog-related-title">Artigos relacionados</h2>
+                    <div class="blog-related-grid">
+                        <article class="blog-related-post">
+                            <div class="blog-related-post-image">
+                                <div class="related-post-visual">
+                                    <div class="related-preview">
+                                        <div class="related-preview-header">
+                                            <div class="related-preview-dots">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="related-preview-content">
+                                            <div class="related-preview-text">
+                                                <div class="related-text-line"></div>
+                                                <div class="related-text-line"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ziro-blog-related-post-content">
+                            <div class="blog-related-post-content">
                                 <h3>5 erros que matam suas vendas online</h3>
                                 <p>Descubra os principais erros que impedem sua empresa de vender mais na internet.</p>
-                                <a href="#" class="ziro-blog-related-post-link">Ler mais</a>
+                                <a href="#" class="blog-related-post-link">Ler mais</a>
                             </div>
                         </article>
 
-                        <article class="ziro-blog-related-post">
-                            <div class="ziro-blog-related-post-image">
-                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                                    <rect width="100" height="100" fill="#f8fafc"/>
-                                    <circle cx="50" cy="50" r="30" fill="#10b981"/>
-                                    <path d="M35 40l8 8 12-12" stroke="white" stroke-width="3" fill="none"/>
-                                    <path d="M35 50l8 8 12-12" stroke="white" stroke-width="3" fill="none"/>
-                                    <path d="M35 60l8 8 12-12" stroke="white" stroke-width="3" fill="none"/>
-                                </svg>
+                        <article class="blog-related-post">
+                            <div class="blog-related-post-image">
+                                <div class="related-post-visual">
+                                    <div class="related-preview">
+                                        <div class="related-preview-header">
+                                            <div class="related-preview-dots">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="related-preview-content">
+                                            <div class="related-preview-text">
+                                                <div class="related-text-line"></div>
+                                                <div class="related-text-line"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ziro-blog-related-post-content">
+                            <div class="blog-related-post-content">
                                 <h3>Como criar uma loja virtual que vende</h3>
                                 <p>Guia completo para criar uma loja online profissional que realmente converte visitantes em clientes.</p>
-                                <a href="#" class="ziro-blog-related-post-link">Ler mais</a>
+                                <a href="#" class="blog-related-post-link">Ler mais</a>
                             </div>
                         </article>
 
-                        <article class="ziro-blog-related-post">
-                            <div class="ziro-blog-related-post-image">
-                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                                    <rect width="100" height="100" fill="#f8fafc"/>
-                                    <circle cx="50" cy="50" r="30" fill="#fbbf24"/>
-                                    <path d="M35 45l8 8 12-12" stroke="#1e293b" stroke-width="3" fill="none"/>
-                                    <path d="M35 55l8 8 12-12" stroke="#1e293b" stroke-width="3" fill="none"/>
-                                </svg>
+                        <article class="blog-related-post">
+                            <div class="blog-related-post-image">
+                                <div class="related-post-visual">
+                                    <div class="related-preview">
+                                        <div class="related-preview-header">
+                                            <div class="related-preview-dots">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="related-preview-content">
+                                            <div class="related-preview-text">
+                                                <div class="related-text-line"></div>
+                                                <div class="related-text-line"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ziro-blog-related-post-content">
+                            <div class="blog-related-post-content">
                                 <h3>Atendimento online: O futuro das vendas</h3>
                                 <p>Como chatbots e automação podem revolucionar o atendimento da sua empresa.</p>
-                                <a href="#" class="ziro-blog-related-post-link">Ler mais</a>
+                                <a href="#" class="blog-related-post-link">Ler mais</a>
                             </div>
                         </article>
                     </div>
@@ -289,34 +385,8 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <section id="contato" class="ziro-contato">
-        <div class="ziro-container">
-            <div class="ziro-contato-content">
-                <div class="ziro-contato-text">
-                    <h2>Pronto para transformar seu negócio?</h2>
-                    <p>Fale agora mesmo no WhatsApp e receba um diagnóstico gratuito para sua empresa.</p>
-                    <a href="https://wa.me/6199241137?text=Ol%C3%A1%2C+gostaria+de+uma+consultoria+digital+com+a+Ziro" target="_blank" class="ziro-btn-whatsapp">Falar no WhatsApp</a>
-                </div>
-                <div class="ziro-contato-illustration">
-                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-                        <circle cx="100" cy="100" r="100" fill="#f8fafc"/>
-                        <path d="M60 80c0-22.1 17.9-40 40-40s40 17.9 40 40-17.9 40-40 40-40-17.9-40-40z" fill="#2563eb"/>
-                        <path d="M40 140c0-33.1 26.9-60 60-60s60 26.9 60 60" fill="#2563eb"/>
-                        <path d="M120 60c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20z" fill="#fbbf24"/>
-                        <path d="M100 100c0-22.1 17.9-40 40-40s40 17.9 40 40-17.9 40-40 40-40-17.9-40-40z" fill="#fbbf24"/>
-                        <path d="M80 140c0-33.1 26.9-60 60-60s60 26.9 60 60" fill="#fbbf24"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="ziro-footer">
-        <div class="ziro-container">
-            <span>Ziro Consultoria Digital &copy; <span id="ziro-year"></span></span>
-        </div>
-    </footer>
+    <!-- Footer dinâmico -->
+    <div data-component="footer"></div>
 
     <!-- Scripts -->
     <script src="assets/js/components.js"></script>
