@@ -31,36 +31,6 @@ $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $articles = $stmt->fetchAll();
 
-// Debug: verificar se há erro
-if (empty($articles)) {
-    echo "<p>DEBUG: Nenhum artigo encontrado. Verificando consulta simples...</p>";
-    $stmtSimple = $pdo->prepare("SELECT COUNT(*) as total FROM articles WHERE status = 'published'");
-    $stmtSimple->execute();
-    $total = $stmtSimple->fetch()['total'];
-    echo "<p>DEBUG: Total de artigos publicados: $total</p>";
-    
-    // Tentar consulta mais simples
-    echo "<p>DEBUG: Tentando consulta simples...</p>";
-    $stmtSimple2 = $pdo->prepare("
-        SELECT 
-            a.id, 
-            a.title, 
-            a.excerpt, 
-            a.slug, 
-            a.published_at,
-            a.is_featured,
-            c.name as category_name
-        FROM articles a
-        LEFT JOIN categories c ON a.category_id = c.id
-        WHERE a.status = 'published'
-        ORDER BY a.published_at DESC 
-        LIMIT 6
-    ");
-    $stmtSimple2->execute();
-    $articles = $stmtSimple2->fetchAll();
-    echo "<p>DEBUG: Artigos com consulta simples: " . count($articles) . "</p>";
-}
-
 // Buscar total de artigos para paginação
 $stmtCount = $pdo->prepare("SELECT COUNT(*) as total FROM articles WHERE status = 'published'");
 $stmtCount->execute();
@@ -226,9 +196,35 @@ $stats = $stmtStats->fetch();
                 <h2 id="blog-list-title" class="sr-only">Artigos do blog</h2>
                 
                 <!-- Artigos em Destaque -->
+                <?php 
+                // Buscar artigos em destaque
+                $stmtFeatured = $pdo->prepare("
+                    SELECT 
+                        a.id, 
+                        a.title, 
+                        a.excerpt, 
+                        a.slug, 
+                        a.published_at,
+                        a.read_time,
+                        c.name as category_name,
+                        GROUP_CONCAT(t.name SEPARATOR ',') as tags
+                    FROM articles a
+                    LEFT JOIN categories c ON a.category_id = c.id
+                    LEFT JOIN article_tags at ON a.id = at.article_id
+                    LEFT JOIN tags t ON at.tag_id = t.id
+                    WHERE a.status = 'published' AND a.is_featured = 1
+                    GROUP BY a.id, a.title, a.excerpt, a.slug, a.published_at, a.read_time, c.name
+                    ORDER BY a.published_at DESC 
+                    LIMIT 1
+                ");
+                $stmtFeatured->execute();
+                $featuredArticles = $stmtFeatured->fetchAll();
+                
+                if (!empty($featuredArticles)): ?>
                 <div class="blog-featured">
                     <h3>Artigos em Destaque</h3>
                     <div class="blog-featured-grid">
+                        <?php foreach ($featuredArticles as $art): ?>
                         <article class="blog-featured-post">
                             <div class="blog-featured-image">
                                 <div class="featured-post-visual">
@@ -252,28 +248,37 @@ $stats = $stmtStats->fetch();
                             </div>
                             <div class="blog-featured-content">
                                 <div class="blog-post-meta">
-                                    <span class="blog-post-category">Marketing Digital</span>
-                                    <span class="blog-post-date">15 de Janeiro, 2024</span>
-                                    <span class="blog-post-read-time">5 min de leitura</span>
+                                    <span class="blog-post-category"><?= htmlspecialchars($art['category_name'] ?? 'Sem categoria') ?></span>
+                                    <span class="blog-post-date"><?= date('d/m/Y', strtotime($art['published_at'])) ?></span>
+                                    <span class="blog-post-read-time"><?= $art['read_time'] ?> min de leitura</span>
                                 </div>
-                                <h2>Como aumentar suas vendas online em 30 dias</h2>
-                                <p>Descubra estratégias comprovadas que podem transformar seu negócio digital e gerar resultados reais em apenas um mês.</p>
+                                <h2><?= htmlspecialchars($art['title']) ?></h2>
+                                <p><?= htmlspecialchars($art['excerpt']) ?></p>
                                 <div class="blog-featured-tags">
-                                    <span class="blog-post-tag">Vendas</span>
-                                    <span class="blog-post-tag">Conversão</span>
-                                    <span class="blog-post-tag">Estratégia</span>
+                                    <?php
+                                    if (!empty($art['tags'])) {
+                                        $tags = explode(',', $art['tags']);
+                                        foreach ($tags as $tag): 
+                                            $tag = trim($tag);
+                                            if (!empty($tag)): ?>
+                                                <span class="blog-post-tag"><?= htmlspecialchars($tag) ?></span>
+                                            <?php endif;
+                                        endforeach;
+                                    }
+                                    ?>
                                 </div>
-                                <a href="artigo.php?id=1" class="btn-primary">Ler artigo completo</a>
+                                <a href="artigo.php?id=<?= $art['id'] ?>" class="btn-primary">Ler artigo completo</a>
                             </div>
                         </article>
+                        <?php endforeach; ?>
                     </div>
                 </div>
+                <?php endif; ?>
 
                 <!-- Todos os Artigos -->
                 <div class="blog-all-posts">
                     <h3>Todos os Artigos</h3>
                     <div class="blog-posts-grid" id="blog-posts-container">
-                        <pre><?php print_r($articles); ?></pre>
                         <?php foreach ($articles as $art): ?>
                             <article class="blog-post-card" data-category="<?= htmlspecialchars($art['category_name']) ?>">
                                 <div class="blog-post-card-image">
