@@ -57,7 +57,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Botão hambúrguer */
+/* MENU HAMBÚRGUER - IMPLEMENTAÇÃO LIMPA */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -90,12 +90,14 @@ body {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* NAVEGAÇÃO DESKTOP */
 .ziro-navbar nav {
     display: flex;
     gap: 2.8rem;
     align-items: center;
     margin-left: auto;
 }
+
 .ziro-navbar nav a {
     color: #23272a;
     text-decoration: none;
@@ -108,6 +110,7 @@ body {
     align-items: center;
     gap: 0.4rem;
 }
+
 .ziro-navbar nav a:hover, .ziro-navbar nav a.btn-primary {
     color: #2563eb;
     background: #f1f5f9;
@@ -1052,42 +1055,73 @@ body {
     .ziro-navbar nav {
         position: fixed;
         top: 0;
-        left: -100%;
-        width: 100%;
+        right: -100vw;
+        width: 100vw;
         height: 100vh;
         background: rgba(255,255,255,0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 2rem;
-        transition: left 0.3s ease;
+        transition: right 0.3s ease;
         z-index: 999;
+        margin-left: 0;
+        transform: none;
     }
     .ziro-navbar nav.active {
-        left: 0;
+        right: 0;
     }
     .ziro-navbar nav a {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        width: 80%;
+        font-size: 1.25rem;
+        padding: 1rem 0;
+        width: auto;
+        max-width: none;
         text-align: center;
         justify-content: center;
+        display: flex;
+        align-items: center;
+        color: #1e293b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+        border-bottom: 2px solid transparent;
     }
     .ziro-navbar nav a:last-child {
-        background: #2563eb;
+        background: #1e293b;
         color: #fff;
+        margin-top: 1rem;
+        padding: 1rem 2rem;
+        border-radius: 6px;
+    }
+    .ziro-navbar nav a:hover {
+        color: #1e293b;
+        background: transparent;
+        border-bottom: 2px solid #1e293b;
     }
     .ziro-navbar nav .dropdown {
-        width: 100%;
+        width: auto;
+        max-width: none;
     }
     .ziro-navbar nav .dropdown-toggle {
-        width: 100%;
+        width: auto;
         justify-content: center;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        background: #f8fafc;
+        padding: 1rem 0;
+        border-radius: 0;
+        background: transparent;
         color: #1e293b;
+        font-size: 1.25rem;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s;
+    }
+    .ziro-navbar nav .dropdown-toggle:hover {
+        color: #1e293b;
+        border-bottom: 2px solid #1e293b;
     }
     .ziro-navbar nav .dropdown-menu {
         position: static;
@@ -1096,7 +1130,11 @@ body {
         border: none;
         padding: 0;
         margin-top: 1rem;
-        width: 100%;
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
     }
     .ziro-navbar nav .dropdown.open .dropdown-menu {
         display: flex;
@@ -1104,19 +1142,27 @@ body {
         gap: 0.5rem;
     }
     .ziro-navbar nav .dropdown-menu a {
-        padding: 0.8rem 1rem;
-        border-radius: 6px;
-        background: #f1f5f9;
+        padding: 0.8rem 0;
+        border-radius: 0;
+        background: transparent;
         color: #475569;
         font-size: 1rem;
+        width: auto;
+        text-align: center;
+        margin-bottom: 0;
+        border-bottom: 2px solid transparent;
     }
     .ziro-navbar nav .dropdown-menu a:last-child {
-        background: #2563eb;
+        background: #1e293b;
         color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        margin-top: 1rem;
     }
     .ziro-navbar nav .dropdown-menu a:hover {
-        background: #e2e8f0;
+        background: transparent;
         color: #1e293b;
+        border-bottom: 2px solid #1e293b;
     }
     .ziro-logo {
         font-size: 2rem;
@@ -1192,63 +1238,6 @@ body {
     }
     .hamburger-menu {
         margin-right: 0;
-    }
-    .ziro-navbar nav {
-        padding: 2rem;
-    }
-    .ziro-navbar nav a {
-        width: 100%;
-        font-size: 1.1rem;
-        padding: 1.2rem;
-        border-radius: 12px;
-        margin-bottom: 0.5rem;
-    }
-    .ziro-navbar nav a:last-child {
-        background: #2563eb;
-        color: #fff;
-        margin-top: 1rem;
-    }
-    .ziro-navbar nav .dropdown {
-        width: 100%;
-    }
-    .ziro-navbar nav .dropdown-toggle {
-        width: 100%;
-        justify-content: center;
-        padding: 1.2rem;
-        border-radius: 12px;
-        background: #f8fafc;
-        color: #1e293b;
-        margin-bottom: 0.5rem;
-    }
-    .ziro-navbar nav .dropdown-menu {
-        position: static;
-        background: transparent;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        margin-top: 0.5rem;
-        width: 100%;
-    }
-    .ziro-navbar nav .dropdown.open .dropdown-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .ziro-navbar nav .dropdown-menu a {
-        padding: 1rem;
-        border-radius: 8px;
-        background: #f1f5f9;
-        color: #475569;
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-    }
-    .ziro-navbar nav .dropdown-menu a:last-child {
-        background: #2563eb;
-        color: #fff;
-    }
-    .ziro-navbar nav .dropdown-menu a:hover {
-        background: #e2e8f0;
-        color: #1e293b;
     }
 }
 
@@ -1345,4 +1334,27 @@ body {
 .dropdown-menu a:hover {
     background: #f1f5f9;
     color: #2563eb;
+}
+
+@media (min-width: 901px) {
+    .hamburger-menu {
+        display: none !important;
+    }
+    .ziro-navbar nav {
+        position: static !important;
+        right: auto !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 2.8rem !important;
+        transition: none !important;
+        z-index: auto !important;
+        padding: 0 !important;
+        margin-left: auto !important;
+        transform: none !important;
+    }
 } 
