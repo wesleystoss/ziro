@@ -7,6 +7,41 @@ class ZiroComponents {
     constructor() {
         this.components = {};
         this.templates = {};
+        this.isInBlogDirectory = this.checkIfInBlogDirectory();
+    }
+
+    /**
+     * Verifica se estamos no diretório blog
+     * @returns {boolean}
+     */
+    checkIfInBlogDirectory() {
+        return window.location.pathname.includes('/blog/');
+    }
+
+    /**
+     * Ajusta caminhos baseado na localização atual
+     * @param {string} content - Conteúdo HTML
+     * @returns {string} - Conteúdo com caminhos ajustados
+     */
+    adjustPaths(content) {
+        if (!this.isInBlogDirectory) {
+            return content;
+        }
+
+        // Ajusta caminhos para funcionar a partir do diretório blog/
+        let adjustedContent = content;
+
+        // Ajusta logo e links principais
+        adjustedContent = adjustedContent.replace(/href="\//g, 'href="../');
+        adjustedContent = adjustedContent.replace(/src="\//g, 'src="../');
+
+        // Ajusta links de serviços para voltar ao diretório raiz
+        adjustedContent = adjustedContent.replace(/href="\.\.\/servicos\//g, 'href="../servicos/');
+
+        // Ajusta âncoras para voltar ao index principal
+        adjustedContent = adjustedContent.replace(/href="#/g, 'href="../index.html#');
+
+        return adjustedContent;
     }
 
     /**
@@ -62,7 +97,8 @@ class ZiroComponents {
      */
     async renderComponent(componentName, path, variables = {}) {
         const template = await this.loadComponent(componentName, path);
-        return this.renderTemplate(template, variables);
+        const rendered = this.renderTemplate(template, variables);
+        return this.adjustPaths(rendered);
     }
 
     /**
@@ -152,6 +188,32 @@ class ZiroComponents {
 // Instância global
 window.ziroComponents = new ZiroComponents();
 
+// Função para detectar se estamos no diretório blog
+function isInBlogDirectory() {
+    return window.location.pathname.includes('/blog/');
+}
+
+// Função para ajustar caminhos baseado na localização
+function adjustPathsForLocation(content) {
+    if (!isInBlogDirectory()) {
+        return content;
+    }
+
+    let adjustedContent = content;
+
+    // Ajusta logo e links principais
+    adjustedContent = adjustedContent.replace(/href="\//g, 'href="../');
+    adjustedContent = adjustedContent.replace(/src="\//g, 'src="../');
+
+    // Ajusta links de serviços para voltar ao diretório raiz
+    adjustedContent = adjustedContent.replace(/href="\.\.\/servicos\//g, 'href="../servicos/');
+
+    // Ajusta âncoras para voltar ao index principal
+    adjustedContent = adjustedContent.replace(/href="#/g, 'href="../index.html#');
+
+    return adjustedContent;
+}
+
 // Carrega header e footer dinamicamente
 function loadComponent(selector, url) {
     const el = document.querySelector(`[data-component="${selector}"]`);
@@ -159,7 +221,9 @@ function loadComponent(selector, url) {
         fetch(url)
             .then(res => res.text())
             .then(html => { 
-                el.outerHTML = html; 
+                // Ajusta caminhos se estivermos no diretório blog
+                const adjustedHtml = adjustPathsForLocation(html);
+                el.outerHTML = adjustedHtml; 
                 
                 // Inicializa menu hambúrguer e dropdown após carregar o header
                 if (selector === 'header') {
@@ -176,8 +240,11 @@ function loadComponent(selector, url) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadComponent('header', '/assets/components/header.html');
-    loadComponent('footer', '/assets/components/footer.html');
+    // Determina o caminho base baseado na localização atual
+    const basePath = isInBlogDirectory() ? '../' : '/';
+    
+    loadComponent('header', basePath + 'assets/components/header.html');
+    loadComponent('footer', basePath + 'assets/components/footer.html');
     
     // Inicializa dropdown imediatamente para desktop
     enableDropdownClick();
