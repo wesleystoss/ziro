@@ -637,11 +637,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.stat-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-}
-
 .stat-number {
     font-size: 3rem;
     font-weight: 700;
