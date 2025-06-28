@@ -791,6 +791,7 @@ body {
     .problem-section h2,
     .solution-section h2,
     .como-funciona-landing h2,
+    .faq-section h2,
     .cta-section h2 {
         font-size: 2rem;
     }
@@ -887,4 +888,78 @@ body {
         font-size: 0.9rem;
         padding: 0.6rem 1.2rem;
     }
+}
+
+/* FAQ Section para SEO */
+.faq-section {
+    background: #f8fafc;
+    padding: 4rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #0f172a;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.faq-list details {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.faq-list details:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.faq-list details[open] {
+    border-color: #1e293b;
+}
+
+.faq-list summary {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #0f172a;
+    font-size: 1.125rem;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.faq-list summary:hover {
+    background: #f8fafc;
+}
+
+.faq-list summary::after {
+    content: "+";
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #64748b;
+    transition: transform 0.2s;
+}
+
+.faq-list details[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-list p {
+    padding: 0 2rem 1.5rem 2rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
 } 
