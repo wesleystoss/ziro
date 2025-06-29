@@ -30,6 +30,50 @@ SERVICOS = [
     "SEO para Pequenas Empresas"
 ]
 
+def get_unsplash_image_url(query):
+    # Busca uma imagem do Unsplash usando a busca pública e garante que a URL final seja válida
+    url = f"https://source.unsplash.com/featured/?{query.replace(' ', ',')}"
+    try:
+        resp = requests.get(url, allow_redirects=False, timeout=10)
+        if resp.status_code in (301, 302) and 'Location' in resp.headers:
+            return resp.headers['Location']
+        elif resp.status_code == 200:
+            return resp.url
+    except Exception:
+        pass
+    # fallback para logo da Ziro
+    return "https://ziro.digital/assets/images/ziro-logo.png"
+
+def try_parse_json(json_str):
+    import re, json as pyjson, demjson3
+    # Remove quebras de linha desnecessárias dentro de strings longas
+    json_str = re.sub(r'\\n', ' ', json_str)
+    # Remove vírgulas duplicadas antes de fechar objetos/listas
+    json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
+    # Remove vírgulas antes de colchetes/fechamentos
+    json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
+    try:
+        return pyjson.loads(json_str)
+    except Exception:
+        try:
+            return demjson3.decode(json_str)
+        except Exception as e:
+            with open('last_gemini_json_error.txt', 'w', encoding='utf-8') as f:
+                f.write(json_str)
+            print("Erro ao decodificar JSON, conteúdo salvo em last_gemini_json_error.txt")
+            # Tenta extrair apenas os campos essenciais para criar o artigo
+            return {
+                "title": "Artigo com erro de parsing",
+                "excerpt": "Erro ao processar JSON da IA. Veja last_gemini_json_error.txt para detalhes.",
+                "content": json_str[:2000],
+                "featured_image": "https://ziro.digital/assets/images/ziro-logo.png",
+                "category": "Erro IA",
+                "tags": ["erro", "ia"],
+                "seo_title": "Artigo com erro de parsing | Ziro Blog",
+                "seo_description": "Erro ao processar JSON da IA.",
+                "seo_keywords": "erro, ia"
+            }
+
 async def gerar_artigo_ia():
     import random
     from datetime import datetime, date
@@ -108,16 +152,10 @@ O CTA precisa ter exatamente esses elementos, como no exemplo abaixo:
     if not match:
         raise Exception("Resposta da IA não contém JSON válido. Resposta bruta:\n" + text)
     json_str = match.group(0)
-    # Tenta corrigir vírgulas a mais antes de fechar objetos/listas
-    json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
-    try:
-        artigo = pyjson.loads(json_str)
-    except Exception:
-        try:
-            artigo = demjson3.decode(json_str)
-        except Exception as e:
-            print("Erro ao decodificar JSON gerado pela IA (mesmo com demjson3):\n", json_str)
-            raise e
+    artigo = try_parse_json(json_str)
+    # Garante que featured_image está presente e é uma URL válida
+    if not artigo.get("featured_image") or not artigo["featured_image"].startswith("http"):
+        artigo["featured_image"] = get_unsplash_image_url(artigo.get("title", tema))
     return artigo
 
 async def create_draft_article():
