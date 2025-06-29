@@ -131,7 +131,7 @@ function gerar_artigo_ia() {
     }
     $text = $json['candidates'][0]['content']['parts'][0]['text'];
     // Loga o texto bruto da IA para debug
-    file_put_contents('last_gemini_raw.txt', $text);
+    file_put_contents(__DIR__.'/../logs/last_gemini_raw.txt', $text);
     // Remove blocos markdown ```json ... ```
     $text = preg_replace('/^```json|```$/m', '', $text);
     $text = trim($text);
@@ -159,13 +159,13 @@ function gerar_artigo_ia() {
         }
         if (!$artigo) {
             $errorMsg = json_last_error_msg();
-            file_put_contents('last_gemini_json_error.txt', $json_str."\n\nErro: ".$errorMsg);
-            throw new Exception("Erro ao decodificar JSON da IA. Veja last_gemini_json_error.txt (".$errorMsg.")");
+            file_put_contents(__DIR__.'/../logs/last_gemini_json_error.txt', $json_str."\n\nErro: ".$errorMsg);
+            throw new Exception("Erro ao decodificar JSON da IA. Veja logs/last_gemini_json_error.txt (".$errorMsg.")");
         }
         return [$artigo, $tema];
     } else {
-        file_put_contents('last_gemini_json_error.txt', $text);
-        throw new Exception("JSON não encontrado na resposta da IA. Veja last_gemini_json_error.txt");
+        file_put_contents(__DIR__.'/../logs/last_gemini_json_error.txt', $text);
+        throw new Exception("JSON não encontrado na resposta da IA. Veja logs/last_gemini_json_error.txt");
     }
 }
 
