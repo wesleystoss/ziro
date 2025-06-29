@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Página inicial -->
   <url>
-    <loc>https://ziro.com.br/</loc>
+    <loc>https://ziro.wesleystoss.com.br/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,42 +10,42 @@
 
   <!-- Páginas de serviços -->
   <url>
-    <loc>https://ziro.com.br/servicos/site-institucional.html</loc>
+    <loc>https://ziro.wesleystoss.com.br/servicos/site-institucional.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ziro.com.br/servicos/salesforce.html</loc>
+    <loc>https://ziro.wesleystoss.com.br/servicos/salesforce.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ziro.com.br/servicos/loja-virtual.html</loc>
+    <loc>https://ziro.wesleystoss.com.br/servicos/loja-virtual.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ziro.com.br/servicos/landing-page.html</loc>
+    <loc>https://ziro.wesleystoss.com.br/servicos/landing-page.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ziro.com.br/servicos/atendimento-online.html</loc>
+    <loc>https://ziro.wesleystoss.com.br/servicos/atendimento-online.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ziro.com.br/servicos/zendesk.html</loc>
+    <loc>https://ziro.wesleystoss.com.br/servicos/zendesk.html</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -53,14 +53,14 @@
 
   <!-- Blog -->
   <url>
-    <loc>https://ziro.com.br/blog/</loc>
+    <loc>https://ziro.wesleystoss.com.br/blog/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://ziro.com.br/blog/artigo.php</loc>
+    <loc>https://ziro.wesleystoss.com.br/blog/artigo.php</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
