@@ -122,7 +122,7 @@ class ZiroBlogMCPServer:
                 "project_name": "Ziro Consultoria Digital",
                 "project_description": "Sistema de blog e site institucional para consultoria digital",
                 "project_url": "https://ziro.digital",
-                "blog_url": "https://ziro.digital/blog",
+                "blog_url": "https://ziro-blog.wesleystoss.com.br/blog",
                 "files_structure": files_structure,
                 "config_files": config_files,
                 "services": services,
@@ -315,7 +315,7 @@ class ZiroBlogMCPServer:
                 "message": "Artigo criado com sucesso!",
                 "article_id": article_id,
                 "slug": slug,
-                "url": f"https://ziro.digital/blog/{slug}",
+                "url": f"https://ziro-blog.wesleystoss.com.br/blog/artigo.php?id={article_id}",
                 "status": article_insert_data['status']
             }
         except Error as e:

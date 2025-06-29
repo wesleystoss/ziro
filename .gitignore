@@ -132,10 +132,10 @@ build/
 # ========================================
 
 # Arquivos de teste
-test-*.html
-test-*.php
-*.test.php
-tests/
+#test-*.html
+#test-*.php
+#*.test.php
+#tests/
 
 # ========================================
 # ARQUIVOS TEMPORÁRIOS

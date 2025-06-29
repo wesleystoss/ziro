@@ -6,6 +6,7 @@ Job automático para criar artigo de rascunho profissional, persuasivo e alinhad
 import asyncio
 import os
 import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../mcp')))
 from mcp_server import ZiroBlogMCPServer
 
 async def create_draft_article():
