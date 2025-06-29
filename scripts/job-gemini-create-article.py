@@ -30,19 +30,36 @@ SERVICOS = [
     "SEO para Pequenas Empresas"
 ]
 
-def get_unsplash_image_url(query):
-    # Busca uma imagem do Unsplash usando a busca pública e garante que a URL final seja válida
-    url = f"https://source.unsplash.com/featured/?{query.replace(' ', ',')}"
+def is_valid_unsplash_image(url):
     try:
-        resp = requests.get(url, allow_redirects=False, timeout=10)
-        if resp.status_code in (301, 302) and 'Location' in resp.headers:
-            return resp.headers['Location']
-        elif resp.status_code == 200:
-            return resp.url
+        resp = requests.head(url, allow_redirects=True, timeout=10)
+        if resp.status_code == 200 and 'image' in resp.headers.get('Content-Type', ''):
+            return True
     except Exception:
         pass
-    # fallback para logo da Ziro
-    return "https://ziro.digital/assets/images/ziro-logo.png"
+    return False
+
+def get_unsplash_image_url(query, tags=None, max_attempts=15):
+    base_url = "https://source.unsplash.com/960x540/?"
+    queries = [query]
+    if tags:
+        queries += tags
+    queries += ["business", "technology", "digital", "office", "success", "marketing", "people", "startup", "meeting", "workspace"]
+    tried = set()
+    for q in queries:
+        if not q or q in tried:
+            continue
+        tried.add(q)
+        url = base_url + q.replace(' ', ',')
+        try:
+            resp = requests.get(url, allow_redirects=True, timeout=10)
+            if resp.status_code == 200 and resp.url and 'images.unsplash.com' in resp.url:
+                head = requests.head(resp.url, allow_redirects=True, timeout=10)
+                if head.status_code == 200 and 'image' in head.headers.get('Content-Type', ''):
+                    return resp.url
+        except Exception:
+            pass
+    return ""  # Retorna string vazia se não encontrar
 
 def try_parse_json(json_str):
     import re, json as pyjson, demjson3
@@ -91,6 +108,10 @@ O artigo deve ser voltado para empresários e gestores de pequenas e médias emp
 
 Requisitos:
 - O título do artigo deve ser único, criativo e nunca repetir títulos anteriores. Não use títulos genéricos ou já usados.
+- Ao redigir o conteúdo do artigo, tenha atenção especial às regras gramáticas e de formatação, evitando erros comuns, como:
+    - Uso incorreto de vírgulas e pontos finais.
+    - Concordância verbal e nominal.
+    - Uso correto de maiúsculas e minúsculas.
 - Estrutura HTML igual ao exemplo abaixo, usando as classes: blog-post-intro, blog-section-title, blog-list, blog-post-highlight, blog-post-tip, blog-post-case, blog-post-cta, blog-post-tags, etc.
 - Use títulos, subtítulos, listas, blocos de destaque, dicas, dados, citações e CTA forte.
 - O HTML deve ser pronto para ser exibido no blog, com pelo menos 800 palavras, dividido em seções.
@@ -153,9 +174,9 @@ O CTA precisa ter exatamente esses elementos, como no exemplo abaixo:
         raise Exception("Resposta da IA não contém JSON válido. Resposta bruta:\n" + text)
     json_str = match.group(0)
     artigo = try_parse_json(json_str)
-    # Garante que featured_image está presente e é uma URL válida
-    if not artigo.get("featured_image") or not artigo["featured_image"].startswith("http"):
-        artigo["featured_image"] = get_unsplash_image_url(artigo.get("title", tema))
+    # Garante que featured_image está presente e é uma URL válida e existente
+    img_url = get_unsplash_image_url(artigo.get("title", tema), artigo.get("tags"))
+    artigo["featured_image"] = img_url if img_url else None
     return artigo
 
 async def create_draft_article():
@@ -176,7 +197,7 @@ async def create_draft_article():
         "tags": artigo.get("tags") or ["ziro", "negócios digitais"],
         "status": "draft",
         "is_featured": False,
-        "featured_image": artigo.get("featured_image") or "../assets/images/ziro-logo.png",
+        "featured_image": artigo.get("featured_image"),
         "read_time": artigo.get("read_time") or 8,
         "allow_comments": True,
         "seo_title": artigo.get("seo_title") or artigo["title"] + " | Ziro Blog",
