@@ -267,6 +267,7 @@ class ZiroBlogMCPServer:
                 'slug': slug,
                 'excerpt': article_data.get('excerpt', ''),
                 'content': article_data['content'],
+                'featured_image': article_data.get('featured_image', ''),
                 'author_id': author_id,
                 'category_id': category_id,
                 'status': article_data.get('status', 'draft'),
@@ -280,11 +281,11 @@ class ZiroBlogMCPServer:
             }
             cursor.execute("""
                 INSERT INTO articles (
-                    title, slug, excerpt, content, author_id, category_id, status,
+                    title, slug, excerpt, content, featured_image, author_id, category_id, status,
                     is_featured, allow_comments, read_time, seo_title, seo_description,
                     seo_keywords, published_at, created_at, updated_at
                 ) VALUES (
-                    %(title)s, %(slug)s, %(excerpt)s, %(content)s, %(author_id)s, %(category_id)s, %(status)s,
+                    %(title)s, %(slug)s, %(excerpt)s, %(content)s, %(featured_image)s, %(author_id)s, %(category_id)s, %(status)s,
                     %(is_featured)s, %(allow_comments)s, %(read_time)s, %(seo_title)s, %(seo_description)s,
                     %(seo_keywords)s, %(published_at)s, %(created_at)s, %(updated_at)s
                 )
