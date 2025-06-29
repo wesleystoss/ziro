@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "ziro-blog": {
+      "command": "python",
+      "args": ["mcp-server.py"],
+      "env": {
+        "DB_HOST": "srv950.hstgr.io",
+        "DB_PORT": "3306",
+        "DB_NAME": "u474727782_ziro",
+        "DB_USER": "u474727782_root",
+        "DB_PASSWORD": "Wesley@3258"
+      }
+    }
+  }
+} 
