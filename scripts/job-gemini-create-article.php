@@ -1,6 +1,20 @@
 <?php
 require_once __DIR__ . '/../mcp/MCPServer.php';
 
+// Carrega variáveis do .env manualmente
+$envPath = __DIR__ . '/../.env';
+if (file_exists($envPath)) {
+    $lines = file($envPath);
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || strpos($line, '#') === 0) continue;
+        if (strpos($line, '=') !== false) {
+            list($name, $value) = array_map('trim', explode('=', $line, 2));
+            putenv("$name=$value");
+        }
+    }
+}
+
 function get_unsplash_image_url($query, $tags = [], $max_attempts = 10) {
     $base_url = "https://source.unsplash.com/960x540/?";
     $queries = array_merge([$query], $tags, ["business", "technology", "digital", "office", "success", "marketing", "people", "startup", "meeting", "workspace"]);
