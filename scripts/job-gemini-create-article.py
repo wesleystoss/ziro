@@ -93,11 +93,22 @@ O CTA precisa ter exatamente esses elementos, como no exemplo abaixo:
     response = requests.post(gemini_api_url, headers=headers, json=data, timeout=90)
     response.raise_for_status()
     import re, json as pyjson
+    import demjson3
     text = response.json()["candidates"][0]["content"]["parts"][0]["text"]
     match = re.search(r'\{.*\}', text, re.DOTALL)
     if not match:
-        raise Exception("Resposta da IA não contém JSON válido")
-    artigo = pyjson.loads(match.group(0))
+        raise Exception("Resposta da IA não contém JSON válido. Resposta bruta:\n" + text)
+    json_str = match.group(0)
+    # Tenta corrigir vírgulas a mais antes de fechar objetos/listas
+    json_str = re.sub(r',\s*([}\]])', r'\1', json_str)
+    try:
+        artigo = pyjson.loads(json_str)
+    except Exception:
+        try:
+            artigo = demjson3.decode(json_str)
+        except Exception as e:
+            print("Erro ao decodificar JSON gerado pela IA (mesmo com demjson3):\n", json_str)
+            raise e
     return artigo
 
 async def create_draft_article():
@@ -118,7 +129,7 @@ async def create_draft_article():
         "tags": artigo.get("tags") or ["ziro", "negócios digitais"],
         "status": "draft",
         "is_featured": False,
-        "featured_image": artigo.get("featured_image") or "https://ziro.digital/assets/images/ziro-logo.png",
+        "featured_image": artigo.get("featured_image") or "../assets/images/ziro-logo.png",
         "read_time": artigo.get("read_time") or 8,
         "allow_comments": True,
         "seo_title": artigo.get("seo_title") or artigo["title"] + " | Ziro Blog",

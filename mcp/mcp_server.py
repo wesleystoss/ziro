@@ -253,11 +253,14 @@ class ZiroBlogMCPServer:
                         VALUES (%s, %s, %s, %s, %s)
                     """, (category_name, category_slug, f"Artigos sobre {category_name}", "#2563eb", True))
                     category_id = cursor.lastrowid
-            cursor.execute("SELECT id FROM users WHERE role IN ('admin', 'author') LIMIT 1")
-            author_result = cursor.fetchone()
-            if not author_result:
-                return {"error": "Nenhum autor encontrado no sistema"}
-            author_id = author_result.get('id')
+            # author_id: usa o fornecido ou busca um válido
+            author_id = article_data.get('author_id')
+            if not author_id:
+                cursor.execute("SELECT id FROM users WHERE role IN ('admin', 'author') LIMIT 1")
+                author_result = cursor.fetchone()
+                if not author_result:
+                    return {"error": "Nenhum autor encontrado no sistema"}
+                author_id = author_result.get('id')
             now = datetime.now()
             article_insert_data = {
                 'title': title,
