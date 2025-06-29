@@ -66,6 +66,15 @@ Requisitos:
 - Gere também os campos: category (relacionada ao tema), tags (lista de palavras-chave), seo_title, seo_description, seo_keywords (palavras separadas por vírgula).
 - Não repita argumentos, exemplos, listas ou estrutura de artigos anteriores. Inove na abordagem, use dados e cases atuais. Use como inspiração o dia de hoje: {data_hoje} e o identificador único: {seed}.
 - Não inclua as tags no corpo do artigo, apenas gere a lista de tags no campo apropriado do JSON.
+- Ao criar o CTA do artigo, utilize o link correto conforme o serviço:
+  - "Automação de Atendimento" → /servicos/atendimento-online
+  - "Loja Virtual" → /servicos/loja-virtual
+  - "Landing Page" → /servicos/landing-page
+  - "Site Institucional" → /servicos/site-institucional
+  - "Consultoria em Marketing Digital" → /servicos/landing-page
+  - "Chatbots para WhatsApp" → /servicos/atendimento-online
+  - "SEO para Pequenas Empresas" → /servicos/landing-page
+  Nunca invente ou altere o link do CTA. Se o serviço não estiver listado, use apenas "/servicos".
 - Responda apenas com um JSON no formato:
 {{
   "title": "...",
