@@ -9,7 +9,7 @@
 .env.staging
 
 # Configurações de banco de dados
-database/config.php
+#database/config.php
 database/credentials.php
 
 # ========================================
@@ -153,9 +153,9 @@ sessions/
 # ========================================
 
 # Arquivos de configuração sensíveis
-config.php
+#config.php
 credentials.php
-database.php
+#database.php
 connection.php
 
 # Chaves privadas
@@ -239,4 +239,4 @@ Thumbs.db
 
 # Backup files
 *.bak
-*.backup 
+*.backup
