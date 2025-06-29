@@ -17,13 +17,11 @@ from datetime import datetime
 
 # Configurações do banco de dados
 DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'localhost'),
+    'host': os.getenv('DB_HOST'),
     'port': int(os.getenv('DB_PORT', 3306)),
-    'database': os.getenv('DB_NAME', 'u474727782_ziro'),
-    'user': os.getenv('DB_USER', 'u474727782_root'),
-    'password': os.getenv('DB_PASSWORD', ''),
-    'charset': 'utf8mb4',
-    'collation': 'utf8mb4_unicode_ci'
+    'database': os.getenv('DB_NAME'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD')
 }
 
 class ZiroBlogMCPServer:
