@@ -115,6 +115,7 @@ $relatedArticles = $relatedStmt->fetchAll();
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/blog.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/whatsapp-float.css">
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -267,5 +268,6 @@ $relatedArticles = $relatedStmt->fetchAll();
     <script src="../assets/js/blog.js"></script>
     <script src="../assets/js/config.js"></script>
     <script src="../assets/js/analytics.js"></script>
+    <script src="../assets/js/components/whatsapp-float.js" defer></script>
 </body>
 </html> 
