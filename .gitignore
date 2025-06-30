@@ -9,7 +9,7 @@
 .env.staging
 
 # Configurações de banco de dados
-database/config.php
+#database/config.php
 database/credentials.php
 
 # ========================================
@@ -132,10 +132,10 @@ build/
 # ========================================
 
 # Arquivos de teste
-test-*.html
-test-*.php
-*.test.php
-tests/
+#test-*.html
+#test-*.php
+#*.test.php
+#tests/
 
 # ========================================
 # ARQUIVOS TEMPORÁRIOS
@@ -153,9 +153,9 @@ sessions/
 # ========================================
 
 # Arquivos de configuração sensíveis
-config.php
+#config.php
 credentials.php
-database.php
+#database.php
 connection.php
 
 # Chaves privadas
@@ -187,3 +187,56 @@ deployment/
 
 # Arquivos específicos que não devem ser versionados
 # Adicione aqui arquivos específicos do seu projeto 
+
+# Arquivos de configuração com credenciais
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup

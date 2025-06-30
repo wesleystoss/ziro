@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ziro-blog": {
+      "command": "python",
+      "args": ["mcp-server.py"]
+    }
+  }
+} 
