@@ -380,5 +380,7 @@ $stats = $stmtStats->fetch();
     <script src="../assets/js/components.js"></script>
     <script src="../assets/js/ziro.js"></script>
     <script src="../assets/js/blog.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/analytics.js"></script>
 </body>
 </html> 
