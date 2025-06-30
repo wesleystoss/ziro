@@ -81,6 +81,7 @@ Requisitos:
   - "Landing Page" → /servicos/landing-page
   - "Site Institucional" → /servicos/site-institucional
   - "Consultoria em Marketing Digital" → /servicos/landing-page
+  - "Blog" → /servicos/blog
   - "Chatbots para WhatsApp" → /servicos/atendimento-online
   - "SEO para Pequenas Empresas" → /servicos/landing-page
   Nunca invente ou altere o link do CTA. Se o serviço não estiver listado, use apenas "/servicos".
@@ -115,7 +116,8 @@ function gerar_artigo_ia() {
         "Site Institucional",
         "Consultoria em Marketing Digital",
         "Chatbots para WhatsApp",
-        "SEO para Pequenas Empresas"
+        "SEO para Pequenas Empresas",
+        "Blog"
     ];
     $subtitulos = [
         "Tendências para o futuro", "Erros comuns e como evitar", "Como aplicar na prática", "Dicas avançadas", "O que ninguém te conta", "Passo a passo para resultados", "Estudo de caso real", "Checklist definitivo", "Oportunidades para pequenas empresas", "Como escalar resultados", "Estratégias para 2025", "O que mudou este ano", "Como se destacar no mercado", "O segredo das empresas líderes", "Como evitar armadilhas", "O que fazer diferente", "Como inovar com pouco orçamento"
@@ -194,7 +196,8 @@ if (php_sapi_name() === 'cli') {
             'content' => $artigo['content'],
             'featured_image' => $img_url,
             'author_id' => rand(3, 7),
-            'category_id' => 1, // Ajuste conforme sua lógica
+            // Agora o category_id é dinâmico, conforme retornado pelo artigo gerado pela IA
+            'category_id' => $artigo['category_id'] ?? 1, // Usa 1 como fallback se não vier da IA
             'status' => 'published',
             'is_featured' => 0,
             'allow_comments' => 1,
