@@ -1365,3 +1365,181 @@ body {
         text-align: center;
     }
 }
+
+/* HERO IMPACTANTE exclusivo do index.html */
+.home .hero-bg {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url(https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.home .hero {
+    position: relative;
+    z-index: 2;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+}
+.home .hero-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    position: relative;
+    z-index: 3;
+}
+@media (max-width: 900px) {
+    .home .hero-flex {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+.home .hero-text {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    background: rgba(0,0,0,0.45);
+    border-radius: 18px;
+    padding: 40px 32px 32px 32px;
+    max-width: 540px;
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.home .hero-text h1 {
+    margin-bottom: 22px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+.home .hero-subtitle {
+    margin-bottom: 28px;
+    font-size: 1.15rem;
+    color: #e0e0e0;
+}
+.home .hero-highlight {
+    margin-bottom: 32px;
+    justify-content: center;
+}
+.home .highlight-text {
+    font-size: 1rem;
+    color: #04722b;
+}
+.home .hero-cta {
+    justify-content: center;
+    margin-top: 18px;
+    gap: 20px;
+}
+.home .btn-primary {
+    background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 2px 12px 0 rgba(34,197,94,0.18);
+    transition: background 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+.home .btn-primary:hover, .home .btn-primary:focus {
+    background: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
+    box-shadow: 0 4px 18px 0 rgba(34,197,94,0.28);
+}
+.home .btn-secondary {
+    background: #fff;
+    color: #16a34a !important;
+    border: 2px solid #22c55e;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 2px 12px 0 rgba(34,197,94,0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+.home .btn-secondary:hover, .home .btn-secondary:focus {
+    background: #bbf7d0;
+    color: #166534 !important;
+    box-shadow: 0 4px 18px 0 rgba(34,197,94,0.18);
+}
+@media (max-width: 900px) {
+    .home .hero-text {
+        max-width: 100%;
+        padding: 28px 16px 24px 16px;
+    }
+}
+@media (max-width: 600px) {
+    .home .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
+.home .hero-badge {
+    display: inline-block;
+    background: #fff;
+    color: #1e293b;
+    font-size: 0.93rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px 0 rgba(30,41,59,0.07);
+    text-align: center;
+    border: 1.5px solid #1e293b;
+    opacity: 0.98;
+}
+
+.home .hero-text h1 {
+    color: #fff;
+}
+
+.home .hero-subtitle {
+    color: #f1f5f9;
+}
+
+.home .btn-primary {
+    background: #1e293b;
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 rgba(30,41,59,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+.home .btn-primary:hover, .home .btn-primary:focus {
+    background: #2563eb;
+    color: #fff !important;
+    box-shadow: 0 4px 18px 0 rgba(37,99,235,0.13);
+}
+
+.home .btn-secondary {
+    background: #fff;
+    color: #1e293b !important;
+    border: 2px solid #1e293b;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 rgba(30,41,59,0.07);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+}
+.home .btn-secondary:hover, .home .btn-secondary:focus {
+    background: #f1f5f9;
+    color: #2563eb !important;
+    box-shadow: 0 4px 18px 0 rgba(37,99,235,0.10);
+}
