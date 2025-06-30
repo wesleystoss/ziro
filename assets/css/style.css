@@ -1355,3 +1355,13 @@ body {
     padding: 2rem 0;
     text-align: center;
 }
+@media (max-width: 600px) {
+    .solution-highlight{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
