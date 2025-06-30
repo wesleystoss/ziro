@@ -1326,4 +1326,88 @@ body {
         padding: 0.75rem 1rem;
         font-size: 0.875rem;
     }
+}
+
+/* Blog Hero Preview */
+.blog-preview {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px -8px rgba(16, 24, 40, 0.12);
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+.blog-preview .preview-header {
+    background: #f1f5f9;
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+.blog-preview .preview-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+.blog-preview .preview-dots span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.blog-preview .preview-dots span:nth-child(1) { background: #ef4444; }
+.blog-preview .preview-dots span:nth-child(2) { background: #f59e0b; }
+.blog-preview .preview-dots span:nth-child(3) { background: #10b981; }
+.blog-preview .preview-content {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.blog-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.blog-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.2rem;
+}
+.blog-subtitle {
+    font-size: 1rem;
+    color: #475569;
+    margin-bottom: 1rem;
+}
+.blog-cards {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+.blog-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px -2px rgba(16, 24, 40, 0.08);
+    padding: 1rem 0.8rem;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #e2e8f0;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+.blog-card:hover {
+    box-shadow: 0 4px 16px -4px rgba(16, 24, 40, 0.16);
+    border: 1px solid #38bdf8;
+}
+.blog-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0ea5e9;
+    margin-bottom: 0.3rem;
+}
+.blog-card-desc {
+    font-size: 0.95rem;
+    color: #334155;
+}
+@media (max-width: 900px) {
+    .blog-preview { max-width: 100%; }
+    .blog-cards { flex-direction: column; gap: 0.7rem; }
 } 
