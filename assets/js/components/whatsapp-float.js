@@ -2,11 +2,18 @@
 const whatsappNumber = '6199241137';
 const whatsappMsg = 'Olá! Vim pelo site e quero saber mais.';
 const messages = [
+  'Quer dobrar suas vendas? Fale agora e descubra como!',
+  'Seu concorrente já está online. E você? Vamos mudar isso juntos!',
+  'Atendimento automático 24h: conquiste mais clientes hoje!',
+  'Diagnóstico digital 100% grátis. Aproveite antes que acabe!',
+  'Chega de perder vendas! Transforme seu negócio agora mesmo.',
+  'Site profissional em dias, não meses. Clique e surpreenda-se!',
   'Transforme seu atendimento e impulsione suas vendas. Fale conosco.',
   'Tem um projeto em mente? Converse com um de nossos especialistas.',
   'Receba um diagnóstico digital gratuito e sem compromisso.',
   'Soluções digitais completas, do planejamento ao resultado.',
-  'Pronto para escalar seu negócio? Inicie a conversa aqui.'
+  'Pronto para escalar seu negócio? Inicie a conversa aqui.',
+  'Precisa de um site profissional? Podemos resolver isso.'
 ];
 
 function createWhatsappFloat() {
