@@ -149,6 +149,20 @@ function decode_json_robusto($text, $log_path) {
     throw new Exception("Erro ao decodificar JSON da IA. Veja $log_path ($errorMsg)");
 }
 
+function slugify($text) {
+    // Translitera para ASCII (remove acentos)
+    $text = iconv('UTF-8', 'ASCII//TRANSLIT', $text);
+    // Deixa tudo minúsculo
+    $text = strtolower($text);
+    // Substitui qualquer coisa que não seja letra ou número por hífen
+    $text = preg_replace('/[^a-z0-9]+/', '-', $text);
+    // Remove hífens do início/fim
+    $text = trim($text, '-');
+    // Remove múltiplos hífens seguidos
+    $text = preg_replace('/-+/', '-', $text);
+    return $text;
+}
+
 function gerar_artigo_ia() {
     $servicos = [
         "Automação de Atendimento",
@@ -200,7 +214,7 @@ if (php_sapi_name() === 'cli') {
         $img_url = get_unsplash_image_url($artigo['title'], $artigo['tags'] ?? []);
         $data = [
             'title' => $artigo['title'],
-            'slug' => strtolower(preg_replace('/[^a-z0-9]+/', '-', $artigo['title'])),
+            'slug' => slugify($artigo['title']),
             'excerpt' => $artigo['excerpt'],
             'content' => $artigo['content'],
             'featured_image' => $img_url,
