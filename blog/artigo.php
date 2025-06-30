@@ -1,44 +1,66 @@
 ﻿<?php require_once __DIR__ . '/connection.php'; ?>
 <?php
+$slug = isset($_GET['slug']) ? $_GET['slug'] : null;
 $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
-if (!$id) {
+
+if ($slug) {
+    $stmt = $pdo->prepare("
+        SELECT 
+            a.*,
+            u.full_name as author_name,
+            u.avatar_url as author_avatar,
+            c.name as category_name,
+            c.slug as category_slug,
+            c.color as category_color,
+            GROUP_CONCAT(t.name) as tags
+        FROM articles a
+        LEFT JOIN users u ON a.author_id = u.id
+        LEFT JOIN categories c ON a.category_id = c.id
+        LEFT JOIN article_tags at ON a.id = at.article_id
+        LEFT JOIN tags t ON at.tag_id = t.id
+        WHERE a.slug = :slug AND a.status = 'published'
+        GROUP BY a.id
+        LIMIT 1
+    ");
+    $stmt->bindValue(':slug', $slug, PDO::PARAM_STR);
+} elseif ($id) {
+    $stmt = $pdo->prepare("
+        SELECT 
+            a.*,
+            u.full_name as author_name,
+            u.avatar_url as author_avatar,
+            c.name as category_name,
+            c.slug as category_slug,
+            c.color as category_color,
+            GROUP_CONCAT(t.name) as tags
+        FROM articles a
+        LEFT JOIN users u ON a.author_id = u.id
+        LEFT JOIN categories c ON a.category_id = c.id
+        LEFT JOIN article_tags at ON a.id = at.article_id
+        LEFT JOIN tags t ON at.tag_id = t.id
+        WHERE a.id = :id AND a.status = 'published'
+        GROUP BY a.id
+        LIMIT 1
+    ");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+} else {
     http_response_code(404);
-    echo '<h2>Artigo nÃ£o encontrado.</h2>';
+    echo '<h2>Artigo não encontrado.</h2>';
     exit;
 }
 
-// Consulta com JOINs para buscar informaÃ§Ãµes relacionadas
-$stmt = $pdo->prepare("
-    SELECT 
-        a.*,
-        u.full_name as author_name,
-        u.avatar_url as author_avatar,
-        c.name as category_name,
-        c.slug as category_slug,
-        c.color as category_color,
-        GROUP_CONCAT(t.name) as tags
-    FROM articles a
-    LEFT JOIN users u ON a.author_id = u.id
-    LEFT JOIN categories c ON a.category_id = c.id
-    LEFT JOIN article_tags at ON a.id = at.article_id
-    LEFT JOIN tags t ON at.tag_id = t.id
-    WHERE a.id = :id AND a.status = 'published'
-    GROUP BY a.id
-    LIMIT 1
-");
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $article = $stmt->fetch();
 
 if (!$article) {
     http_response_code(404);
-    echo '<h2>Artigo nÃ£o encontrado.</h2>';
+    echo '<h2>Artigo não encontrado.</h2>';
     exit;
 }
 
-// Incrementar visualizaÃ§Ãµes
+// Incrementar visualizações
 $stmtView = $pdo->prepare("UPDATE articles SET view_count = view_count + 1 WHERE id = :id");
-$stmtView->bindValue(':id', $id, PDO::PARAM_INT);
+$stmtView->bindValue(':id', $article['id'], PDO::PARAM_INT);
 $stmtView->execute();
 
 // Buscar artigos relacionados (mesma categoria, exceto o atual)
@@ -62,24 +84,24 @@ $relatedArticles = $relatedStmt->fetchAll();
     
     <!-- SEO Meta Tags -->
     <title><?= htmlspecialchars($article['title']) ?> - Blog Ziro</title>
-    <meta name="description" content="Artigos e insights sobre marketing digital, vendas online e transformaÃ§Ã£o digital. Dicas prÃ¡ticas para empresÃ¡rios que querem crescer no digital.">
-    <meta name="keywords" content="blog, marketing digital, vendas online, transformaÃ§Ã£o digital, dicas empresariais, automaÃ§Ã£o">
+    <meta name="description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital. Dicas práticas para empresários que querem crescer no digital.">
+    <meta name="keywords" content="blog, marketing digital, vendas online, transformação digital, dicas empresariais, automação">
     <meta name="author" content="Ziro Consultoria Digital">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://ziro.digital/blog/artigo.html">
-    <meta property="og:title" content="Artigo - Ziro Consultoria Digital | Insights e EstratÃ©gias Digitais">
-    <meta property="og:description" content="Artigos e insights sobre marketing digital, vendas online e transformaÃ§Ã£o digital. Dicas prÃ¡ticas para empresÃ¡rios.">
+    <meta property="og:title" content="Artigo - Ziro Consultoria Digital | Insights e Estratégias Digitais">
+    <meta property="og:description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital. Dicas práticas para empresários.">
     <meta property="og:image" content="https://ziro.digital/assets/images/ziro-logo.png">
     <meta property="og:site_name" content="Ziro Consultoria Digital">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ziro.digital/blog/artigo.html">
-    <meta property="twitter:title" content="Artigo - Ziro Consultoria Digital | Insights e EstratÃ©gias Digitais">
-    <meta property="twitter:description" content="Artigos e insights sobre marketing digital, vendas online e transformaÃ§Ã£o digital.">
+    <meta property="twitter:title" content="Artigo - Ziro Consultoria Digital | Insights e Estratégias Digitais">
+    <meta property="twitter:description" content="Artigos e insights sobre marketing digital, vendas online e transformação digital.">
     <meta property="twitter:image" content="https://ziro.digital/assets/images/ziro-logo.png">
     
     <!-- Canonical URL -->
@@ -100,7 +122,7 @@ $relatedArticles = $relatedStmt->fetchAll();
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "Como aumentar suas vendas online em 30 dias: Guia completo para pequenas empresas",
-      "description": "Descubra estratÃ©gias comprovadas que podem transformar seu negÃ³cio digital e gerar resultados reais em apenas um mÃªs.",
+      "description": "Descubra estratégias comprovadas que podem transformar seu negócio digital e gerar resultados reais em apenas um mês.",
       "image": "https://ziro.digital/assets/images/ziro-logo.png",
       "author": {
         "@type": "Organization",
@@ -124,16 +146,16 @@ $relatedArticles = $relatedStmt->fetchAll();
     </script>
 </head>
 <body>
-    <!-- Header dinÃ¢mico -->
+    <!-- Header dinâmico -->
     <div data-component="header"></div>
 
     <main>
-        <!-- ConteÃºdo do Blog -->
+        <!-- Conteúdo do Blog -->
         <section class="blog-content" aria-labelledby="blog-post-title">
             <div class="container">
                 <article class="blog-post">
                     <!-- Breadcrumb -->
-                    <nav class="breadcrumb" aria-label="NavegaÃ§Ã£o do breadcrumb">
+                    <nav class="breadcrumb" aria-label="Navegação do breadcrumb">
                         <a href="/">Home</a>
                         <span>/</span>
                         <a href="/blog/">Blog</a>
@@ -141,7 +163,7 @@ $relatedArticles = $relatedStmt->fetchAll();
                         <span aria-current="page" id="breadcrumb-title">Artigo</span>
                     </nav>
 
-                    <!-- CabeÃ§alho do Post -->
+                    <!-- Cabeçalho do Post -->
                     <header class="blog-post-header">
                         <?php if (!empty($article['featured_image'])): ?>
                             <div class="blog-post-featured-image">
@@ -168,7 +190,7 @@ $relatedArticles = $relatedStmt->fetchAll();
                         </div>
                     </header>
 
-                    <!-- ConteÃºdo do Post -->
+                    <!-- Conteúdo do Post -->
                     <div class="blog-post-body" id="post-content">
                         <?= $article['content'] ?>
                         
@@ -236,7 +258,7 @@ $relatedArticles = $relatedStmt->fetchAll();
         </section>
     </main>
 
-    <!-- Footer dinÃ¢mico -->
+    <!-- Footer dinâmico -->
     <div data-component="footer"></div>
 
     <!-- Scripts -->
