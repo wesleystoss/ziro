@@ -273,7 +273,7 @@ $stats = $stmtStats->fetch();
                                     }
                                     ?>
                                 </div>
-                                <a href="artigo.php?id=<?= $art['id'] ?>" class="btn-primary">Ler artigo completo</a>
+                                <a href="artigo.php?slug=<?= urlencode($art['slug']) ?>" class="btn-primary">Ler artigo completo</a>
                             </div>
                         </article>
                         <?php endforeach; ?>
@@ -330,7 +330,7 @@ $stats = $stmtStats->fetch();
                                         }
                                         ?>
                                     </div>
-                                    <a href="artigo.php?id=<?= $art['id'] ?>" class="blog-post-card-link">Ler mais</a>
+                                    <a href="artigo.php?slug=<?= urlencode($art['slug']) ?>" class="blog-post-card-link">Ler mais</a>
                                 </div>
                             </article>
                         <?php endforeach; ?>
