@@ -88,6 +88,7 @@ $stats = $stmtStats->fetch();
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="../assets/css/whatsapp-float.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Schema.org Structured Data -->
@@ -382,5 +383,6 @@ $stats = $stmtStats->fetch();
     <script src="../assets/js/blog.js"></script>
     <script src="../assets/js/config.js"></script>
     <script src="../assets/js/analytics.js"></script>
+    <script src="../assets/js/components/whatsapp-float.js" defer></script>
 </body>
 </html> 

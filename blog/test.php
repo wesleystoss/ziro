@@ -58,4 +58,7 @@ try {
     echo "<h2>❌ Erro na conexão:</h2>";
     echo "<p>" . $e->getMessage() . "</p>";
 }
-?> 
+?>
+
+<link rel="stylesheet" href="../assets/css/whatsapp-float.css">
+<script src="../assets/js/components/whatsapp-float.js" defer></script> 
