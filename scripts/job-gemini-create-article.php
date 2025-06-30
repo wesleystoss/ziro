@@ -193,7 +193,7 @@ if (php_sapi_name() === 'cli') {
             'excerpt' => $artigo['excerpt'],
             'content' => $artigo['content'],
             'featured_image' => $img_url,
-            'author_id' => rand(3, 5),
+            'author_id' => rand(3, 7),
             'category_id' => 1, // Ajuste conforme sua lógica
             'status' => 'published',
             'is_featured' => 0,
