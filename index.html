@@ -145,28 +145,135 @@
     }
     </script>
 </head>
-<body>
+<body class="home">
     <!-- Header dinâmico -->
     <div data-component="header"></div>
     <main>
         <!-- HERO IMPACTANTE -->
         <section class="hero" aria-labelledby="hero-title">
+            <style>
+                .hero-bg {
+                    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url(https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center/cover no-repeat;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 0;
+                }
+                .hero {
+                    position: relative;
+                    z-index: 2;
+                    min-height: 520px;
+                    display: flex;
+                    align-items: center;
+                }
+                .hero-flex {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 48px;
+                    position: relative;
+                    z-index: 3;
+                }
+                @media (max-width: 900px) {
+                    .hero-flex {
+                        flex-direction: column;
+                        gap: 32px;
+                    }
+                }
+                .hero-text {
+                    position: relative;
+                    z-index: 3;
+                    color: #fff;
+                    background: rgba(0,0,0,0.45);
+                    border-radius: 18px;
+                    padding: 40px 32px 32px 32px;
+                    max-width: 540px;
+                    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.12);
+                }
+                .hero-text h1 {
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    margin-bottom: 18px;
+                    line-height: 1.2;
+                    color: #fff;
+                }
+                .hero-subtitle {
+                    font-size: 1.15rem;
+                    margin-bottom: 22px;
+                    color: #e0e0e0;
+                }
+                .hero-highlight {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 10px;
+                    margin-bottom: 28px;
+                }
+                .highlight-text {
+                    font-size: 1rem;
+                    color: #04722b;
+                }
+                .hero-cta {
+                    display: flex;
+                    gap: 16px;
+                    flex-wrap: wrap;
+                    margin-top: 10px;
+                }
+                .btn-primary {
+                    background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+                    color: #fff !important;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 14px 28px;
+                    font-size: 1.08rem;
+                    font-weight: 600;
+                    box-shadow: 0 2px 12px 0 rgba(34,197,94,0.18);
+                    transition: background 0.2s, box-shadow 0.2s;
+                    text-decoration: none;
+                }
+                .btn-primary:hover, .btn-primary:focus {
+                    background: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
+                    box-shadow: 0 4px 18px 0 rgba(34,197,94,0.28);
+                }
+                .btn-secondary {
+                    background: #fff;
+                    color: #16a34a !important;
+                    border: 2px solid #22c55e;
+                    border-radius: 8px;
+                    padding: 14px 28px;
+                    font-size: 1.08rem;
+                    font-weight: 600;
+                    box-shadow: 0 2px 12px 0 rgba(34,197,94,0.10);
+                    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+                    text-decoration: none;
+                }
+                .btn-secondary:hover, .btn-secondary:focus {
+                    background: #bbf7d0;
+                    color: #166534 !important;
+                    box-shadow: 0 4px 18px 0 rgba(34,197,94,0.18);
+                }
+                @media (max-width: 900px) {
+                    .hero-text {
+                        max-width: 100%;
+                        padding: 28px 16px 24px 16px;
+                    }
+                }
+
+            </style>
+            <div class="hero-bg"></div>
             <div class="container hero-flex">
                 <div class="hero-text">
-                    <h1 id="hero-title">Profissionalize o Atendimento e as Vendas do Seu Negócio com Soluções Digitais de Alta Performance</h1>
-                    <p class="hero-subtitle">Sua empresa pronta para o futuro: atendimento automatizado, vendas online e presença digital sólida, com tecnologia, segurança e credibilidade.</p>
-                    <div class="hero-highlight">
-                        <svg width="28" height="28" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                        <div class="highlight-text">
-                            <strong>Resultados Reais:</strong> Empresas digitalizadas aumentam vendas e reduzem custos em até 3x.
-                        </div>
-                    </div>
+                    <div class="hero-badge">Soluções Digitais Integradas</div>
+                    <h1 id="hero-title">Sua Empresa Pronta para o Futuro Digital</h1>
+                    <p class="hero-subtitle">Sites, e-commerce e atendimento online automatizado. Tudo para fortalecer sua presença, vender mais e oferecer o melhor atendimento ao cliente.</p>
                     <div class="hero-cta">
-                        <a href="#contato" class="btn-primary" aria-label="Solicitar diagnóstico gratuito">Solicitar diagnóstico gratuito</a>
-                        <a href="#servicos" class="btn-secondary" aria-label="Ver nossos serviços">Ver soluções</a>
+                        <a href="#contato" class="btn-primary" aria-label="Solicitar diagnóstico gratuito">Solicite um Diagnóstico</a>
+                        <a href="#servicos" class="btn-secondary" aria-label="Ver soluções">Ver Soluções</a>
                     </div>
                 </div>
-                <div class="hero-img">
+                <div class="hero-img" style="display: none;">
                     <div class="hero-visual">
                         <div class="dashboard-preview">
                             <div class="preview-header">
