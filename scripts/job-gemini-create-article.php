@@ -108,6 +108,47 @@ Requisitos:
 PROMPT;
 }
 
+function decode_json_robusto($text, $log_path) {
+    // Remove blocos markdown
+    $text = preg_replace('/^```json|```$/m', '', $text);
+    // Pega só o trecho entre o primeiro { e o último }
+    if (preg_match('/\{.*\}/s', $text, $m)) {
+        $json_str = $m[0];
+    } else {
+        file_put_contents($log_path, $text . "\n\nErro: JSON não encontrado");
+        throw new Exception("JSON não encontrado na resposta da IA. Veja $log_path");
+    }
+
+    // Limpa caracteres invisíveis e força UTF-8
+    $json_str = preg_replace('/[\x00-\x1F\x7F\xA0\xAD]/u', '', $json_str);
+    $json_str = trim($json_str);
+    $json_str = iconv('UTF-8', 'UTF-8//IGNORE', $json_str);
+
+    // Tenta decodificar de várias formas
+    $tentativas = [
+        $json_str,
+        preg_replace('/,\s*([}\]])/', '$1', $json_str), // remove vírgulas a mais
+        preg_replace('/""/', '"', $json_str), // remove aspas duplicadas
+        preg_replace('/[\r\n]+/', '', $json_str), // remove quebras de linha
+    ];
+
+    foreach ($tentativas as $tentativa) {
+        $artigo = json_decode($tentativa, true, 512, JSON_INVALID_UTF8_SUBSTITUTE);
+        if ($artigo) return $artigo;
+    }
+
+    // Última tentativa: remove tudo antes do primeiro { e depois do último }
+    $json_str2 = preg_replace('/^[^{]*/', '', $json_str);
+    $json_str2 = preg_replace('/[^}]*$/', '', $json_str2);
+    $artigo = json_decode($json_str2, true, 512, JSON_INVALID_UTF8_SUBSTITUTE);
+    if ($artigo) return $artigo;
+
+    // Se ainda assim falhar, loga o erro
+    $errorMsg = json_last_error_msg();
+    file_put_contents($log_path, $json_str . "\n\nErro: " . $errorMsg);
+    throw new Exception("Erro ao decodificar JSON da IA. Veja $log_path ($errorMsg)");
+}
+
 function gerar_artigo_ia() {
     $servicos = [
         "Automação de Atendimento",
@@ -148,41 +189,9 @@ function gerar_artigo_ia() {
     $text = $json['candidates'][0]['content']['parts'][0]['text'];
     // Loga o texto bruto da IA para debug
     file_put_contents(__DIR__.'/../logs/last_gemini_raw.txt', $text);
-    // Remove blocos markdown ```json ... ```
-    $text = preg_replace('/^```json|```$/m', '', $text);
-    $text = trim($text);
-    // Extrai JSON do texto
-    if (preg_match('/\{.*\}/s', $text, $m)) {
-        $json_str = $m[0];
-        // Limpa caracteres invisíveis e BOM (sem \uFEFF)
-        $json_str = preg_replace('/[\x00-\x1F\x7F\xA0\xAD]/', '', $json_str);
-        $json_str = trim($json_str);
-        // Força UTF-8 válido e remove caracteres inválidos
-        $json_str = iconv('UTF-8', 'UTF-8//IGNORE', $json_str);
-        $json_str = trim($json_str);
-        $artigo = json_decode($json_str, true, 512, JSON_INVALID_UTF8_SUBSTITUTE);
-        if (!$artigo) {
-            // Tenta corrigir vírgulas a mais
-            $json_str2 = preg_replace('/,\s*([}\]])/', '$1', $json_str);
-            $json_str2 = iconv('UTF-8', 'UTF-8//IGNORE', $json_str2);
-            $artigo = json_decode($json_str2, true, 512, JSON_INVALID_UTF8_SUBSTITUTE);
-        }
-        if (!$artigo) {
-            // Tenta remover aspas duplas duplicadas
-            $json_str3 = preg_replace('/""/', '"', $json_str);
-            $json_str3 = iconv('UTF-8', 'UTF-8//IGNORE', $json_str3);
-            $artigo = json_decode($json_str3, true, 512, JSON_INVALID_UTF8_SUBSTITUTE);
-        }
-        if (!$artigo) {
-            $errorMsg = json_last_error_msg();
-            file_put_contents(__DIR__.'/../logs/last_gemini_json_error.txt', $json_str."\n\nErro: ".$errorMsg);
-            throw new Exception("Erro ao decodificar JSON da IA. Veja logs/last_gemini_json_error.txt (".$errorMsg.")");
-        }
-        return [$artigo, $tema];
-    } else {
-        file_put_contents(__DIR__.'/../logs/last_gemini_json_error.txt', $text);
-        throw new Exception("JSON não encontrado na resposta da IA. Veja logs/last_gemini_json_error.txt");
-    }
+    // Substitui o parsing antigo pelo robusto
+    $artigo = decode_json_robusto($text, __DIR__.'/../logs/last_gemini_json_error.txt');
+    return [$artigo, $tema];
 }
 
 if (php_sapi_name() === 'cli') {
