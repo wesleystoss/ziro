@@ -38,9 +38,10 @@ class MCPServer {
 
     public static function createArticle($data) {
         $db = get_db();
-        $stmt = $db->prepare("INSERT INTO articles (title, slug, excerpt, content, featured_image, author_id, category_id, status, is_featured, allow_comments, read_time, seo_title, seo_description, seo_keywords, published_at, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())");
+        $agora = date('Y-m-d H:i:s', strtotime('-3 hours'));
+        $stmt = $db->prepare("INSERT INTO articles (title, slug, excerpt, content, featured_image, author_id, category_id, status, is_featured, allow_comments, read_time, seo_title, seo_description, seo_keywords, published_at, created_at, updated_at, createdByJob) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
         $stmt->bind_param(
-            'sssssiississsss',
+            'sssssiississsssss',
             $data['title'],
             $data['slug'],
             $data['excerpt'],
@@ -55,7 +56,9 @@ class MCPServer {
             $data['seo_title'],
             $data['seo_description'],
             $data['seo_keywords'],
-            $data['published_at']
+            $data['published_at'],
+            $agora,
+            $agora
         );
         $stmt->execute();
         return ['success' => $stmt->affected_rows > 0, 'article_id' => $db->insert_id];
