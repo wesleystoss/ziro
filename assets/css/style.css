@@ -1382,6 +1382,8 @@ body {
     min-height: 520px;
     display: flex;
     align-items: center;
+    height: 100vh;
+    padding: 0;
 }
 .home .hero-flex {
     display: flex;
