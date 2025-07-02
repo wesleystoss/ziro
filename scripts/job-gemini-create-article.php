@@ -104,6 +104,19 @@ Requisitos:
         <a href="/servicos/prospeccao-multicanal" class="btn-primary">Conheça Nossos Serviços Multicanal</a>
         <a href="https://wa.me/6199241137" class="btn-secondary">Fale Conosco no WhatsApp</a>
     </div>
+- As categorias devem ser:
+    -"Marketing Digital" → 1
+    -"Vendas Online" → 2
+    -"Atendimento" → 3
+    -"Tecnologia" → 4
+    -"E-commerce" → 5
+    -"SEO" → 6
+    -"Automação" → 7
+    -"Atendimento ao Cliente" → 8
+    -"Estratégia Digital" → 9
+    -"Automação e Atendimento ao Cliente" → 10
+    -"Tecnologia para Negócios"	→ 11
+    -"Tecnologia e Gestão" → 12
 
 PROMPT;
 }
