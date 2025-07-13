@@ -87,6 +87,7 @@ $stats = $stmtStats->fetch();
     
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/service-pages.css">
     <link rel="stylesheet" href="../assets/css/blog.css">
     <link rel="stylesheet" href="../assets/css/whatsapp-float.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
